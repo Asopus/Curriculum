@@ -1,13 +1,15 @@
 //author: Pieter Vermeersch
-boardHeight=430;
+boardHeight=420;
 boardWidth=580;
+appleBoundaryY=400;
+appleBoundaryX=550;
 playerX=playerY=0;
 appleX=applyY=0;
 partSize=10;
 snake = [];
-startLength = 5;
-startX = 10;
-startY = 10;
+startLength = 3;
+startX = boardWidth / 2;
+startY = boardHeight / 2;
 
 window.onload = (event) =>
 {
@@ -20,9 +22,8 @@ window.onload = (event) =>
         instruction = document.getElementById("instruction");
         initializeSnake();
         cleanBoard();
-        drawSnake();   
+        draw();   
         moveApple();
-        drawApple();       
 }    
 
 
@@ -32,9 +33,9 @@ function tick()
     {
         cleanBoard();
         calculateSnake();
-        drawSnake();  
+        draw();  
         drawApple();  
-        checkCollision();   
+        checkAppleCollision();   
     }
 }
 
@@ -46,7 +47,7 @@ function initializeSnake()
     }
 }
 
-function checkCollision()
+function checkAppleCollision()
 {
     head = snake[snake.length - 1];
     if (head.x == appleX && head.y == appleY)
@@ -57,10 +58,74 @@ function checkCollision()
     }
 }
 
+function checkBodyCollision(part)
+{
+    head = snake[snake.length - 1];
+    
+    if (part != head && head.x  == part.x && head.y == part.y) 
+    { 
+        snake.splice(0, snake.length - startLength);
+    }
+}
+
+function draw()
+{ 
+    for(i=0;i < snake.length;++i)
+    {
+        var part = snake[i];
+        drawPart(part);
+        checkBorderCollision(part);
+        checkBodyCollision(part);
+    } 
+}
+
+function drawPart(part)
+{
+    context.fillStyle = "lime";
+    context.fillRect(part.x, part.y, partSize, partSize);
+    context.strokeRect(part.x, part.y, partSize, partSize);
+}
+
+function checkBorderCollision(part)
+{
+    if (playerY == 0)
+    {
+        if (part.x == boardWidth)
+        {
+            part.x = 0;
+        }
+        else if (part.x == 0 - partSize)
+        {
+            part.x = boardWidth - partSize;
+        }
+    }
+    else if (playerX == 0)
+    {
+        if (part.y == boardHeight)
+        {
+            part.y = 0;
+        }
+        else if (part.y == 0 - partSize)
+        {
+            part.y = boardHeight - partSize;
+        }   
+    }
+}
+
 function moveApple()
 {
-    appleX = Math.floor(Math.random() * (boardWidth / partSize) + 1) * partSize;
-    appleY = Math.floor(Math.random() * (boardHeight / partSize) + 1) * partSize;
+    appleX = Math.floor(Math.random() * (appleBoundaryX / partSize) + 1) * partSize;
+    appleY = Math.floor(Math.random() * (appleBoundaryY / partSize) + 1) * partSize;
+
+    for(i=0;i < snake.length;++i)
+    {
+        currentPart = snake[i];
+        if (currentPart.x == appleX && currentPart.y == appleY)
+        { 
+            moveApple()
+            break;
+        }
+    }
 }
 
 function drawApple()
@@ -72,7 +137,7 @@ function drawApple()
 function cleanBoard()
 {
     context.fillStyle = "black";
-    context.fillRect(0, 0, boardWidth,boardHeight);
+    context.fillRect(0, 0, boardWidth, boardHeight);
 }
 
 function calculateSnake()
@@ -80,17 +145,6 @@ function calculateSnake()
     snake.shift();
     head = snake[snake.length - 1];
     snake.push({x: head.x + (partSize * playerX), y: head.y + (partSize * playerY)})
-}
-
-function drawSnake()
-{ 
-    for(i=0;i < snake.length;++i)
-    {
-        var part = snake[i];
-        context.fillStyle = "lime";
-        context.fillRect(part.x, part.y, partSize, partSize);
-        context.strokeRect(part.x, part.y, partSize, partSize);
-    } 
 }
 
 function startGame(key)
@@ -106,39 +160,39 @@ function startGame(key)
 
 function setDirection(key)
 {
-    if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) {
-        instruction.innerText = "Press spacebar to pause";
-        key.preventDefault();
-    }
+        if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) {
+            instruction.innerText = "Press spacebar to pause";
+            key.preventDefault();
+        }
 
-    if (key.keyCode == 37 && playerX == 0) // left
-    {
-        playerX = -1;
-        playerY = 0;
-    }
+        if (key.keyCode == 37 && playerX == 0) // left
+        {
+            playerX = -1;
+            playerY = 0;
+        }
 
-    if (key.keyCode == 38 && playerY == 0) // up
-    {
-        playerX = 0;
-        playerY = -1;
-    }
+        if (key.keyCode == 38 && playerY == 0) // up
+        {
+            playerX = 0;
+            playerY = -1;
+        }
 
-    if (key.keyCode == 39 && playerX == 0) // right
-    {
-        playerX = 1;
-        playerY = 0;
-    }
+        if (key.keyCode == 39 && playerX == 0) // right
+        {
+            playerX = 1;
+            playerY = 0;
+        }
 
-    if (key.keyCode == 40 && playerY == 0) // down
-    {
-        playerX = 0;
-        playerY = 1;
-    }
+        if (key.keyCode == 40 && playerY == 0) // down
+        {
+            playerX = 0;
+            playerY = 1;
+        }
 
-    if (key.keyCode == 32) // pause
-    {
-        playerX = 0;
-        playerY = 0;
-        instruction.innerText = "Press any arrow key to continue";
-    }
+        if (key.keyCode == 32) // pause
+        {
+            playerX = 0;
+            playerY = 0;
+            instruction.innerText = "Press any arrow key to continue";
+        }
 }
