@@ -1,4 +1,4 @@
-//author: Pieter Vermeersch
+//author: Pieter Vermeersch!
 boardHeight=430;
 boardWidth=580;
 playerX=playerY=0;
