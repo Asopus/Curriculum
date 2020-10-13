@@ -1,5 +1,5 @@
 //author: Pieter Vermeersch
-boardHeight=340;
+boardHeight=350;
 boardWidth=460;
 appleBoundaryY=400;
 appleBoundaryX=550;
@@ -8,8 +8,8 @@ appleX=applyY=0;
 partSize=10;
 snake = [];
 startLength = 3;
-startX = boardWidth / 2;
-startY = boardHeight / 2;
+startX = 230;
+startY = 170;
 
 window.onload = (event) =>
 {
