@@ -186,7 +186,7 @@ function setDirection(key)
         {
             playerX = 0;
             playerY = 1;
-        } else if (key.keyCode == 32) // pause
+        } else if (key.keyCode == 32) // space
         {
             playerX = 0;
             playerY = 0;
