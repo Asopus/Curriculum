@@ -107,6 +107,7 @@ function startGame(key)
 function setDirection(key)
 {
     if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) {
+        instruction.innerText = "Press spacebar to pause";
         key.preventDefault();
     }
 
@@ -114,28 +115,24 @@ function setDirection(key)
     {
         playerX = -1;
         playerY = 0;
-        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 38 && playerY == 0) // up
     {
         playerX = 0;
         playerY = -1;
-        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 39 && playerX == 0) // right
     {
         playerX = 1;
         playerY = 0;
-        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 40 && playerY == 0) // down
     {
         playerX = 0;
         playerY = 1;
-        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 32) // pause
