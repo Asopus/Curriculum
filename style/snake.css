@@ -1,3 +1,7 @@
+html{
+    background-color:gray;
+}
+
 #tv {
     background-image: url(../img/old-tv.png);
     min-width: 905px;
