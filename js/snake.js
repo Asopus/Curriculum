@@ -11,13 +11,13 @@ startY = 10;
 
 window.onload = (event) =>
 {
-        canvas = document.getElementById("gameBoard");
+        canvas = document.getElementById("screen");
         canvas.height = boardHeight;
         canvas.width = boardWidth;
         context = canvas.getContext("2d");
         window.addEventListener("keydown", startGame)
         window.addEventListener("keydown", setDirection)
-        
+        instruction = document.getElementById("instruction");
         initializeSnake();
         cleanBoard();
         drawSnake();   
@@ -99,6 +99,8 @@ function startGame(key)
     {
         setInterval(tick, 1000/15);
         window.removeEventListener("keydown", startGame)
+        instruction.classList.remove("blink");
+        instruction.innerText = "Press spacebar to pause";
     }
 }
 
@@ -108,29 +110,34 @@ function setDirection(key)
     {
         playerX = -1;
         playerY = 0;
+        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 38 && playerY == 0) // up
     {
         playerX = 0;
         playerY = -1;
+        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 39 && playerX == 0) // right
     {
         playerX = 1;
         playerY = 0;
+        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 40 && playerY == 0) // down
     {
         playerX = 0;
         playerY = 1;
+        instruction.innerText = "Press spacebar to pause";
     }
 
     if (key.keyCode == 32) // pause
     {
         playerX = 0;
         playerY = 0;
+        instruction.innerText = "Press any arrow key to continue";
     }
 }
