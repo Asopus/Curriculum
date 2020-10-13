@@ -1,0 +1,21 @@
+#tv {
+    background-image: url(../img/old-tv.png);
+    min-width: 905px;
+    min-height: 1000px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#gameBoard {
+    margin-left: 90px;
+    margin-top: 22px;
+    border-radius: 3px;
+}
+
+
+.box {
+    margin-top: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
