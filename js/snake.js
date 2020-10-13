@@ -1,8 +1,8 @@
 //author: Pieter Vermeersch
 boardHeight=350;
 boardWidth=460;
-appleBoundaryY=400;
-appleBoundaryX=550;
+appleBoundaryY=320;
+appleBoundaryX=440;
 playerX=playerY=0;
 appleX=applyY=0;
 partSize=10;
