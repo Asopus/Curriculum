@@ -10,6 +10,7 @@ snake = [];
 startLength = 3;
 startX = 230;
 startY = 170;
+hasDrawn = true;
 
 window.onload = (event) =>
 {
@@ -36,6 +37,7 @@ function tick()
         draw();  
         drawApple();  
         checkAppleCollision();   
+        hasDrawn = true;
     }
 }
 
@@ -160,7 +162,10 @@ function startGame(key)
 
 function setDirection(key)
 {
+    if (hasDrawn)
+    {
         if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) {
+            hasDrawn = false;
             instruction.innerText = "Press spacebar to pause";
             key.preventDefault();
         }
@@ -169,30 +174,23 @@ function setDirection(key)
         {
             playerX = -1;
             playerY = 0;
-        }
-
-        if (key.keyCode == 38 && playerY == 0) // up
+        } else if (key.keyCode == 38 && playerY == 0) // up
         {
             playerX = 0;
             playerY = -1;
-        }
-
-        if (key.keyCode == 39 && playerX == 0) // right
+        } else if (key.keyCode == 39 && playerX == 0) // right
         {
             playerX = 1;
             playerY = 0;
-        }
-
-        if (key.keyCode == 40 && playerY == 0) // down
+        } else if (key.keyCode == 40 && playerY == 0) // down
         {
             playerX = 0;
             playerY = 1;
-        }
-
-        if (key.keyCode == 32) // pause
+        } else if (key.keyCode == 32) // pause
         {
             playerX = 0;
             playerY = 0;
             instruction.innerText = "Press any arrow key to continue";
         }
+    }
 }
