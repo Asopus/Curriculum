@@ -106,6 +106,10 @@ function startGame(key)
 
 function setDirection(key)
 {
+    if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) {
+        key.preventDefault();
+    }
+
     if (key.keyCode == 37 && playerX == 0) // left
     {
         playerX = -1;
