@@ -8,15 +8,14 @@ html{
 
 #tv {
     background-image: url(../img/old-tv.png);
-    min-width: 905px;
-    min-height: 600px;
+    min-width: 720px;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 #screen {
-    margin-left: 90px;
-    margin-top: 22px;
+    margin-left: 72px;
+    margin-top: 18px;
     border-radius: 3px;
 }
 
