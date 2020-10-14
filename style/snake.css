@@ -59,7 +59,7 @@ html{
 
 .vintage {
     font-family: 'Six Caps', sans-serif;
-    font-size: 150px;
+    font-size: 120px;
     letter-spacing: 10px;
     line-height: 1;
     margin: 0;
@@ -110,6 +110,6 @@ html{
   }
 
   footer {
-    margin-top:100px;
+    margin-top:50px;
   }
   

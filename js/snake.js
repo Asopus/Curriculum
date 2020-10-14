@@ -164,7 +164,7 @@ function setDirection(key)
 {
     if (hasDrawn)
     {
-        if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) {
+        if([37, 38, 39, 40].indexOf(key.keyCode) > -1) {
             hasDrawn = false;
             instruction.innerText = "Press spacebar to pause";
             key.preventDefault();
@@ -186,11 +186,13 @@ function setDirection(key)
         {
             playerX = 0;
             playerY = 1;
-        } else if (key.keyCode == 32) // space
-        {
-            playerX = 0;
-            playerY = 0;
-            instruction.innerText = "Press any arrow key to continue";
         }
+    }
+
+    if (key.keyCode == 32) // space
+    {
+        playerX = 0;
+        playerY = 0;
+        instruction.innerText = "Press any arrow key to continue";
     }
 }
