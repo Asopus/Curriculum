@@ -57,7 +57,22 @@ function checkAppleCollision()
         tail = snake[0];
         snake.unshift({x: tail.x - partSize, y: tail.y})
         moveApple();
+        spawnCompetence();
     }
+}
+
+function spawnCompetence()
+{
+    score = document.getElementById("score");
+    score.innerText = parseInt(score.innerText) + 1;
+    competences = document.getElementById("competences");
+    competence =  document.createElement("div");
+    competence.classList.add("competence");
+    competence.classList.add("animate__animated");
+    competence.classList.add("animate__bounceIn");
+    competence.classList.add("animate__slow");
+    competence.style.backgroundImage = "url('./img/csharplogo.png')";
+    competences.appendChild(competence);
 }
 
 function checkBodyCollision(part)
