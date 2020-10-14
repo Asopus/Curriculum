@@ -16,6 +16,7 @@
   "author": "Pieter Vermeersch",
   "license": "MIT",
   "dependencies": {
-    "animate.css": "^4.1.1"
+    "animate.css": "^4.1.1",
+    "jquery": "^3.5.1"
   }
 }
