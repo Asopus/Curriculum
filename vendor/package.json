@@ -1,0 +1,21 @@
+{
+  "name": "vendor",
+  "version": "1.0.0",
+  "description": "Contains all the external packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/Asopus/Curriculum.git"
+  },
+  "keywords": [
+    "curriculum"
+  ],
+  "author": "Pieter Vermeersch",
+  "license": "MIT",
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  }
+}
