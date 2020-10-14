@@ -11,6 +11,7 @@ startLength = 3;
 startX = 230;
 startY = 170;
 hasDrawn = true;
+allCompetences = [];
 
 window.onload = (event) =>
 {
@@ -21,6 +22,7 @@ window.onload = (event) =>
         window.addEventListener("keydown", startGame)
         window.addEventListener("keydown", setDirection)
         instruction = document.getElementById("instruction");
+        readCompetences();
         initializeSnake();
         cleanBoard();
         draw();   
@@ -64,15 +66,22 @@ function checkAppleCollision()
 function spawnCompetence()
 {
     score = document.getElementById("score");
-    score.innerText = parseInt(score.innerText) + 1;
-    competences = document.getElementById("competences");
-    competence =  document.createElement("div");
-    competence.classList.add("competence");
-    competence.classList.add("animate__animated");
-    competence.classList.add("animate__bounceIn");
-    competence.classList.add("animate__slow");
-    competence.style.backgroundImage = "url('./img/csharplogo.png')";
-    competences.appendChild(competence);
+    oldScore = parseInt(score.innerText);
+    if(oldScore != allCompetences.length)
+    {
+        score.innerText = oldScore + 1;
+        competences = document.getElementById("competences");
+        competence =  document.createElement("div");
+        competence.classList.add("competence");
+        competence.classList.add("animate__animated");
+        competence.classList.add("animate__bounceIn");
+        competence.classList.add("animate__slow");
+        //competence.style.backgroundImage = "url('"+ allCompetences[oldScore].imagePath +"')";
+        competenceTitle = document.createElement("span");
+        competenceTitle.innerHTML = allCompetences[oldScore].title;
+        competence.appendChild(competenceTitle);
+        competences.appendChild(competence);
+    }
 }
 
 function checkBodyCollision(part)
@@ -210,4 +219,49 @@ function setDirection(key)
         playerY = 0;
         instruction.innerText = "Press any arrow key to continue";
     }
+}
+
+function readCompetences()
+{
+    $.ajax({
+        url: "./competences/competences.csv",
+        type: "GET",
+        success: function (response) {
+            parseResponseIntoCompetences(response.split(/\r?\n/));
+        },
+        error: function (xhr, status) {
+            console.log(xhr);
+            console.log(status);
+        }
+    });
+}
+
+function parseResponseIntoCompetences(response)
+{
+    for(i=0;i<response.length;++i)
+    {
+        currentline = response[i].split(',');
+        competence = {
+            imagePath: currentline[0],
+            title: currentline[1]
+        };
+
+        competence.technologies = [];
+
+        technologies = currentline[2].split(';');
+
+        for(j=0;j<technologies.length;++j)
+        {
+            technology = technologies[j];
+            ratings = technology.split('*');
+            competence.technologies.push({
+                technology: ratings[0],
+                rating: ratings[1],
+            });
+        }
+
+        allCompetences.push(competence)
+    }
+
+    totalToCollect = document.getElementById("toCollect").innerText = "\xA0/ " + allCompetences.length;
 }

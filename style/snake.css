@@ -9,6 +9,7 @@ html{
 #tv {
     background-image: url(../img/old-tv.png);
     min-width: 720px;
+    min-height: 410px;
     background-size: contain;
     background-repeat: no-repeat;
 }

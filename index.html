@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="style/snake.css">
 <link rel="stylesheet" href="style/competence.css">
 <link rel="stylesheet" href="style/basket.css"> 
-<link rel="stylesheet" href="vendor/node_modules/animate.css/animate.min.css"
-/>
+<link rel="stylesheet" href="vendor/node_modules/animate.css/animate.min.css"/>
+<script src="vendor/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="js/snake.js"></script>
 </head>
 <body>
@@ -21,22 +21,26 @@
     <div class="box game-container">
         <div id="tv">
             <canvas id="screen"></canvas>
-        <div>
+        </div>
     </div>
     <div class="box">
         <div id="apple-basket" class="box">
             <span id="score" class="vintage-span span-small">0</span>
-            <span class="vintage-span span-small">&nbsp; / 15</span>
+            <span id="toCollect" class="vintage-span span-small">&nbsp; / </span>
             <div id="apple"></div>
             <span class="vintage-span span-small">collected</span>
         </div>
     </div>
-    <div id="competences" class="box"></div>
+    <div id="competences">
+        <!-- <div class="competence animate__animated animate__bounceIn animate__slow"><span>C#</span></div>
+        <div class="competence animate__animated animate__bounceIn animate__slow"><span>Html</span></div>
+        <div class="competence animate__animated animate__bounceIn animate__slow"><span>Docker</span></div> -->
+    </div>
 </body>
 <footer>
     <div class="box vertical-flex">
         <span class="vintage-span span-small">&copy; Pieter Vermeersch</span>
-        <span class="vintage-span span-small">Made with html, css, vanilla javascript and ♥</span>
+        <span class="vintage-span span-small">Made with html, css, jquery, vanilla javascript and ♥</span>
     </div>
 </footer>
 </html>
