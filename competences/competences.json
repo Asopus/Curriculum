@@ -1,0 +1,146 @@
+[
+    {
+      "title": "C#",
+      "imagePath": "competences/logo/csharp.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+      "title": "Html",
+      "imagePath": "competences/logo/html.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+      "title": "Css",
+      "imagePath": "competences/logo/css.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "3"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript",
+      "imagePath": "competences/logo/js.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+      "title": "WPF",
+      "imagePath": "competences/logo/wpf.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+      "title": "NServiceBus",
+      "imagePath": "competences/logo/nservicebus.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "2"
+        }
+      ]
+    },
+    {
+      "title": "Git",
+      "imagePath": "competences/logo/vcs.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+      "title": "Docker",
+      "imagePath": "competences/logo/docker.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "2"
+        }
+      ]
+    },
+    {
+      "title": "Visual Studio",
+      "imagePath": "competences/logo/vs.png",
+      "technologies": [
+        {
+          "technology": "",
+          "rating": "5"
+        }
+      ]
+    },
+    {
+      "title": "Databases",
+      "imagePath": "competences/logo/sql.png",
+      "technologies": [
+        {
+          "technology": "PL-SQL",
+          "rating": "4"
+        },
+        {
+          "technology": "T-SQL",
+          "rating": "4"
+        }
+      ]
+    },
+    {
+        "title": "Languages",
+        "imagePath": "competences/logo/languages.png",
+        "technologies": [
+          {
+            "technology": "Dutch",
+            "rating": "5"
+          },
+          {
+            "technology": "French",
+            "rating": "3"
+          },
+          {
+            "technology": "German",
+            "rating": "1"
+          },
+          {
+            "technology": "English",
+            "rating": "4"
+          }
+        ]
+      },
+    {
+        "title": "Leisure",
+        "imagePath": "competences/logo/me.png",
+        "technologies": [
+          {
+            "technology": "Music",
+            "rating": "4"
+          },
+          {
+            "technology": "Chess",
+            "rating": "3"
+          },
+          {
+            "technology": "Cycling",
+            "rating": "2"
+          }
+        ]
+      }
+  ]

@@ -2,7 +2,7 @@
 @import url(../fonts/six-caps.css);
 
 
-html{
+body{
     background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../img/bg.png);
 }
 
@@ -31,7 +31,21 @@ html{
     color: rgb(230, 200, 160);
     display: block;
     font-family: 'Satisfy', cursive;
-    font-size: 32px;
+    font-size: 26px;
+}
+.modal-footer, .modal-header {
+  border-bottom: 0px;
+  border-top: 0px;
+}
+
+.modal-footer
+{
+  margin:0 auto;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon
+{
+  color:black;
 }
 
 .blink 
@@ -61,10 +75,11 @@ html{
 .vintage {
     font-family: 'Six Caps', sans-serif;
     font-size: 120px;
-    letter-spacing: 10px;
+    letter-spacing: 15px;
     line-height: 1;
     margin: 0;
     position: relative;
+    min-width: 720px;
   }
 
 .vintage-container {
@@ -72,19 +87,19 @@ html{
     margin: 25px auto 40px;
   }
   
-  
-  .vintage-top {
-    background: linear-gradient(rgb(240, 220, 200), rgb(230, 200, 160));
-    -webkit-background-clip: text;
-    background-clip: text;
-    position: absolute;
-    z-index: 1;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-  }
-  
-  .vintage-bot {
-    text-shadow: 
+
+.vintage-top {
+  background: linear-gradient(rgb(240, 220, 200), rgb(230, 200, 160));
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: absolute;
+  z-index: 1;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.vintage-bot {
+  text-shadow: 
     2px 1px rgb(85, 10, 0),
     4px 2px rgb(90, 15, 5),
     6px 4px rgb(100, 20, 15),
@@ -103,14 +118,21 @@ html{
     34px 17px rgba(0, 0, 0, 0.3),
     36px 18px rgba(0, 0, 0, 0.1),
     40px 20px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .span-small {
-    font-size: 20px;
-    margin:0;
-  }
+.span-small {
+  font-size: 20px;
+  margin:0;
+}
 
-  footer {
-    margin-top:50px;
-  }
+footer {
+  margin-top:50px;
+}
   
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: collapse;
+}

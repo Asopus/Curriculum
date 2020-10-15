@@ -76,7 +76,6 @@ function spawnCompetence()
         competence.classList.add("animate__animated");
         competence.classList.add("animate__bounceIn");
         competence.classList.add("animate__slow");
-        //competence.style.backgroundImage = "url('"+ allCompetences[oldScore].imagePath +"')";
         competenceTitle = document.createElement("span");
         competenceTitle.innerHTML = allCompetences[oldScore].title;
         competence.appendChild(competenceTitle);
@@ -186,28 +185,31 @@ function startGame(key)
 
 function setDirection(key)
 {
+    if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) 
+    {
+        instruction.innerText = "Press spacebar to pause";
+        key.preventDefault();
+    }   
+
     if (hasDrawn)
     {
-        if([37, 38, 39, 40].indexOf(key.keyCode) > -1) {
-            hasDrawn = false;
-            instruction.innerText = "Press spacebar to pause";
-            key.preventDefault();
-        }
-
         if (key.keyCode == 37 && playerX == 0) // left
-        {
+        {hasDrawn = false;
             playerX = -1;
             playerY = 0;
         } else if (key.keyCode == 38 && playerY == 0) // up
         {
+            hasDrawn = false;
             playerX = 0;
             playerY = -1;
         } else if (key.keyCode == 39 && playerX == 0) // right
         {
+            hasDrawn = false;
             playerX = 1;
             playerY = 0;
         } else if (key.keyCode == 40 && playerY == 0) // down
         {
+            hasDrawn = false;
             playerX = 0;
             playerY = 1;
         }
@@ -224,44 +226,15 @@ function setDirection(key)
 function readCompetences()
 {
     $.ajax({
-        url: "./competences/competences.csv",
+        url: "./competences/competences.json",
         type: "GET",
         success: function (response) {
-            parseResponseIntoCompetences(response.split(/\r?\n/));
+            allCompetences = response;
+            totalToCollect = document.getElementById("toCollect").innerText = "\xA0/ " + allCompetences.length;
         },
         error: function (xhr, status) {
             console.log(xhr);
             console.log(status);
         }
     });
-}
-
-function parseResponseIntoCompetences(response)
-{
-    for(i=0;i<response.length;++i)
-    {
-        currentline = response[i].split(',');
-        competence = {
-            imagePath: currentline[0],
-            title: currentline[1]
-        };
-
-        competence.technologies = [];
-
-        technologies = currentline[2].split(';');
-
-        for(j=0;j<technologies.length;++j)
-        {
-            technology = technologies[j];
-            ratings = technology.split('*');
-            competence.technologies.push({
-                technology: ratings[0],
-                rating: ratings[1],
-            });
-        }
-
-        allCompetences.push(competence)
-    }
-
-    totalToCollect = document.getElementById("toCollect").innerText = "\xA0/ " + allCompetences.length;
 }
