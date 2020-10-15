@@ -1,10 +1,26 @@
 [
     {
-      "title": "C#",
+      "title": ".NET",
       "imagePath": "competences/logo/csharp.png",
       "technologies": [
         {
-          "technology": "",
+          "technology": "C#",
+          "rating": "4"
+        },
+        {
+          "technology": "WebApi",
+          "rating": "4"
+        },
+        {
+          "technology": "WCF",
+          "rating": "3"
+        },
+        {
+          "technology": "MVC",
+          "rating": "4"
+        },
+        {
+          "technology": "WPF",
           "rating": "4"
         }
       ]
@@ -14,7 +30,7 @@
       "imagePath": "competences/logo/html.png",
       "technologies": [
         {
-          "technology": "",
+          "technology": "Html",
           "rating": "4"
         }
       ]
@@ -24,7 +40,7 @@
       "imagePath": "competences/logo/css.png",
       "technologies": [
         {
-          "technology": "",
+          "technology": "Css",
           "rating": "3"
         }
       ]
@@ -34,18 +50,20 @@
       "imagePath": "competences/logo/js.png",
       "technologies": [
         {
-          "technology": "",
+          "technology": "Vanilla",
           "rating": "4"
-        }
-      ]
-    },
-    {
-      "title": "WPF",
-      "imagePath": "competences/logo/wpf.png",
-      "technologies": [
+        },
         {
-          "technology": "",
+          "technology": "jQuery",
           "rating": "4"
+        },
+        {
+          "technology": "Angular",
+          "rating": "2"
+        },
+        {
+          "technology": "Knockout",
+          "rating": "2"
         }
       ]
     },
@@ -54,18 +72,34 @@
       "imagePath": "competences/logo/nservicebus.png",
       "technologies": [
         {
-          "technology": "",
-          "rating": "2"
+          "technology": "Messaging",
+          "rating": "3"
+        },
+        {
+          "technology": "Monitoring",
+          "rating": "3"
+        },
+        {
+          "technology": "Sagas",
+          "rating": "1"
         }
       ]
     },
     {
-      "title": "Git",
+      "title": "Version control",
       "imagePath": "competences/logo/vcs.png",
       "technologies": [
         {
-          "technology": "",
+          "technology": "Git",
           "rating": "4"
+        },
+        {
+          "technology": "TFVC",
+          "rating": "4"
+        },
+        {
+          "technology": "Subversion",
+          "rating": "3"
         }
       ]
     },
@@ -74,18 +108,18 @@
       "imagePath": "competences/logo/docker.png",
       "technologies": [
         {
-          "technology": "",
+          "technology": "Docker",
           "rating": "2"
         }
       ]
     },
     {
-      "title": "Visual Studio",
+      "title": "Azure Devops",
       "imagePath": "competences/logo/vs.png",
       "technologies": [
         {
-          "technology": "",
-          "rating": "5"
+          "technology": "CI / CD pipelines",
+          "rating": "3"
         }
       ]
     },
@@ -100,6 +134,10 @@
         {
           "technology": "T-SQL",
           "rating": "4"
+        },
+        {
+          "technology": "MySql",
+          "rating": "3"
         }
       ]
     },
