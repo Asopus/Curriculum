@@ -12,6 +12,7 @@ startX = 230;
 startY = 170;
 hasDrawn = true;
 allCompetences = [];
+numbers = ["one","two","three","four","five"]
 
 window.onload = (event) =>
 {
@@ -69,6 +70,7 @@ function spawnCompetence()
     oldScore = parseInt(score.innerText);
     if(oldScore != allCompetences.length)
     {
+        currentCompetence = allCompetences[oldScore];
         score.innerText = oldScore + 1;
         competences = document.getElementById("competences");
         competence =  document.createElement("div");
@@ -79,9 +81,61 @@ function spawnCompetence()
         competence.setAttribute('data-target', "#carouselExample");
         competence.setAttribute('data-slide-to', oldScore);        
         competenceTitle = document.createElement("span");
-        competenceTitle.innerHTML = allCompetences[oldScore].title;
+        competenceTitle.innerHTML = currentCompetence.title;
         competence.appendChild(competenceTitle);
         competences.appendChild(competence);
+        
+        carousel = document.getElementById("innerCarousel");
+
+        carouselItem = document.createElement("div");
+        carouselItem.classList.add("carousel-item");
+
+        if (oldScore == 0)
+        {
+            carouselItem.classList.add("active");
+        }
+        for (i=0;i<currentCompetence.technologies.length;++i)
+        {
+            technologies = document.createElement("div");
+            technologies.classList.add("row");
+            technologies.classList.add("competence-technologies");
+            currentTechnology = currentCompetence.technologies[i];
+            nameElement = document.createElement("div");
+            nameElement.classList.add("name");
+            nameElement.classList.add("col");
+            namespan = document.createElement("span");
+            namespan.innerText = currentTechnology.title;
+            nameElement.appendChild(namespan);
+            technologies.appendChild(nameElement);
+
+            for (j=0;j<currentTechnology.rating;++j)
+            {
+                imgContainer = document.createElement("div");
+                imgContainer.classList.add(numbers[j]);
+                imgContainer.classList.add("col");
+                imgElement = document.createElement("img");
+                imgElement.width = 25;
+                imgElement.height = 30;
+                imgElement.src = "../img/apple.png";
+                imgContainer.appendChild(imgElement);
+                technologies.appendChild(imgContainer);
+            }
+
+            carouselItem.appendChild(technologies);
+        }
+
+        // <div class="carousel-item active">
+        //               <div class="row competence-technologies">
+        //                   <div class="name col"><span>Visual Studio</span></div>
+        //                   <div class="one col"><img width="25" height="30" src="./img/apple.png"></div>
+        //                   <div class="two col"><img width="25" height="30" src="./img/apple2.png"></div>
+        //                   <div class="three col"><img width="25" height="30" src="./img/apple2.png"></div>
+        //                   <div class="four col"><img width="25" height="30" src="./img/apple2.png"></div>
+        //                   <div class="five col"><img width="25" height="30" src="./img/apple2.png"></div>
+        //                 </div>
+        //             </div>
+
+        carousel.appendChild(carouselItem);
     }
 }
 

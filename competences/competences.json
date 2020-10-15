@@ -1,27 +1,27 @@
 [
     {
-      "title": ".NET",
+      "title": ".Net",
       "imagePath": "competences/logo/csharp.png",
       "technologies": [
         {
-          "technology": "C#",
-          "rating": "4"
+          "title": "C#",
+          "rating": 5
         },
         {
-          "technology": "WebApi",
-          "rating": "4"
+          "title": "WebApi",
+          "rating": 4
         },
         {
-          "technology": "WCF",
-          "rating": "3"
+          "title": "Mvc",
+          "rating": 4
         },
         {
-          "technology": "MVC",
-          "rating": "4"
+          "title": "Wpf",
+          "rating": 4
         },
         {
-          "technology": "WPF",
-          "rating": "4"
+          "title": "Wcf",
+          "rating": 3
         }
       ]
     },
@@ -30,8 +30,8 @@
       "imagePath": "competences/logo/html.png",
       "technologies": [
         {
-          "technology": "Html",
-          "rating": "4"
+          "title": "Html",
+          "rating": 4
         }
       ]
     },
@@ -40,8 +40,8 @@
       "imagePath": "competences/logo/css.png",
       "technologies": [
         {
-          "technology": "Css",
-          "rating": "3"
+          "title": "Css",
+          "rating": 3
         }
       ]
     },
@@ -50,20 +50,20 @@
       "imagePath": "competences/logo/js.png",
       "technologies": [
         {
-          "technology": "Vanilla",
-          "rating": "4"
+          "title": "Vanilla",
+          "rating": 4
         },
         {
-          "technology": "jQuery",
-          "rating": "4"
+          "title": "jQuery",
+          "rating": 4
         },
         {
-          "technology": "Angular",
-          "rating": "2"
+          "title": "Angular",
+          "rating": 2
         },
         {
-          "technology": "Knockout",
-          "rating": "2"
+          "title": "Knockout",
+          "rating": 2
         }
       ]
     },
@@ -72,16 +72,16 @@
       "imagePath": "competences/logo/nservicebus.png",
       "technologies": [
         {
-          "technology": "Messaging",
-          "rating": "3"
+          "title": "Messaging",
+          "rating": 3
         },
         {
-          "technology": "Monitoring",
-          "rating": "3"
+          "title": "Monitoring",
+          "rating": 3
         },
         {
-          "technology": "Sagas",
-          "rating": "1"
+          "title": "Sagas",
+          "rating": 1
         }
       ]
     },
@@ -90,16 +90,16 @@
       "imagePath": "competences/logo/vcs.png",
       "technologies": [
         {
-          "technology": "Git",
-          "rating": "4"
+          "title": "Git",
+          "rating": 4
         },
         {
-          "technology": "TFVC",
-          "rating": "4"
+          "title": "Tfvc",
+          "rating": 4
         },
         {
-          "technology": "Subversion",
-          "rating": "3"
+          "title": "Subversion",
+          "rating": 3
         }
       ]
     },
@@ -108,8 +108,8 @@
       "imagePath": "competences/logo/docker.png",
       "technologies": [
         {
-          "technology": "Docker",
-          "rating": "2"
+          "title": "Docker",
+          "rating": 2
         }
       ]
     },
@@ -118,8 +118,8 @@
       "imagePath": "competences/logo/vs.png",
       "technologies": [
         {
-          "technology": "CI / CD pipelines",
-          "rating": "3"
+          "title": "Build & release pipelines",
+          "rating": 3
         }
       ]
     },
@@ -128,16 +128,16 @@
       "imagePath": "competences/logo/sql.png",
       "technologies": [
         {
-          "technology": "PL-SQL",
-          "rating": "4"
+          "title": "Pl-Sql",
+          "rating": 4
         },
         {
-          "technology": "T-SQL",
-          "rating": "4"
+          "title": "T-Sql",
+          "rating": 4
         },
         {
-          "technology": "MySql",
-          "rating": "3"
+          "title": "MySql",
+          "rating": 3
         }
       ]
     },
@@ -146,20 +146,20 @@
         "imagePath": "competences/logo/languages.png",
         "technologies": [
           {
-            "technology": "Dutch",
-            "rating": "5"
+            "title": "Dutch",
+            "rating": 5
           },
           {
-            "technology": "French",
-            "rating": "3"
+            "title": "French",
+            "rating": 3
           },
           {
-            "technology": "German",
-            "rating": "1"
+            "title": "English",
+            "rating": 4
           },
           {
-            "technology": "English",
-            "rating": "4"
+            "title": "German",
+            "rating": 1
           }
         ]
       },
@@ -168,16 +168,16 @@
         "imagePath": "competences/logo/me.png",
         "technologies": [
           {
-            "technology": "Music",
-            "rating": "4"
+            "title": "Music",
+            "rating": 3
           },
           {
-            "technology": "Chess",
-            "rating": "3"
+            "title": "Chess",
+            "rating": 3
           },
           {
-            "technology": "Cycling",
-            "rating": "2"
+            "title": "Cycling",
+            "rating": 2
           }
         ]
       }
