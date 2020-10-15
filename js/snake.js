@@ -74,8 +74,10 @@ function spawnCompetence()
         competence =  document.createElement("div");
         competence.classList.add("competence");
         competence.classList.add("animate__animated");
-        competence.classList.add("animate__bounceIn");
+        competence.classList.add("animate__swing");
         competence.classList.add("animate__slow");
+        competence.setAttribute('data-target', "#carouselExample");
+        competence.setAttribute('data-slide-to', oldScore);        
         competenceTitle = document.createElement("span");
         competenceTitle.innerHTML = allCompetences[oldScore].title;
         competence.appendChild(competenceTitle);

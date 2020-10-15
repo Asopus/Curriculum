@@ -36,7 +36,7 @@
 	font-weight: bolder;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 20% 16% 16% 20% 16% 12%;
+	grid-template-columns: 20% 16% 16% 16% 16% 12%;
 	grid-template-rows: 1fr;
 	gap: 0px 0px;
 	grid-template-areas: ". . . . . .";
@@ -45,6 +45,16 @@
 
 .competence-technologies .col {
 	margin: auto 0;
+}
+
+.header {
+	height: 75px;
+	margin-bottom: 25px;
+}
+
+
+.header .col {
+	transform: rotate(-30deg);
 }
 
 .competence-technologies .name
