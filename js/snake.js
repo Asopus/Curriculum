@@ -14,6 +14,7 @@ hasDrawn = true;
 allCompetences = [];
 numbers = ["one","two","three","four","five"];
 skillLevels = ["Novice", "Elementary", "Intermediate", "Advanced", "Expert"];
+gameStarted = false;
 
 window.onload = (event) =>
 {
@@ -284,46 +285,50 @@ function startGame(key)
         basket.classList.remove("invisible");
         basket.classList.add("animate__animated");
         basket.classList.add("animate__bounceInLeft");
+        gameStarted = true;
     }
 }
 
 function setDirection(key)
-{
-    if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) 
+{    
+    if (gameStarted)
     {
-        instruction.innerText = "Press spacebar to pause";
-        key.preventDefault();
-    }   
+        if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) 
+        {
+            instruction.innerText = "Press spacebar to pause";
+            key.preventDefault();
+        }   
 
-    if (hasDrawn)
-    {
-        if (key.keyCode == 37 && playerX == 0) // left
-        {hasDrawn = false;
-            playerX = -1;
-            playerY = 0;
-        } else if (key.keyCode == 38 && playerY == 0) // up
+        if (hasDrawn)
         {
-            hasDrawn = false;
-            playerX = 0;
-            playerY = -1;
-        } else if (key.keyCode == 39 && playerX == 0) // right
-        {
-            hasDrawn = false;
-            playerX = 1;
-            playerY = 0;
-        } else if (key.keyCode == 40 && playerY == 0) // down
-        {
-            hasDrawn = false;
-            playerX = 0;
-            playerY = 1;
+            if (key.keyCode == 37 && playerX == 0) // left
+            {hasDrawn = false;
+                playerX = -1;
+                playerY = 0;
+            } else if (key.keyCode == 38 && playerY == 0) // up
+            {
+                hasDrawn = false;
+                playerX = 0;
+                playerY = -1;
+            } else if (key.keyCode == 39 && playerX == 0) // right
+            {
+                hasDrawn = false;
+                playerX = 1;
+                playerY = 0;
+            } else if (key.keyCode == 40 && playerY == 0) // down
+            {
+                hasDrawn = false;
+                playerX = 0;
+                playerY = 1;
+            }
         }
-    }
 
-    if (key.keyCode == 32) // space
-    {
-        playerX = 0;
-        playerY = 0;
-        instruction.innerText = "Press any arrow key to continue";
+        if (key.keyCode == 32) // space
+        {
+            playerX = 0;
+            playerY = 0;
+            instruction.innerText = "Press any arrow key to continue";
+        }
     }
 }
 
