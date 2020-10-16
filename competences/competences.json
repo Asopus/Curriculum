@@ -8,6 +8,10 @@
           "rating": 5
         },
         {
+          "title": "Entity Framework",
+          "rating": 4
+        },
+        {
           "title": "WebApi",
           "rating": 4
         },
