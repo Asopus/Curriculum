@@ -1,7 +1,7 @@
 [
     {
       "title": ".Net",
-      "imagePath": "competences/logo/csharp.png",
+      "imagePath": "competences/logo/net.png",
       "technologies": [
         {
           "title": "C#",

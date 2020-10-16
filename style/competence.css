@@ -10,7 +10,7 @@
 .vintage-modal
 { 
 	background: rgb(240, 200, 160);
-  border: 1px solid rgb(20, 60, 80);
+  	border: 1px solid rgb(20, 60, 80);
 }
 
 .competence
@@ -55,47 +55,52 @@
 }
 
 .header {
-	height: 75px;
+	margin-bottom: 30px;
+	height: 80px;
+    border-bottom: 1px solid;
 }
-
 
 .header .col {
 	transform: rotate(-30deg);
 }
 
+.competence-image {
+	transform: translateY(50%) !important;
+}
+
 .competence-technologies .name
 {
-	grid-row: 2;
+	grid-row: 1;
 	grid-column: 1;
 }
 
 .competence-technologies .one
 {
-	grid-row: 2;
+	grid-row: 1;
 	grid-column: 2;
 }
 
 .competence-technologies .two
 {
-	grid-row: 2;
+	grid-row: 1;
 	grid-column: 3;
 }
 
 .competence-technologies .three
 {
-	grid-row: 2;
+	grid-row: 1;
 	grid-column: 4;
 }
 
 .competence-technologies .four
 {
-	grid-row: 2;
+	grid-row: 1;
 	grid-column: 5;
 }
 
 .competence-technologies .five
 {
-	grid-row: 2;
+	grid-row: 1;
 	grid-column: 6;
 }
 

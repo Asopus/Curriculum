@@ -12,7 +12,8 @@ startX = 230;
 startY = 170;
 hasDrawn = true;
 allCompetences = [];
-numbers = ["one","two","three","four","five"]
+numbers = ["one","two","three","four","five"];
+skillLevels = ["Novice", "Elementary", "Intermediate", "Advanced", "Expert"];
 
 window.onload = (event) =>
 {
@@ -94,12 +95,50 @@ function spawnCompetence()
         {
             carouselItem.classList.add("active");
         }
+
+        technologyHeader = document.createElement("div");
+        technologyHeader.classList.add("row");
+        technologyHeader.classList.add("competence-technologies");
+        technologyHeader.classList.add("header");
+        headerName = document.createElement("div");
+        headerName.classList.add("col");
+        headerName.classList.add("competence-image");
+        headerName.innerText= currentCompetence.title;
+        // headerImg = document.createElement("img");
+        // headerImg.src = currentCompetence.imagePath;
+        // headerImg.height = 50;
+        // headerImg.width = 50;
+
+        technologyHeader.appendChild(headerName);
+
+        for (i=0;i<numbers.length;++i)
+        {
+            titleElement = document.createElement("div");
+            titleElement.classList.add("col");
+            titleElement.classList.add(numbers[i]);
+            titleElement.innerText= skillLevels[i];
+            technologyHeader.appendChild(titleElement);
+        }
+        
+        // <div class="row competence-technologies header">
+        //           <div class="name col"></div>
+        //           <div class="one col">Novice</div>
+        //           <div class="two col">Elementary</div>
+        //           <div class="three col">Intermediate</div>
+        //           <div class="four col">Advanced</div>
+        //           <div class="five col">Expert</div>
+        //         </div>
+
+
+        carouselItem.appendChild(technologyHeader);
+
         for (i=0;i<currentCompetence.technologies.length;++i)
         {
+            currentTechnology = currentCompetence.technologies[i];
+
             technologies = document.createElement("div");
             technologies.classList.add("row");
             technologies.classList.add("competence-technologies");
-            currentTechnology = currentCompetence.technologies[i];
             nameElement = document.createElement("div");
             nameElement.classList.add("name");
             nameElement.classList.add("col");
