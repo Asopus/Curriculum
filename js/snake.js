@@ -124,17 +124,6 @@ function spawnCompetence()
             carouselItem.appendChild(technologies);
         }
 
-        // <div class="carousel-item active">
-        //               <div class="row competence-technologies">
-        //                   <div class="name col"><span>Visual Studio</span></div>
-        //                   <div class="one col"><img width="25" height="30" src="./img/apple.png"></div>
-        //                   <div class="two col"><img width="25" height="30" src="./img/apple2.png"></div>
-        //                   <div class="three col"><img width="25" height="30" src="./img/apple2.png"></div>
-        //                   <div class="four col"><img width="25" height="30" src="./img/apple2.png"></div>
-        //                   <div class="five col"><img width="25" height="30" src="./img/apple2.png"></div>
-        //                 </div>
-        //             </div>
-
         carousel.appendChild(carouselItem);
     }
 }
