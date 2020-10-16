@@ -119,12 +119,8 @@ function spawnCompetence()
         technologyHeader.classList.add("header");
         headerName = document.createElement("div");
         headerName.classList.add("col");
-        headerName.classList.add("competence-image");
+        headerName.classList.add("competence-header-name");
         headerName.innerText= currentCompetence.title;
-        // headerImg = document.createElement("img");
-        // headerImg.src = currentCompetence.imagePath;
-        // headerImg.height = 50;
-        // headerImg.width = 50;
 
         technologyHeader.appendChild(headerName);
 
@@ -137,16 +133,6 @@ function spawnCompetence()
             technologyHeader.appendChild(titleElement);
         }
         
-        // <div class="row competence-technologies header">
-        //           <div class="name col"></div>
-        //           <div class="one col">Novice</div>
-        //           <div class="two col">Elementary</div>
-        //           <div class="three col">Intermediate</div>
-        //           <div class="four col">Advanced</div>
-        //           <div class="five col">Expert</div>
-        //         </div>
-
-
         carouselItem.appendChild(technologyHeader);
 
         for (i=0;i<currentCompetence.technologies.length;++i)
