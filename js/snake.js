@@ -274,12 +274,16 @@ function calculateSnake()
 
 function startGame(key)
 {
-    if (key.keyCode == 37 || key.keyCode == 38 || key.keyCode == 39 || key.keyCode == 40)
+    if([37, 38, 39, 40].indexOf(key.keyCode) > -1) 
     {
         setInterval(tick, 1000/15);
         window.removeEventListener("keydown", startGame)
         instruction.classList.remove("blink");
         instruction.innerText = "Press spacebar to pause";
+        basket = document.getElementById("apple-basket");
+        basket.classList.remove("invisible");
+        basket.classList.add("animate__animated");
+        basket.classList.add("animate__bounceInLeft");
     }
 }
 

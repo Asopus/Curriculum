@@ -128,10 +128,6 @@ body{
 footer {
   margin-top:50px;
 }
-  
-.visible {
-  visibility: visible;
-}
 
 .invisible {
   visibility: collapse;
