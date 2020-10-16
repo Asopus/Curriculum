@@ -24,6 +24,7 @@ window.onload = (event) =>
         window.addEventListener("keydown", startGame)
         window.addEventListener("keydown", setDirection)
         instruction = document.getElementById("instruction");
+        initializeModalFocus();
         readCompetences();
         initializeSnake();
         cleanBoard();
@@ -31,6 +32,12 @@ window.onload = (event) =>
         moveApple();
 }    
 
+function initializeModalFocus()
+{
+    $('#competenceModal').on('shown.bs.modal', function (e) {
+        $('#carouselNext').trigger('focus');
+    });
+}
 
 function tick()
 {
@@ -79,7 +86,7 @@ function spawnCompetence()
         competence.classList.add("animate__animated");
         competence.classList.add("animate__swing");
         competence.classList.add("animate__slow");
-        competence.setAttribute('data-target', "#carouselExample");
+        competence.setAttribute('data-target', "#competenceCarousel");
         competence.setAttribute('data-slide-to', oldScore);        
         competenceTitle = document.createElement("span");
         competenceTitle.innerHTML = currentCompetence.title;
