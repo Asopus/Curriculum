@@ -18,7 +18,7 @@ gameStarted = false;
 
 window.onload = (event) =>
 {
-        canvas = document.getElementById("screen");
+        canvas = document.getElementById("screen"); 
         canvas.height = boardHeight;
         canvas.width = boardWidth;
         context = canvas.getContext("2d");
