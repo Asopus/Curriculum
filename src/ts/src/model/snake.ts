@@ -1,5 +1,8 @@
-class Snake {
-    public BodyParts: Array<SnakePart>;
+import { SnakePart } from './snakepart.js';
+import { Apple } from './apple.js';
+
+export class Snake {
+    public BodyParts: Array<SnakePart> = [];
     public StartLength: number;
     private _startPositionX: number;
     private _startPositionY: number;

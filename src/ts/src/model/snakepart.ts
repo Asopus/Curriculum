@@ -1,5 +1,5 @@
 
-class SnakePart
+export class SnakePart
 {   
     public X: number;
     public Y: number;

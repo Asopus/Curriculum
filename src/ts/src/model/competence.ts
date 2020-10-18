@@ -1,4 +1,6 @@
-class Competence{
+import {Technology} from './technology.js';
+
+export class Competence{
     public Title: string;
     public ImgPath: string;
     public Technologies: Technology[];
@@ -8,17 +10,5 @@ class Competence{
         this.Title = title;
         this.ImgPath = imgPath;
         this.Technologies = technologies;
-    }
-}
-
-class Technology
-{
-    public Title: string;
-    public Rating: number;
-
-    constructor(title: string, rating: number)
-    {
-        this.Title = title;
-        this.Rating = rating;
     }
 }

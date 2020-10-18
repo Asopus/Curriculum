@@ -1,4 +1,4 @@
-class Apple {
+export class Apple {
     public X: number;
     public Y: number;
     private _boundaryX: number;
