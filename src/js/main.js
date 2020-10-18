@@ -158,7 +158,7 @@ function spawnCompetence()
                 imgElement = document.createElement("img");
                 imgElement.width = 25;
                 imgElement.height = 30;
-                imgElement.src = "../img/apple.png";
+                imgElement.src = "../../assets/img/apple.png";
                 imgContainer.appendChild(imgElement);
                 technologies.appendChild(imgContainer);
             }
