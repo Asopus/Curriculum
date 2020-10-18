@@ -1,3 +1,5 @@
+import { Snake } from './snake';
+
 export class Apple {
     public X: number;
     public Y: number;
@@ -10,22 +12,25 @@ export class Apple {
         this._boundaryX = boundaryX
         this._boundaryY = boundaryY;
         this.PartSize = partSize;
-        this.Move();
+        this.Move(null);
     }
 
-    public Move()
+    public Move(snake: Snake)
     {
         this.X = Math.floor(Math.random() * (this._boundaryX / this.PartSize) + 1) * this.PartSize;
         this.Y = Math.floor(Math.random() * (this._boundaryY / this.PartSize) + 1) * this.PartSize;
 
-        // for(let i=0;i < snake.length;++i)
-        // {
-        //     currentPart = snake[i];
-        //     if (currentPart.x == appleX && currentPart.y == appleY)
-        //     { 
-        //         moveApple()
-        //         break;
-        //     }
-        // }
+        if (snake != null)
+        {
+            for(let i=0;i < snake.BodyParts.length;++i)
+            {
+                let currentPart = snake.BodyParts[i];
+                if (currentPart.X == this.X && currentPart.Y == this.Y)
+                { 
+                    this.Move(snake)
+                    break;
+                }
+            }
+        }
     }
 }

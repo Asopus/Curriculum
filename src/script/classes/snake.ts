@@ -34,7 +34,7 @@ export class Snake {
         this.BodyParts.push(new SnakePart(head.X + (head.PartSize * this.DirectionX), head.Y + (head.PartSize * this.DirectionY), head.PartSize));
     }
 
-    public CollidesWith(apple: Apple) : boolean {
+    public HeadCollidesWith(apple: Apple) : boolean {
         let head: SnakePart = this.BodyParts[this.BodyParts.length - 1];
         return head.X == apple.X && head.Y == apple.Y;
     }

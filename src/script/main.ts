@@ -92,10 +92,10 @@ function tick()
         _snake.Move();
         _illustrator.DrawSnake();
         _illustrator.DrawApple();
-        if (_snake.CollidesWith(_apple)) 
+        if (_snake.HeadCollidesWith(_apple)) 
         {
             _snake.AddPartToTail();
-            _apple.Move();
+            _apple.Move(_snake);
             _illustrator.DrawCompetence();
         }
         _hasDrawn = true;
