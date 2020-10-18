@@ -1,13 +1,13 @@
-@import url(../fonts/satisfy.css); 
-@import url(../fonts/six-caps.css);
+@import url(../../assets/fonts/satisfy.css); 
+@import url(../../assets/fonts/six-caps.css);
 
 
 body{
-    background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../img/bg.png);
+    background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);
 }
 
 #tv {
-    background-image: url(../img/old-tv.png);
+    background-image: url(../../assets/img/old-tv.png);
     min-width: 720px;
     min-height: 410px;
     background-size: contain;

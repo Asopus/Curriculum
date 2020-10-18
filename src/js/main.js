@@ -321,7 +321,7 @@ function setDirection(key)
 function readCompetences()
 {
     $.ajax({
-        url: "./competences/competences.json",
+        url: "../../assets/competences/competences.json",
         type: "GET",
         success: function (response) {
             allCompetences = response;
