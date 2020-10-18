@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "rootDir": "./",
+        "outDir": "../dist",
+        "removeComments": true,
+        "target": "esnext",
+        "watch": true,
+        "strictNullChecks": false,
+    }
+}
