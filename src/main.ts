@@ -1,8 +1,8 @@
-import {Apple} from './model/apple.js';
-import {Snake} from './model/snake.js';
-import {Illustrator} from './model/illustrator.js';
-import {Competence} from './model/competence.js';
-import {Technology} from './model/technology.js';
+import {Apple} from './classes/apple.js';
+import {Snake} from './classes/snake.js';
+import {Illustrator} from './classes/illustrator.js';
+import {Competence} from './classes/competence.js';
+import {Technology} from './classes/technology.js';
 
 let _snake: Snake = new Snake(3, 230, 170, 10);
 let _apple: Apple = new Apple(440, 320, 10);

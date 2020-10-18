@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "rootDir": "./src/",
-        "outDir": "./dist",
+        "rootDir": "./",
+        "outDir": "../dist",
         "removeComments": true,
         "target": "esnext",
         "watch": true,
