@@ -42,7 +42,7 @@ function startGame(key: any) {
 
 function setDirection(key: any) {
 
-    if (_hasDrawn)
+    if (_gameStarted)
     {
         if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) 
         {
