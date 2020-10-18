@@ -10,28 +10,28 @@ export class Illustrator {
     DrawSnake() {
         for (let i = 0; i < this._snake.BodyParts.length; ++i) {
             let part = this._snake.BodyParts[i];
-            this.drawPart(part);
-            this.checkBorderCollision(part);
-            this.checkBodyCollision(part);
+            this.DrawPart(part);
+            this.CheckBorderCollision(part);
+            this.CheckBodyCollision(part);
         }
     }
     DrawApple() {
         this._context.fillStyle = "red";
         this._context.fillRect(this._apple.X, this._apple.Y, this._apple.PartSize, this._apple.PartSize);
     }
-    checkBodyCollision(part) {
+    CheckBodyCollision(part) {
         let head = this._snake.BodyParts[this._snake.BodyParts.length - 1];
         if (part != head && head.X == part.X && head.Y == part.Y) {
             this._snake.BodyParts.splice(0, this._snake.BodyParts.length - this._snake.StartLength);
         }
     }
-    checkBorderCollision(part) {
+    CheckBorderCollision(part) {
         if (this._snake.DirectionY == 0) {
             if (part.X == this._canvas.width) {
                 part.X = 0;
             }
             else if (part.X == 0 - part.PartSize) {
-                part.Y = this._canvas.width - part.PartSize;
+                part.X = this._canvas.width - part.PartSize;
             }
         }
         else if (this._snake.DirectionX == 0) {
@@ -43,7 +43,7 @@ export class Illustrator {
             }
         }
     }
-    drawPart(part) {
+    DrawPart(part) {
         this._context.fillStyle = "lime";
         this._context.fillRect(part.X, part.Y, part.PartSize, part.PartSize);
         this._context.strokeRect(part.X, part.Y, part.PartSize, part.PartSize);
