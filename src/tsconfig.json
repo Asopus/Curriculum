@@ -5,8 +5,6 @@
         "removeComments": true,
         "target": "esnext",
         "watch": true,
-        "allowSyntheticDefaultImports": true,
         "strictNullChecks": false,
-        "moduleResolution": "node",
     }
 }
