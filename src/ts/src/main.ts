@@ -136,10 +136,10 @@ function readCompetences()
                     let currentTechnology = currentCompetence.technologies[j];
                     technologies.push(new Technology(currentTechnology.title, currentTechnology.rating))
                 }
-                let competence = new Competence(currentCompetence.title, currentCompetence.imgPath, currentCompetence.technologies);
+                let competence = new Competence(currentCompetence.title, currentCompetence.imgPath, technologies);
+                _competences.push(competence);
             }
             _illustrator.Competences = _competences;
-            console.log(_illustrator);
         },
         error: function (xhr, status) {
             console.log(xhr);

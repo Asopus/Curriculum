@@ -141,7 +141,6 @@ export class Illustrator {
             for (let i=0;i<currentCompetence.Technologies.length;++i)
             {
                 let currentTechnology = currentCompetence.Technologies[i];
-
                 let technologies = document.createElement("div");
                 technologies.classList.add("row");
                 technologies.classList.add("competence-technologies");
