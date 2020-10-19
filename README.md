@@ -8,4 +8,4 @@
 
 You should be presented with the following webpage:
 
-![Interactive resume preview](https://raw.githubusercontent.com/Asopus/Curriculum/main/assets/img/example.PNG?token=ABSYCQS2KYW6QWBIJLE46IC7RWRWS)
+![Interactive resume preview](https://github.com/Asopus/Curriculum/blob/main/assets/img/example.PNG?raw=true)
