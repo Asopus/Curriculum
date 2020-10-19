@@ -8,7 +8,7 @@ import { Direction } from './classes/direction.js';
 let _snake: Snake = new Snake(3, 230, 170, 10);
 let _apple: Apple = new Apple(440, 320, 10);
 let canvas = document.getElementById("screen") as HTMLCanvasElement; 
-let _game: Game = new Game(canvas, _snake, _apple);
+let _game: Game;
 let _instructionElement: HTMLElement = document.getElementById("instruction");
 
 
@@ -16,18 +16,16 @@ window.onload = async (event) =>
 {
     canvas.height = 350;
     canvas.width = 460;
+    _game = new Game(canvas, _snake, _apple);
     window.addEventListener("keydown", StartGame)
-    window.addEventListener("keydown", SetDirection)
-    InitializeModalFocus();
-    await ReadCompetences();
-    document.getElementById("toCollect").innerText = "\xA0/ " + _game.Competences.length;
-    _game.Init();
+    window.addEventListener("keydown", SetDirection)    
+    await _game.Init();
 } 
 
 function StartGame(key: any) { 
     if([37, 38, 39, 40].indexOf(key.keyCode) > -1) 
     {
-        setInterval(_game.Tick, 1000/15);
+        setInterval(TickClosure, 1000/15);
         window.removeEventListener("keydown", StartGame)
         _instructionElement.classList.remove("blink");
         _instructionElement.innerText = "Press spacebar to pause";
@@ -38,6 +36,8 @@ function StartGame(key: any) {
         _game.Started = true;
     }
 }
+
+function TickClosure() { _game.Tick(); }
 
 function SetDirection(key: any) {
 
@@ -78,48 +78,3 @@ function SetDirection(key: any) {
     }
  }
 
-function InitializeModalFocus()
-{
-    $('#competenceModal').keydown(function(e) {
-        if (e.keyCode === 37) {
-           // Previous
-           $(".carousel-control-prev-icon").click();
-           return false;
-        }
-        if (e.keyCode === 39) {
-           // Next
-           $(".carousel-control-next-icon").click();
-           return false;
-        }
-    });
-}
-
-function ReadCompetences()
-{
-    let _competences: Array<Competence> = new Array<Competence>();
-
-    return $.ajax({
-        url: "../../assets/competences/competences.json",
-        type: "GET",
-        success: function (response) {
-            let result = response;
-            for(let i=0;i< result.length;++i)
-            {
-                let currentCompetence = result[i];
-                let technologies: Array<Technology> = new Array<Technology>();
-                for(let j=0;j< currentCompetence.technologies.length;++j)
-                {
-                    let currentTechnology = currentCompetence.technologies[j];
-                    technologies.push(new Technology(currentTechnology.title, currentTechnology.rating))
-                }
-                let competence = new Competence(currentCompetence.title, currentCompetence.imgPath, technologies);
-                _competences.push(competence);
-            }
-            _game.Competences = _competences;
-        },
-        error: function (xhr, status) {
-            console.log(xhr);
-            console.log(status);
-        }
-    });
-}
