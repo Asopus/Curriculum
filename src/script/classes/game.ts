@@ -86,12 +86,13 @@ export class Game {
                 {
                     this._snake.GoDown();
                 }
-            }
     
-            if (key.keyCode == 32) // space
-            {
-                this._snake.Stop();
-                this._dom.SetInstruction("Press any arrow key to continue");
+                if (key.keyCode == 32) // space
+                {
+                    this._dom.SetInstruction("Press any arrow key to continue");
+                    key.preventDefault();
+                    this._snake.Stop();
+                }
             }
         }
      }

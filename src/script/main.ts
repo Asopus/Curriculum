@@ -2,7 +2,6 @@ import {Game} from './classes/game.js';
 
 let _game: Game;
 
-
 window.onload = async (event) =>
 {
     _game = new Game();
