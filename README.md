@@ -1,14 +1,7 @@
-##Global packages
-- `npm install -g typescript`
-
-##Navigate to vendor
-- `npm install`
-
-#release
-##Navigate to src/script and execute typescript build command
-- `npm install`
-- `tsc`
-
-##Navigate to src/gulp and execute gulp
-- `npm install`
-
+#Interactive Resume Vermeersch Pieter
+##Installing the project
+- Clone the repo
+- Host in any webserver (I used IIS)
+- Open cli on ~/Curriculum
+- Execute `./build.ps1`
+- Open browser and navigate to url where you host the project
