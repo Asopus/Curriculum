@@ -1,9 +1,4 @@
-import {Apple} from './classes/apple.js';
-import {Snake} from './classes/snake.js';
 import {Game} from './classes/game.js';
-import {Competence} from './classes/competence.js';
-import {Technology} from './classes/technology.js';
-import { Direction } from './classes/direction.js';
 
 let canvas = document.getElementById("screen") as HTMLCanvasElement; 
 let _game: Game;
