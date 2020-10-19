@@ -9,6 +9,7 @@ const uglifyes = require('uglify-es');
 const composer = require('gulp-uglify/composer');
 const uglify = composer(uglifyes, console);
 const stripImportExport = require('gulp-strip-import-export');
+const cleanCSS = require('gulp-clean-css');
 
 gulp.task("tsc", function () {
   return tsProject.src().pipe(tsProject()).js.pipe(gulp.dest("../../dist"));
@@ -20,14 +21,14 @@ gulp.task('concat', function() {
         '../../dist/classes/*.js',
         '../../dist/main.js'
         ], { base: __dirname }))
-        .pipe(concat('app.js'))
+        .pipe(concat('app.min.js'))
         .pipe(gulp.dest('../../dist'));
 });
 
 gulp.task('remove-imports', function(done){
-    gulp.src('../../dist/app.js')
+    gulp.src('../../dist/app.min.js')
         .pipe(replace(/import[^\n]*/g, ''))
-        .pipe(concat('app.js'))
+        .pipe(concat('app.min.js'))
         .pipe(gulp.dest('../../dist'));
         done();
 });
@@ -39,7 +40,7 @@ gulp.task('clean', function(done){
 });
 
 gulp.task('remove-imports-exports', function(done){
-    return gulp.src(['../../dist/app.js'])
+    return gulp.src(['../../dist/app.min.js'])
         .pipe(stripImportExport())
         .pipe(gulp.dest('../../dist'));
         done();
@@ -58,13 +59,20 @@ gulp.task('uglify', function () {
             comments: false,
         }
     };
-    return gulp.src('../../dist/app.js')
-    .pipe(uglify(options))
-    .pipe(gulp.dest('../../dist/'))
+    return gulp.src('../../dist/app.min.js')
+        .pipe(uglify(options))
+        .pipe(gulp.dest('../../dist/'))
+});
+
+gulp.task('minify-css', function(done){
+    return gulp.src('../../src/style/*.css')
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(concat('style.min.css'))
+        .pipe(gulp.dest('../../dist'));
 });
 
 gulp.task('build', function(done) {
-    var tasks = gulp.series('tsc', 'concat', 'clean', 'remove-imports-exports', 'uglify');
+    var tasks = gulp.series('tsc', 'concat', 'clean', 'remove-imports-exports', 'uglify', 'minify-css');
     tasks();
     done();
 })
