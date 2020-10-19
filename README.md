@@ -1,4 +1,4 @@
-# Interactive Resume Vermeersch Pieter
+# Interactive resume Pieter Vermeersch
 ## Installing the project
 - Clone the repo
 - Host in any webserver (I used IIS)
