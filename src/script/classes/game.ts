@@ -9,17 +9,16 @@ import { Api } from './api.js';
 export class Game {
     private _apple: Apple = new Apple(440, 320, 10);
     private _snake: Snake = new Snake(3, 230, 170, 10);
-    private _canvas: HTMLCanvasElement;
+    private _canvas = document.getElementById("screen") as HTMLCanvasElement; 
     private _context: CanvasRenderingContext2D;
     private _hasDrawn:boolean = true;
     private _started: boolean = false;
     private _api:Api = new Api();
     private _dom:Dom;
     
-    constructor(canvas: HTMLCanvasElement)
+    constructor()
     {
-        this._canvas = canvas;
-        this._context = canvas.getContext("2d");
+        this._context = this._canvas.getContext("2d");
     }
 
     public async Init()
@@ -28,12 +27,16 @@ export class Game {
         this.DrawSnake();
         this._api = new Api();
         this._dom = new Dom(await this._api.ReadCompetences());
+        let self = this;
+        window.addEventListener("keydown", function(key){ self.SetDirection(key) });
     }
 
     public Start()
     {
         this._dom.Init();
         this._started = true;
+        let self = this;
+        setInterval(function(){ self.Tick(); }, 1000/15);
     }
 
     public Tick()
