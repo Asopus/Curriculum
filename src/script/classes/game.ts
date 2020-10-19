@@ -45,14 +45,14 @@ export class Game {
         {
             this.DrawBoard();
             this._snake.Move();
-            this.DrawApple();
+            this.DrawSnake();
             if (this._snake.HeadCollidesWith(this._apple)) 
             {
                 this._snake.AddPartToTail();
                 this._apple.Move(this._snake);
                 this._dom.AddCompetence();
             }
-            this.DrawSnake();
+            this.DrawApple();
             this._hasDrawn = true;
         }
     }
