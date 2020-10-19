@@ -171,7 +171,7 @@ export class Illustrator {
             carousel.appendChild(carouselItem);
         }
 
-        if (oldScore == 1)
+        if (oldScore == this.Competences.length - 1)
         {
             let competences = document.getElementById("competences") as HTMLElement;
             competences.children[0].classList.remove("animate__swing");
