@@ -4,7 +4,7 @@ import {SnakePart} from './snakepart.js';
 import {Competence} from './competence.js';
 import { Direction } from './direction.js';
 
-export class Illustrator {
+export class Game {
     private _apple: Apple;
     private _snake: Snake;
     private _canvas: HTMLCanvasElement;
@@ -12,6 +12,8 @@ export class Illustrator {
     private _numbers = ["one","two","three","four","five"];
     private _skillLevels = ["Novice", "Elementary", "Intermediate", "Advanced", "Expert"];
     public Competences: Array<Competence>;
+    public HasDrawn:boolean = true;
+    public Started: boolean = false;
     
     constructor(canvas: HTMLCanvasElement, snake: Snake, apple: Apple)
     {
@@ -21,30 +23,35 @@ export class Illustrator {
         this._apple = apple;
     }
 
-    public DrawSnake() 
+    public Init()
     {
-        for(let i=0;i < this._snake.BodyParts.length;++i)
-        {
-            let part = this._snake.BodyParts[i];
-            this.DrawPart(part);
-            this.CheckBorderCollision(part);
-            this.CheckBodyCollision(part);
-        } 
+        this.DrawBoard();
+        this.DrawSnake();
     }
 
-    public DrawApple() 
+    public Tick()
     {
-        this._context.fillStyle = "red";
-        this._context.fillRect(this._apple.X ,this._apple.Y, this._apple.PartSize, this._apple.PartSize);
+        if (this._snake.Direction != Direction.Unknown)
+        {
+            this.DrawBoard();
+            this._snake.Move();
+            this.DrawSnake();
+            this.DrawApple();
+            if (this._snake.HeadCollidesWith(this._apple)) 
+            {
+                this._snake.AddPartToTail();
+                this._apple.Move(this._snake);
+                this.DrawCompetence();
+            }
+            this.HasDrawn = true;
+        }
     }
 
     private CheckBodyCollision(part: SnakePart)
     {
-        let head: SnakePart = this._snake.BodyParts[this._snake.BodyParts.length - 1];
-        
-        if (part != head && head.X  == part.X && head.Y == part.Y) 
+        if (this._snake.HeadCollidesWithPart(part)) 
         { 
-            this._snake.BodyParts.splice(0, this._snake.BodyParts.length - this._snake.StartLength);
+            this._snake.ResetSnake();
         }
     }
 
@@ -54,7 +61,7 @@ export class Illustrator {
         {
             part.X = 0;
         }
-        else if (this._snake.Direction == Direction.Left &&part.X == 0 - part.PartSize)
+        else if (this._snake.Direction == Direction.Left && part.X == 0 - part.PartSize)
         {
             part.X = this._canvas.width - part.PartSize;
         }
@@ -68,6 +75,23 @@ export class Illustrator {
         }   
     }
 
+    private DrawSnake() 
+    {
+        for(let i=0;i < this._snake.BodyParts.length;++i)
+        {
+            let part = this._snake.BodyParts[i];
+            this.DrawPart(part);
+            this.CheckBorderCollision(part);
+            this.CheckBodyCollision(part);
+        } 
+    }
+
+    private DrawApple() 
+    {
+        this._context.fillStyle = "red";
+        this._context.fillRect(this._apple.X ,this._apple.Y, this._apple.PartSize, this._apple.PartSize);
+    }
+
     private DrawPart(part: SnakePart)
     {
         this._context.fillStyle = "lime";
@@ -75,12 +99,12 @@ export class Illustrator {
         this._context.strokeRect(part.X, part.Y, part.PartSize, part.PartSize);
     }
 
-    public DrawBoard() {
+    private DrawBoard() {
         this._context.fillStyle = "black";
         this._context.fillRect(0, 0, this._canvas.width, this._canvas.height);
     }
 
-    public DrawCompetence()
+    private DrawCompetence()
     {
         let score = document.getElementById("score") as HTMLElement;
         let oldScore = parseInt(score.innerText);

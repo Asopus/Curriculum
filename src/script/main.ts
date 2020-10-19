@@ -1,6 +1,6 @@
 import {Apple} from './classes/apple.js';
 import {Snake} from './classes/snake.js';
-import {Illustrator} from './classes/illustrator.js';
+import {Game} from './classes/game.js';
 import {Competence} from './classes/competence.js';
 import {Technology} from './classes/technology.js';
 import { Direction } from './classes/direction.js';
@@ -8,42 +8,40 @@ import { Direction } from './classes/direction.js';
 let _snake: Snake = new Snake(3, 230, 170, 10);
 let _apple: Apple = new Apple(440, 320, 10);
 let canvas = document.getElementById("screen") as HTMLCanvasElement; 
-let _illustrator: Illustrator = new Illustrator(canvas, _snake, _apple);
+let _game: Game = new Game(canvas, _snake, _apple);
 let _instructionElement: HTMLElement = document.getElementById("instruction");
-let _gameStarted: boolean = false;
-let _hasDrawn: boolean = true;
+
 
 window.onload = async (event) =>
 {
     canvas.height = 350;
     canvas.width = 460;
-    window.addEventListener("keydown", startGame)
-    window.addEventListener("keydown", setDirection)
-    initializeModalFocus();
-    await readCompetences();
-    document.getElementById("toCollect").innerText = "\xA0/ " + _illustrator.Competences.length;
-    _illustrator.DrawBoard();
-    _illustrator.DrawSnake();
+    window.addEventListener("keydown", StartGame)
+    window.addEventListener("keydown", SetDirection)
+    InitializeModalFocus();
+    await ReadCompetences();
+    document.getElementById("toCollect").innerText = "\xA0/ " + _game.Competences.length;
+    _game.Init();
 } 
 
-function startGame(key: any) { 
+function StartGame(key: any) { 
     if([37, 38, 39, 40].indexOf(key.keyCode) > -1) 
     {
-        setInterval(tick, 1000/15);
-        window.removeEventListener("keydown", startGame)
+        setInterval(_game.Tick, 1000/15);
+        window.removeEventListener("keydown", StartGame)
         _instructionElement.classList.remove("blink");
         _instructionElement.innerText = "Press spacebar to pause";
         let basket = document.getElementById("apple-basket");
         basket.classList.remove("invisible");
         basket.classList.add("animate__animated");
         basket.classList.add("animate__bounceInLeft");
-        _gameStarted = true;
+        _game.Started = true;
     }
 }
 
-function setDirection(key: any) {
+function SetDirection(key: any) {
 
-    if (_gameStarted)
+    if (_game.Started)
     {
         if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) 
         {
@@ -51,23 +49,23 @@ function setDirection(key: any) {
             key.preventDefault();
         }   
 
-        if (_hasDrawn)
+        if (_game.HasDrawn)
         {
-            if (key.keyCode == 37 && _snake.Direction != Direction.Left && _snake.Direction != Direction.Right) // left
+            if (key.keyCode == 37 && _snake.Direction != Direction.Left && _snake.Direction != Direction.Right)
             {
-                _hasDrawn = false;
+                _game.HasDrawn = false;
                 _snake.GoLeft();
-            } else if (key.keyCode == 38 && _snake.Direction != Direction.Up && _snake.Direction != Direction.Down) // up
+            } else if (key.keyCode == 38 && _snake.Direction != Direction.Up && _snake.Direction != Direction.Down)
             {
-                _hasDrawn = false;
+                _game.HasDrawn = false;
                 _snake.GoUp();
-            } else if (key.keyCode == 39 && _snake.Direction != Direction.Right && _snake.Direction != Direction.Left) // right
+            } else if (key.keyCode == 39 && _snake.Direction != Direction.Right && _snake.Direction != Direction.Left)
             {
-                _hasDrawn = false;
+                _game.HasDrawn = false;
                 _snake.GoRight();
-            } else if (key.keyCode == 40 && _snake.Direction != Direction.Down && _snake.Direction != Direction.Up) // down
+            } else if (key.keyCode == 40 && _snake.Direction != Direction.Down && _snake.Direction != Direction.Up)
             {
-                _hasDrawn = false;
+                _game.HasDrawn = false;
                 _snake.GoDown();
             }
         }
@@ -80,26 +78,7 @@ function setDirection(key: any) {
     }
  }
 
-
-function tick()
-{
-    if (_snake.Direction != Direction.Unknown)
-    {
-        _illustrator.DrawBoard();
-        _snake.Move();
-        _illustrator.DrawSnake();
-        _illustrator.DrawApple();
-        if (_snake.HeadCollidesWith(_apple)) 
-        {
-            _snake.AddPartToTail();
-            _apple.Move(_snake);
-            _illustrator.DrawCompetence();
-        }
-        _hasDrawn = true;
-    }
-}
-
-function initializeModalFocus()
+function InitializeModalFocus()
 {
     $('#competenceModal').keydown(function(e) {
         if (e.keyCode === 37) {
@@ -115,7 +94,7 @@ function initializeModalFocus()
     });
 }
 
-function readCompetences()
+function ReadCompetences()
 {
     let _competences: Array<Competence> = new Array<Competence>();
 
@@ -136,7 +115,7 @@ function readCompetences()
                 let competence = new Competence(currentCompetence.title, currentCompetence.imgPath, technologies);
                 _competences.push(competence);
             }
-            _illustrator.Competences = _competences;
+            _game.Competences = _competences;
         },
         error: function (xhr, status) {
             console.log(xhr);

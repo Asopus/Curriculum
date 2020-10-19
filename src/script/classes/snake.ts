@@ -76,6 +76,35 @@ export class Snake {
         return head.X == apple.X && head.Y == apple.Y;
     }
 
+    public BodyCollidesWith(apple: Apple) : boolean {
+        for(let i=0;i < this.BodyParts.length;++i)
+        {
+            let currentPart = this.BodyParts[i];
+            if (currentPart.X == apple.X && currentPart.Y == apple.Y)
+            { 
+                return true
+            }
+        }
+        return false;
+    }
+
+    public HeadCollidesWithPart(part: SnakePart) : boolean
+    {
+        let head: SnakePart = this.BodyParts[this.BodyParts.length - 1];
+        
+        if (part != head && head.X  == part.X && head.Y == part.Y) 
+        { 
+            return true;
+        }
+
+        return false;
+    }
+
+    public ResetSnake()
+    {
+        this.BodyParts.splice(0, this.BodyParts.length - this.StartLength);
+    }
+
     public AddPartToTail()
     {
         let tail: SnakePart = this.BodyParts[0];

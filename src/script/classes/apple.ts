@@ -20,17 +20,9 @@ export class Apple {
         this.X = Math.floor(Math.random() * (this._boundaryX / this.PartSize) + 1) * this.PartSize;
         this.Y = Math.floor(Math.random() * (this._boundaryY / this.PartSize) + 1) * this.PartSize;
 
-        if (snake != null)
+        if (snake != null && snake.BodyCollidesWith(this))
         {
-            for(let i=0;i < snake.BodyParts.length;++i)
-            {
-                let currentPart = snake.BodyParts[i];
-                if (currentPart.X == this.X && currentPart.Y == this.Y)
-                { 
-                    this.Move(snake)
-                    break;
-                }
-            }
+           this.Move(snake);
         }
     }
 }
