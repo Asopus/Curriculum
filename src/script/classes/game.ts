@@ -58,29 +58,29 @@ export class Game {
 
         if (this._started)
         {
-            if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) 
-            {
-                this._dom.SetInstruction("Press spacebar to pause");
-                key.preventDefault();
-            }   
-    
             if (this._hasDrawn)
             {
+                if([37, 38, 39, 40].indexOf(key.keyCode) > -1) 
+                {
+                    this._dom.SetInstruction("Press spacebar to pause");
+                    this._hasDrawn = false;
+                    key.preventDefault();
+                } 
+
                 if (key.keyCode == 37 && this._snake.Direction != Direction.Left && this._snake.Direction != Direction.Right)
                 {
-                    this._hasDrawn = false;
                     this._snake.GoLeft();
-                } else if (key.keyCode == 38 && this._snake.Direction != Direction.Up && this._snake.Direction != Direction.Down)
+                } 
+                else if (key.keyCode == 38 && this._snake.Direction != Direction.Up && this._snake.Direction != Direction.Down)
                 {
-                    this._hasDrawn = false;
                     this._snake.GoUp();
-                } else if (key.keyCode == 39 && this._snake.Direction != Direction.Right && this._snake.Direction != Direction.Left)
+                } 
+                else if (key.keyCode == 39 && this._snake.Direction != Direction.Right && this._snake.Direction != Direction.Left)
                 {
-                    this._hasDrawn = false;
                     this._snake.GoRight();
-                } else if (key.keyCode == 40 && this._snake.Direction != Direction.Down && this._snake.Direction != Direction.Up)
+                } 
+                else if (key.keyCode == 40 && this._snake.Direction != Direction.Down && this._snake.Direction != Direction.Up)
                 {
-                    this._hasDrawn = false;
                     this._snake.GoDown();
                 }
             }
