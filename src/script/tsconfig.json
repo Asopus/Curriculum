@@ -6,5 +6,6 @@
         "target": "esnext",
         "watch": true,
         "strictNullChecks": false,
-    }
+    },
+    "exclude": ["gulpfile.ts"]
 }
