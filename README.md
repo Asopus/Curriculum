@@ -1,14 +1,14 @@
-##Navigate to vendor
-- `npm install`
+##Global packages
+- `npm install -g typescript`
 
-##Navigate to src/script
+##Navigate to vendor
 - `npm install`
 
 #release
 ##Navigate to src/script and execute typescript build command
-`tsc`
+- `npm install`
+- `tsc`
 
-##Navigate to src/script and execute gulp
-- `npm install -g gulp` if not installed
-- `npm install -g gulp`
+##Navigate to src/gulp and execute gulp
+- `npm install`
 
