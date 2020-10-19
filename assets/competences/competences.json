@@ -1,7 +1,7 @@
 [
     {
       "title": ".Net",
-      "imagePath": "competences/logo/net.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "C#",
@@ -31,7 +31,7 @@
     },
     {
       "title": "Html",
-      "imagePath": "competences/logo/html.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "Html",
@@ -41,7 +41,7 @@
     },
     {
       "title": "Css",
-      "imagePath": "competences/logo/css.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "Css",
@@ -51,7 +51,7 @@
     },
     {
       "title": "JavaScript",
-      "imagePath": "competences/logo/js.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "Vanilla",
@@ -60,6 +60,10 @@
         {
           "title": "jQuery",
           "rating": 4
+        },
+        {
+          "title": "Typescript",
+          "rating": 3
         },
         {
           "title": "Angular",
@@ -73,7 +77,7 @@
     },
     {
       "title": "NServiceBus",
-      "imagePath": "competences/logo/nservicebus.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "Messaging",
@@ -91,7 +95,7 @@
     },
     {
       "title": "Version control",
-      "imagePath": "competences/logo/vcs.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "Git",
@@ -109,7 +113,7 @@
     },
     {
       "title": "Docker",
-      "imagePath": "competences/logo/docker.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "Docker",
@@ -118,18 +122,22 @@
       ]
     },
     {
-      "title": "Azure Devops",
-      "imagePath": "competences/logo/vs.png",
+      "title": "Build automation",
+      "imagePath": "",
       "technologies": [
         {
-          "title": "Build & release pipelines",
+          "title": "Azure Devops Build & release pipelines",
+          "rating": 3
+        },
+        {
+          "title": "GulpJs",
           "rating": 3
         }
       ]
     },
     {
       "title": "Databases",
-      "imagePath": "competences/logo/sql.png",
+      "imagePath": "",
       "technologies": [
         {
           "title": "Pl-Sql",
@@ -147,7 +155,7 @@
     },
     {
         "title": "Languages",
-        "imagePath": "competences/logo/languages.png",
+        "imagePath": "",
         "technologies": [
           {
             "title": "Dutch",
@@ -169,7 +177,7 @@
       },
     {
         "title": "Leisure",
-        "imagePath": "competences/logo/me.png",
+        "imagePath": "",
         "technologies": [
           {
             "title": "Music",
