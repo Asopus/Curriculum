@@ -3,6 +3,7 @@ import {Snake} from './classes/snake.js';
 import {Illustrator} from './classes/illustrator.js';
 import {Competence} from './classes/competence.js';
 import {Technology} from './classes/technology.js';
+import { Direction } from './classes/direction.js';
 
 let _snake: Snake = new Snake(3, 230, 170, 10);
 let _apple: Apple = new Apple(440, 320, 10);
@@ -52,32 +53,28 @@ function setDirection(key: any) {
 
         if (_hasDrawn)
         {
-            if (key.keyCode == 37 && _snake.DirectionX == 0) // left
-            {_hasDrawn = false;
-                _snake.DirectionX = -1;
-                _snake.DirectionY = 0;
-            } else if (key.keyCode == 38 && _snake.DirectionY == 0) // up
+            if (key.keyCode == 37 && _snake.Direction != Direction.Left && _snake.Direction != Direction.Right) // left
             {
                 _hasDrawn = false;
-                _snake.DirectionX = 0;
-                _snake.DirectionY = -1;
-            } else if (key.keyCode == 39 && _snake.DirectionX == 0) // right
+                _snake.GoLeft();
+            } else if (key.keyCode == 38 && _snake.Direction != Direction.Up && _snake.Direction != Direction.Down) // up
             {
                 _hasDrawn = false;
-                _snake.DirectionX = 1;
-                _snake.DirectionY = 0;
-            } else if (key.keyCode == 40 && _snake.DirectionY == 0) // down
+                _snake.GoUp();
+            } else if (key.keyCode == 39 && _snake.Direction != Direction.Right && _snake.Direction != Direction.Left) // right
             {
                 _hasDrawn = false;
-                _snake.DirectionX = 0;
-                _snake.DirectionY = 1;
+                _snake.GoRight();
+            } else if (key.keyCode == 40 && _snake.Direction != Direction.Down && _snake.Direction != Direction.Up) // down
+            {
+                _hasDrawn = false;
+                _snake.GoDown();
             }
         }
 
         if (key.keyCode == 32) // space
         {
-            _snake.DirectionX = 0;
-            _snake.DirectionY = 0;
+            _snake.Stop();
             _instructionElement.innerText = "Press any arrow key to continue";
         }
     }
@@ -86,7 +83,7 @@ function setDirection(key: any) {
 
 function tick()
 {
-    if (_snake.DirectionX != 0 || _snake.DirectionY != 0)
+    if (_snake.Direction != Direction.Unknown)
     {
         _illustrator.DrawBoard();
         _snake.Move();

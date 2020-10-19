@@ -1,14 +1,16 @@
 import { SnakePart } from './snakepart.js';
 import { Apple } from './apple.js';
+import { Direction } from './direction.js';
 
 export class Snake {
     public BodyParts: Array<SnakePart> = [];
     public StartLength: number;
+    public Direction: Direction = Direction.Unknown;
     private _startPositionX: number;
     private _startPositionY: number;
     private _partSize: number;
-    public DirectionX: number = 0;
-    public DirectionY: number = 0;
+    private _directionX: number = 0;
+    private _directionY: number = 0;
 
     constructor(startLength: number, startPositionX: number, startPositionY: number, partSize: number)
     {
@@ -27,11 +29,46 @@ export class Snake {
         }
     }
 
+    public GoLeft()
+    {
+        this._directionX = -1;
+        this._directionY = 0;
+        this.Direction = Direction.Left;
+    }
+
+    public GoRight()
+    {
+        this._directionX = 1;
+        this._directionY = 0;
+        this.Direction = Direction.Right;
+    }
+
+    public GoUp()
+    {
+        this._directionX = 0;
+        this._directionY = -1;
+        this.Direction = Direction.Up;
+    }
+
+    public GoDown()
+    {
+        this._directionX = 0;
+        this._directionY = 1;
+        this.Direction = Direction.Down;
+    }
+
+    public Stop()
+    {
+        this._directionX = 0;
+        this._directionY = 0;
+        this.Direction = Direction.Unknown;
+    }
+
     public Move()
     {
         this.BodyParts.shift();
         let head: SnakePart = this.BodyParts[this.BodyParts.length - 1];
-        this.BodyParts.push(new SnakePart(head.X + (head.PartSize * this.DirectionX), head.Y + (head.PartSize * this.DirectionY), head.PartSize));
+        this.BodyParts.push(new SnakePart(head.X + (head.PartSize * this._directionX), head.Y + (head.PartSize * this._directionY), head.PartSize));
     }
 
     public HeadCollidesWith(apple: Apple) : boolean {

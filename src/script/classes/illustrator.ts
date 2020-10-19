@@ -2,6 +2,7 @@ import {Apple} from './apple.js';
 import {Snake} from './snake.js';
 import {SnakePart} from './snakepart.js';
 import {Competence} from './competence.js';
+import { Direction } from './direction.js';
 
 export class Illustrator {
     private _apple: Apple;
@@ -49,28 +50,22 @@ export class Illustrator {
 
     private CheckBorderCollision(part: SnakePart)
     {
-        if (this._snake.DirectionY == 0)
+        if (this._snake.Direction == Direction.Right && part.X == this._canvas.width)
         {
-            if (part.X == this._canvas.width)
-            {
-                part.X = 0;
-            }
-            else if (part.X == 0 - part.PartSize)
-            {
-                part.X = this._canvas.width - part.PartSize;
-            }
+            part.X = 0;
         }
-        else if (this._snake.DirectionX == 0)
+        else if (this._snake.Direction == Direction.Left &&part.X == 0 - part.PartSize)
         {
-            if (part.Y == this._canvas.height)
-            {
-                part.Y = 0;
-            }
-            else if (part.Y == 0 - part.PartSize)
-            {
-                part.Y = this._canvas.height - part.PartSize;
-            }   
+            part.X = this._canvas.width - part.PartSize;
         }
+        else if (this._snake.Direction == Direction.Down && part.Y == this._canvas.height)
+        {
+            part.Y = 0;
+        }
+        else if (this._snake.Direction == Direction.Up && part.Y == 0 - part.PartSize)
+        {
+            part.Y = this._canvas.height - part.PartSize;
+        }   
     }
 
     private DrawPart(part: SnakePart)
