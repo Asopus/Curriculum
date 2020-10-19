@@ -26,10 +26,7 @@ export class Api {
                 }
                 this._competences = _competences;
             },
-            error: function (xhr, status) {
-                console.log(xhr);
-                console.log(status);
-            }
+            error: function (xhr, status) { }
         });
 
         return _competences;

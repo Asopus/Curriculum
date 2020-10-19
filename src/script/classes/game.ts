@@ -7,21 +7,19 @@ import { Dom } from './dom.js';
 import { Api } from './api.js';
 
 export class Game {
-    private _apple: Apple;
-    private _snake: Snake;
+    private _apple: Apple = new Apple(440, 320, 10);
+    private _snake: Snake = new Snake(3, 230, 170, 10);
     private _canvas: HTMLCanvasElement;
     private _context: CanvasRenderingContext2D;
-    public HasDrawn:boolean = true;
-    public Started: boolean = false;
+    private _hasDrawn:boolean = true;
+    private _started: boolean = false;
     private _api:Api = new Api();
     private _dom:Dom;
     
-    constructor(canvas: HTMLCanvasElement, snake: Snake, apple: Apple)
+    constructor(canvas: HTMLCanvasElement)
     {
         this._canvas = canvas;
         this._context = canvas.getContext("2d");
-        this._snake = snake;
-        this._apple = apple;
     }
 
     public async Init()
@@ -30,6 +28,12 @@ export class Game {
         this.DrawSnake();
         this._api = new Api();
         this._dom = new Dom(await this._api.ReadCompetences());
+    }
+
+    public Start()
+    {
+        this._dom.Init();
+        this._started = true;
     }
 
     public Tick()
@@ -46,9 +50,48 @@ export class Game {
                 this._apple.Move(this._snake);
                 this._dom.AddCompetence();
             }
-            this.HasDrawn = true;
+            this._hasDrawn = true;
         }
     }
+
+    public SetDirection(key: any) {
+
+        if (this._started)
+        {
+            if([32, 37, 38, 39, 40].indexOf(key.keyCode) > -1) 
+            {
+                this._dom.SetInstruction("Press spacebar to pause");
+                key.preventDefault();
+            }   
+    
+            if (this._hasDrawn)
+            {
+                if (key.keyCode == 37 && this._snake.Direction != Direction.Left && this._snake.Direction != Direction.Right)
+                {
+                    this._hasDrawn = false;
+                    this._snake.GoLeft();
+                } else if (key.keyCode == 38 && this._snake.Direction != Direction.Up && this._snake.Direction != Direction.Down)
+                {
+                    this._hasDrawn = false;
+                    this._snake.GoUp();
+                } else if (key.keyCode == 39 && this._snake.Direction != Direction.Right && this._snake.Direction != Direction.Left)
+                {
+                    this._hasDrawn = false;
+                    this._snake.GoRight();
+                } else if (key.keyCode == 40 && this._snake.Direction != Direction.Down && this._snake.Direction != Direction.Up)
+                {
+                    this._hasDrawn = false;
+                    this._snake.GoDown();
+                }
+            }
+    
+            if (key.keyCode == 32) // space
+            {
+                this._snake.Stop();
+                this._dom.SetInstruction("Press any arrow key to continue");
+            }
+        }
+     }
 
     private CheckBodyCollision(part: SnakePart)
     {
