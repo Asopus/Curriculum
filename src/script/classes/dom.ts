@@ -1,7 +1,6 @@
 import { Competence } from "./competence.js";
 
-export class Dom{
-    
+export class Dom {
 
     private _numbers = ["one","two","three","four","five"];
     private _skillLevels = ["Novice", "Elementary", "Intermediate", "Advanced", "Expert"];
