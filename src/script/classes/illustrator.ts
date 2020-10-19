@@ -170,5 +170,24 @@ export class Illustrator {
 
             carousel.appendChild(carouselItem);
         }
+
+        if (oldScore == 1)
+        {
+            let competences = document.getElementById("competences") as HTMLElement;
+            competences.children[0].classList.remove("animate__swing");
+            competences.children[0].classList.remove("animate__slow");
+            competences.children[0].classList.add("animate__fast");
+            competences.children[0].classList.add("animate__pulse");
+            competences.children[0].classList.add("animate__infinite");
+            competences.children[0].addEventListener("click", this.RemoveAttentionSeeker)
+        }
+    }
+
+    private RemoveAttentionSeeker() {
+        let competences = document.getElementById("competences") as HTMLElement;
+        competences.children[0].classList.remove("animate__fast");
+        competences.children[0].classList.remove("animate__pulse");
+        competences.children[0].classList.remove("animate__infinite");
+        competences.children[0].removeEventListener("click", this.RemoveAttentionSeeker)
     }
 }
