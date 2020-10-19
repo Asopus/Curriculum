@@ -45,7 +45,6 @@ export class Game {
         {
             this.DrawBoard();
             this._snake.Move();
-            this.DrawSnake();
             this.DrawApple();
             if (this._snake.HeadCollidesWith(this._apple)) 
             {
@@ -53,6 +52,7 @@ export class Game {
                 this._apple.Move(this._snake);
                 this._dom.AddCompetence();
             }
+            this.DrawSnake();
             this._hasDrawn = true;
         }
     }
@@ -68,26 +68,25 @@ export class Game {
                     this._dom.SetInstruction("Press spacebar to pause");
                     this._hasDrawn = false;
                     key.preventDefault();
-                } 
 
-                if (key.keyCode == 37 && this._snake.Direction != Direction.Left && this._snake.Direction != Direction.Right)
-                {
-                    this._snake.GoLeft();
+                    if (key.keyCode == 37 && this._snake.Direction != Direction.Left && this._snake.Direction != Direction.Right)
+                    {
+                        this._snake.GoLeft();
+                    } 
+                    else if (key.keyCode == 38 && this._snake.Direction != Direction.Up && this._snake.Direction != Direction.Down)
+                    {
+                        this._snake.GoUp();
+                    } 
+                    else if (key.keyCode == 39 && this._snake.Direction != Direction.Right && this._snake.Direction != Direction.Left)
+                    {
+                        this._snake.GoRight();
+                    } 
+                    else if (key.keyCode == 40 && this._snake.Direction != Direction.Down && this._snake.Direction != Direction.Up)
+                    {
+                        this._snake.GoDown();
+                    }
                 } 
-                else if (key.keyCode == 38 && this._snake.Direction != Direction.Up && this._snake.Direction != Direction.Down)
-                {
-                    this._snake.GoUp();
-                } 
-                else if (key.keyCode == 39 && this._snake.Direction != Direction.Right && this._snake.Direction != Direction.Left)
-                {
-                    this._snake.GoRight();
-                } 
-                else if (key.keyCode == 40 && this._snake.Direction != Direction.Down && this._snake.Direction != Direction.Up)
-                {
-                    this._snake.GoDown();
-                }
-    
-                if (key.keyCode == 32) // space
+                else if (key.keyCode == 32)
                 {
                     this._dom.SetInstruction("Press any arrow key to continue");
                     key.preventDefault();
@@ -130,9 +129,9 @@ export class Game {
         for(let i=0;i < this._snake.BodyParts.length;++i)
         {
             let part = this._snake.BodyParts[i];
-            this.DrawPart(part);
             this.CheckBorderCollision(part);
             this.CheckBodyCollision(part);
+            this.DrawPart(part);
         } 
     }
 
