@@ -1,5 +1,5 @@
-#Interactive Resume Vermeersch Pieter
-##Installing the project
+# Interactive Resume Vermeersch Pieter
+## Installing the project
 - Clone the repo
 - Host in any webserver (I used IIS)
 - Open cli on ~/Curriculum
