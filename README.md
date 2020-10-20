@@ -9,7 +9,7 @@
 
 You should be presented with the following webpage:
 
-![Interactive resume preview](https://github.com/Asopus/Curriculum/blob/master/assets/img/example.PNG?raw=true)
+![Interactive resume preview](https://github.com/Asopus/Curriculum/blob/master/assets/img/example.jpg?raw=true)
 
 
 ## Controls
