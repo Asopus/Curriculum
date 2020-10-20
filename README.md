@@ -7,12 +7,14 @@
 - Execute `./build.ps1`
 - Open browser and navigate to url where you host the project
 
-You should be presented with the following webpage:
-
-![Interactive resume preview](https://github.com/Asopus/Curriculum/blob/master/assets/img/example.PNG?raw=true)
-
-
 ## Controls
 - Press ← ↑ → ↓ to start the game
 - Catch as many apples as you can to collect competences
 - Click one a competence under the playfield to view its detail
+
+## Rules
+- You can go through walls
+- Colliding with yourself will reset the length
+- Catching one apple spawns one competence
+
+![Interactive resume preview](https://github.com/Asopus/Curriculum/blob/master/assets/img/example.jpg?raw=true)
