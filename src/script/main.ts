@@ -1,4 +1,5 @@
 import {Game} from './classes/game.js';
+import { Direction } from './classes/direction.js';
 
 let _game: Game;
 
@@ -10,7 +11,8 @@ window.onload = async (event) =>
 } 
 
 function StartGame(key: any) { 
-    if([37, 38, 39, 40].indexOf(key.keyCode) > -1) 
+    let direction = key.keyCode as Direction;
+    if (direction in Direction && direction != Direction.Unknown)
     {
         window.removeEventListener("keydown", StartGame)
         _game.Start();

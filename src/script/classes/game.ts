@@ -1,41 +1,46 @@
 import {Apple} from './apple.js';
 import {Snake} from './snake.js';
-import {SnakePart} from './snakepart.js';
+import { FileReader } from "./filereader.js";
 import { Direction } from './direction.js';
 import { Dom } from './dom.js';
 import { Illustrator } from './illustrator.js';
-import { Dir } from 'fs';
 
 export class Game {
-    private _apple: Apple = new Apple(440, 320, 10);
-    private _snake: Snake = new Snake(3, 230, 170, 10);
-    private _hasDrawn:boolean = true;
+    private _partSize = 10;
+    private _ticksPerSecond = 15;
+    private _apple: Apple = new Apple(440, 320, this._partSize);
+    private _snake: Snake = new Snake(3, 230, 170, this._partSize);
+    private _isDrawing:boolean = false;
     private _started: boolean = false;
-    private _dom:Dom = new Dom();
-    private _screen:HTMLCanvasElement = this._dom.GetElementById<HTMLCanvasElement>("screen");
-    private _illustrator:Illustrator = new Illustrator(this._screen.getContext("2d"));
+    private _dom:Dom;
+    private _screen:HTMLCanvasElement;
+    private _illustrator:Illustrator;
 
     public async Init()
     {
+        this._dom = new Dom(await new FileReader().ReadCompetences());
+        this._screen  = this._dom.GetElementById<HTMLCanvasElement>("screen");
+        this._illustrator = new Illustrator(this._screen.getContext("2d"));
         this._illustrator.Draw(this._screen);
         this._illustrator.Draw(this._snake);
         this._apple.Move(this._snake);
-        await this._dom.Init();
         let self = this;
-        window.addEventListener("keydown", function(key){ self.SetDirection(key) });
+        window.addEventListener("keydown", function(key){ self.ChangeDirection(key) });
     }
 
     public Start()
     {
-        this._dom.Init();
         this._started = true;
         let self = this;
-        setInterval(function(){ self.Tick(); }, 1000/15);
+        this._dom.RemoveStartInstruction();
+        this._dom.ShowBasket();
+        this._dom.ConfigureModalFocus();
+        setInterval(function(){ self.Tick(); }, 1000/this._ticksPerSecond);
     }
 
     public Tick()
     {
-        if (this._snake.Direction != Direction.Unknown)
+        if (this._snake.GetCurrentDirection() != Direction.Unknown)
         {
             this._illustrator.Draw(this._screen);
             this._snake.Move();
@@ -47,28 +52,23 @@ export class Game {
                 this._dom.AddCompetence();
             }
             this._illustrator.Draw(this._apple);
-            this._hasDrawn = true;
+            this._isDrawing = false;
         }
     }
 
-    public SetDirection(key: any) {
-
+    public ChangeDirection(key: any)
+    {
         if (this._started)
         {
-            if (this._hasDrawn)
+            if (!this._isDrawing)
             {
-                if([37, 38, 39, 40].indexOf(key.keyCode) > -1) 
+                let direction = key.keyCode as Direction;
+                if (direction in Direction)
                 {
-                    this._dom.SetInstruction("Press spacebar to pause");
-                    this._hasDrawn = false;
                     key.preventDefault();
-                    this._snake.ChangeDirection(key.keyCode as Direction);
-                } 
-                else if (key.keyCode == 32)
-                {
-                    this._dom.SetInstruction("Press any arrow key to continue");
-                    key.preventDefault();
-                    this._snake.Stop();
+                    this._snake.ChangeDirection(direction);
+                    this._dom.SetInstruction(direction == Direction.Unknown ? "Press any arrow key to continue" : "Press spacebar to pause");
+                    this._isDrawing = direction != Direction.Unknown;
                 }
             }
         }

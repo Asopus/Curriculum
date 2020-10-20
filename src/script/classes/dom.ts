@@ -1,29 +1,29 @@
 import { Competence } from "./competence.js";
-import { FileReader } from "./filereader.js";
 
 export class Dom {
 
     private _numbers = ["one","two","three","four","five"];
     private _skillLevels = ["Novice", "Elementary", "Intermediate", "Advanced", "Expert"];
-    private _competences: Array<Competence>;
+    private _competences: Array<Competence> = [];
     private _instructionElement: HTMLElement = this.GetElementById("instruction");
     private _fileReader:FileReader = new FileReader();
 
-    constructor() {
-        this.SetModalFocus();
+    constructor(competences:Array<Competence>) {
+        this._competences = competences;
     }
 
-    public async Init()
+    public RemoveStartInstruction()
     {
         this.RemoveClasses(this._instructionElement, "blink");
-        this.SetInstruction("Press spacebar to pause");
+    }
+
+    public ShowBasket()
+    {
+        this.GetElementById("toCollect").innerText = "\xA0/ " + this._competences.length;
         let basket = this.GetElementById("apple-basket");
         this.RemoveClasses(basket, "invisible");
         this.AddClasses(basket, "animate__animated", "animate__bounceInLeft");
-        this._competences = await this._fileReader.ReadCompetences();
-        this.GetElementById("toCollect").innerText = "\xA0/ " + this._competences.length;
     }
-
 
     public RemoveClasses(element:HTMLElement, ...classes:string[])
     {
@@ -137,18 +137,14 @@ export class Dom {
         }
     }
     
-    private SetModalFocus()
+    public ConfigureModalFocus()
     {
         $('#competenceModal').keydown(function(e) {
             if (e.keyCode === 37) {
-               // Previous
                $(".carousel-control-prev-icon").click();
-               return false;
             }
             if (e.keyCode === 39) {
-               // Next
                $(".carousel-control-next-icon").click();
-               return false;
             }
         });
     }
