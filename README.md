@@ -10,3 +10,9 @@
 You should be presented with the following webpage:
 
 ![Interactive resume preview](https://github.com/Asopus/Curriculum/blob/master/assets/img/example.PNG?raw=true)
+
+
+## Controls
+- Press ← ↑ → ↓ to start the game
+- Catch as many apples as you can to collect competences
+- Click one a competence under the playfield to view its detail
