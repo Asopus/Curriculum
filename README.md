@@ -3,6 +3,7 @@
 - Clone the repo
 - Host in any webserver (I used IIS)
 - Open cli on ~/Curriculum
+- Make sure you have npm and gulp globally installed
 - Execute `./build.ps1`
 - Open browser and navigate to url where you host the project
 
