@@ -18,11 +18,7 @@ export class Snake {
         this._startPositionX = startPositionX;
         this._startPositionY = startPositionY;
         this._partSize = partSize;
-        this.Init();
-    }
 
-    private Init()
-    {
         for (let i = 0;i<this.StartLength;++i)
         {
             this.BodyParts.push(new SnakePart(this._startPositionX + i * this._partSize, this._startPositionY, this._partSize));
@@ -71,9 +67,18 @@ export class Snake {
         this.BodyParts.push(new SnakePart(head.X + (head.PartSize * this._directionX), head.Y + (head.PartSize * this._directionY), head.PartSize));
     }
 
-    public HeadCollidesWith(apple: Apple) : boolean {
-        let head: SnakePart = this.BodyParts[this.BodyParts.length - 1];
-        return head.X == apple.X && head.Y == apple.Y;
+    public HeadCollidesWith(apple: Apple) : boolean;
+    public HeadCollidesWith(part: SnakePart) : boolean;
+    public HeadCollidesWith(object:any): boolean
+    {
+        if (object instanceof Apple) {
+            let head: SnakePart = this.BodyParts[this.BodyParts.length - 1];
+            return head.X == object.X && head.Y == object.Y;
+        } 
+        else if (object instanceof SnakePart) {
+            let head: SnakePart = this.BodyParts[this.BodyParts.length - 1];
+            return object != head && head.X  == object.X && head.Y == object.Y;
+        }
     }
 
     public BodyCollidesWith(apple: Apple) : boolean {
@@ -85,18 +90,6 @@ export class Snake {
                 return true
             }
         }
-        return false;
-    }
-
-    public HeadCollidesWithPart(part: SnakePart) : boolean
-    {
-        let head: SnakePart = this.BodyParts[this.BodyParts.length - 1];
-        
-        if (part != head && head.X  == part.X && head.Y == part.Y) 
-        { 
-            return true;
-        }
-
         return false;
     }
 

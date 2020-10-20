@@ -1,7 +1,7 @@
 import { Competence } from "./competence.js";
 import { Technology } from "./technology.js";
 
-export class Api {
+export class FileReader {
 
     public async ReadCompetences(): Promise<Array<Competence>>
     {

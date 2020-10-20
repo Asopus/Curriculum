@@ -10,7 +10,6 @@ export class Illustrator {
         this._canvas = canvas;
         this._context = this._canvas.getContext("2d");
     }
-
     
     public DrawApple(apple:Apple) 
     {

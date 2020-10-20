@@ -1,10 +1,8 @@
 import {Apple} from './apple.js';
 import {Snake} from './snake.js';
 import {SnakePart} from './snakepart.js';
-import {Competence} from './competence.js';
 import { Direction } from './direction.js';
 import { Dom } from './dom.js';
-import { Api } from './api.js';
 import { Illustrator } from './illustrator.js';
 
 export class Game {
@@ -20,6 +18,7 @@ export class Game {
     {
         this._illustrator.DrawBoard();
         this.DrawSnake();
+        this._apple.Move(this._snake);
         this._dom.Init();
         let self = this;
         window.addEventListener("keydown", function(key){ self.SetDirection(key) });
@@ -92,7 +91,7 @@ export class Game {
 
     private CheckBodyCollision(part: SnakePart)
     {
-        if (this._snake.HeadCollidesWithPart(part)) 
+        if (this._snake.HeadCollidesWith(part)) 
         { 
             this._snake.ResetSnake();
         }

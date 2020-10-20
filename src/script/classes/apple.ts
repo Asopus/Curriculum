@@ -12,7 +12,6 @@ export class Apple {
         this._boundaryX = boundaryX
         this._boundaryY = boundaryY;
         this.PartSize = partSize;
-        this.Move(null);
     }
 
     public Move(snake: Snake)
