@@ -1,26 +1,49 @@
 import { Competence } from "./competence.js";
+import { Api } from "./api.js";
 
 export class Dom {
 
     private _numbers = ["one","two","three","four","five"];
     private _skillLevels = ["Novice", "Elementary", "Intermediate", "Advanced", "Expert"];
     private _competences: Array<Competence>;
-    private _instructionElement: HTMLElement = document.getElementById("instruction");
+    private _instructionElement: HTMLElement = this.GetElementById("instruction");
+    private _api:Api = new Api();
 
-    constructor(competences: Array<Competence>){
+    constructor() {
         this.SetModalFocus();
-        this._competences = competences;
-        document.getElementById("toCollect").innerText = "\xA0/ " + this._competences.length;
     }
 
-    public Init()
+    public async Init()
     {
-        this._instructionElement.classList.remove("blink");
-        this._instructionElement.innerText = "Press spacebar to pause";
-        let basket = document.getElementById("apple-basket");
-        basket.classList.remove("invisible");
-        basket.classList.add("animate__animated");
-        basket.classList.add("animate__bounceInLeft");
+        this.RemoveClasses(this._instructionElement, "blink");
+        this.SetInstruction("Press spacebar to pause");
+        let basket = this.GetElementById("apple-basket");
+        this.RemoveClasses(basket, "invisible");
+        this.AddClasses(basket, "animate__animated", "animate__bounceInLeft");
+        this._competences = await this._api.ReadCompetences();
+        this.GetElementById("toCollect").innerText = "\xA0/ " + this._competences.length;
+    }
+
+
+    public RemoveClasses(element:HTMLElement, ...classes:string[])
+    {
+        for(let i=0;i<classes.length;++i)
+        {            
+            element.classList.remove(classes[i]);
+        }
+    }
+
+    public AddClasses(element:HTMLElement, ...classes:string[])
+    {
+        for(let i=0;i<classes.length;++i)
+        {            
+            element.classList.add(classes[i]);
+        }
+    }
+
+    public GetElementById<TType extends HTMLElement>(id:string) : TType
+    {
+       return document.getElementById(id) as TType;
     }
 
     public SetInstruction(instruction: string)
@@ -30,18 +53,15 @@ export class Dom {
 
     public AddCompetence()
      {
-         let score = document.getElementById("score") as HTMLElement;
+         let score = this.GetElementById("score");
          let oldScore = parseInt(score.innerText);
          if(oldScore != this._competences.length)
          {
              let currentCompetence = this._competences[oldScore];
              score.innerText = (oldScore + 1).toString();
-             let competences = document.getElementById("competences") as HTMLElement;
+             let competences = this.GetElementById("competences");
              let competence =  document.createElement("div");
-             competence.classList.add("competence");
-             competence.classList.add("animate__animated");
-             competence.classList.add("animate__swing");
-             competence.classList.add("animate__slow");
+             this.AddClasses(competence, "competence", "animate__animated", "animate__swing", "animate__slow");
              competence.setAttribute('data-target', "#competenceCarousel");
              competence.setAttribute('data-slide-to', oldScore.toString());        
              let competenceTitle = document.createElement("span");
@@ -49,23 +69,20 @@ export class Dom {
              competence.appendChild(competenceTitle);
              competences.appendChild(competence);
              
-             let carousel = document.getElementById("innerCarousel") as HTMLElement;
+             let carousel = this.GetElementById("innerCarousel");
  
              let carouselItem = document.createElement("div");
-             carouselItem.classList.add("carousel-item");
+             this.AddClasses(carouselItem, "carousel-item");
  
              if (oldScore == 0)
              {
-                 carouselItem.classList.add("active");
+                 this.AddClasses(carouselItem, "active");
              }
  
              let technologyHeader = document.createElement("div");
-             technologyHeader.classList.add("row");
-             technologyHeader.classList.add("competence-technologies");
-             technologyHeader.classList.add("header");
+             this.AddClasses(technologyHeader, "row", "header", "competence-technologies");
              let headerName = document.createElement("div");
-             headerName.classList.add("col");
-             headerName.classList.add("competence-header-name");
+             this.AddClasses(headerName, "col", "competence-header-name");
              headerName.innerText= currentCompetence.Title;
  
              technologyHeader.appendChild(headerName);
@@ -73,8 +90,7 @@ export class Dom {
              for (let i=0;i<this._numbers.length;++i)
              {
                  let titleElement = document.createElement("div");
-                 titleElement.classList.add("col");
-                 titleElement.classList.add(this._numbers[i]);
+                 this.AddClasses(titleElement, "col", this._numbers[i]);
                  titleElement.innerText= this._skillLevels[i];
                  technologyHeader.appendChild(titleElement);
              }
@@ -85,11 +101,9 @@ export class Dom {
              {
                  let currentTechnology = currentCompetence.Technologies[i];
                  let technologies = document.createElement("div");
-                 technologies.classList.add("row");
-                 technologies.classList.add("competence-technologies");
+                 this.AddClasses(technologies, "row", "competence-technologies");
                  let nameElement = document.createElement("div");
-                 nameElement.classList.add("name");
-                 nameElement.classList.add("col");
+                 this.AddClasses(nameElement, "col", "name");
                  let namespan = document.createElement("span");
                  namespan.innerText = currentTechnology.Title;
                  nameElement.appendChild(namespan);
@@ -98,8 +112,7 @@ export class Dom {
                  for (let j=0;j<currentTechnology.Rating;++j)
                  {
                      let imgContainer = document.createElement("div");
-                     imgContainer.classList.add(this._numbers[j]);
-                     imgContainer.classList.add("col");
+                     this.AddClasses(imgContainer, "col", this._numbers[j]);
                      let imgElement = document.createElement("img");
                      imgElement.width = 25;
                      imgElement.height = 30;
@@ -116,11 +129,11 @@ export class Dom {
  
          if (oldScore == this._competences.length - 1)
          {
-             let competences = document.getElementById("competences") as HTMLElement;
-             competences.children[0].classList.remove("animate__swing");
-             competences.children[0].classList.add("animate__tada");
-             competences.children[0].classList.add("animate__infinite");
-             competences.children[0].addEventListener("click", this.RemoveAttentionSeeker)
+             let competences = this.GetElementById("competences");
+             let firstCompetence = competences.children[0] as HTMLElement;
+             this.RemoveClasses(firstCompetence, "animate__swing");
+             this.AddClasses(firstCompetence, "animate__tada", "animate__infinite");
+             firstCompetence.addEventListener("click", this.RemoveAttentionSeeker)
          }
      }
     
@@ -141,9 +154,10 @@ export class Dom {
     }
 
     private RemoveAttentionSeeker() {
-        let competences = document.getElementById("competences") as HTMLElement;
-        competences.children[0].classList.remove("animate__tada");
-        competences.children[0].classList.remove("animate__infinite");
-        competences.children[0].removeEventListener("click", this.RemoveAttentionSeeker)
+        let competences = document.getElementById("competences");
+        let firstCompetence = competences.children[0] as HTMLElement;
+        firstCompetence.classList.remove("animate__tada");
+        firstCompetence.classList.remove("animate__infinite");
+        firstCompetence.removeEventListener("click", this.RemoveAttentionSeeker)
     }
 }

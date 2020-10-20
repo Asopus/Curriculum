@@ -5,28 +5,22 @@ import {Competence} from './competence.js';
 import { Direction } from './direction.js';
 import { Dom } from './dom.js';
 import { Api } from './api.js';
+import { Illustrator } from './illustrator.js';
 
 export class Game {
     private _apple: Apple = new Apple(440, 320, 10);
     private _snake: Snake = new Snake(3, 230, 170, 10);
-    private _canvas = document.getElementById("screen") as HTMLCanvasElement; 
-    private _context: CanvasRenderingContext2D;
     private _hasDrawn:boolean = true;
     private _started: boolean = false;
-    private _api:Api = new Api();
-    private _dom:Dom;
-    
-    constructor()
-    {
-        this._context = this._canvas.getContext("2d");
-    }
+    private _dom:Dom = new Dom();
+    private _canvas:HTMLCanvasElement = this._dom.GetElementById<HTMLCanvasElement>("screen");
+    private _illustrator:Illustrator = new Illustrator(this._canvas);
 
     public async Init()
     {
-        this.DrawBoard();
+        this._illustrator.DrawBoard();
         this.DrawSnake();
-        this._api = new Api();
-        this._dom = new Dom(await this._api.ReadCompetences());
+        this._dom.Init();
         let self = this;
         window.addEventListener("keydown", function(key){ self.SetDirection(key) });
     }
@@ -43,7 +37,7 @@ export class Game {
     {
         if (this._snake.Direction != Direction.Unknown)
         {
-            this.DrawBoard();
+            this._illustrator.DrawBoard();
             this._snake.Move();
             this.DrawSnake();
             if (this._snake.HeadCollidesWith(this._apple)) 
@@ -52,7 +46,7 @@ export class Game {
                 this._apple.Move(this._snake);
                 this._dom.AddCompetence();
             }
-            this.DrawApple();
+            this._illustrator.DrawApple(this._apple);
             this._hasDrawn = true;
         }
     }
@@ -131,25 +125,8 @@ export class Game {
             let part = this._snake.BodyParts[i];
             this.CheckBorderCollision(part);
             this.CheckBodyCollision(part);
-            this.DrawPart(part);
+            this._illustrator.DrawPart(part);
         } 
     }
 
-    private DrawApple() 
-    {
-        this._context.fillStyle = "red";
-        this._context.fillRect(this._apple.X ,this._apple.Y, this._apple.PartSize, this._apple.PartSize);
-    }
-
-    private DrawPart(part: SnakePart)
-    {
-        this._context.fillStyle = "lime";
-        this._context.fillRect(part.X, part.Y, part.PartSize, part.PartSize);
-        this._context.strokeRect(part.X, part.Y, part.PartSize, part.PartSize);
-    }
-
-    private DrawBoard() {
-        this._context.fillStyle = "black";
-        this._context.fillRect(0, 0, this._canvas.width, this._canvas.height);
-    }
 }
