@@ -1,7 +1,6 @@
-import { Apple } from "./apple.js";
-import { SnakePart } from "./snakepart.js";
-import { Snake } from "./snake.js";
-import { Direction } from "./direction.js";
+import { Apple } from "../model/apple.js";
+import { SnakePart } from "../model/snakepart.js";
+import { Snake } from "../model/snake.js";
 
 export class Illustrator {
     

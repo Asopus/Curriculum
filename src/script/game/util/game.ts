@@ -1,7 +1,7 @@
-import {Apple} from './apple.js';
-import {Snake} from './snake.js';
+import {Apple} from '../model/apple.js';
+import {Snake} from '../model/snake.js';
 import { FileReader } from "./filereader.js";
-import { Direction } from './direction.js';
+import { Direction } from '../model/direction.js';
 import { Dom } from './dom.js';
 import { Illustrator } from './illustrator.js';
 

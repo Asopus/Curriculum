@@ -18,7 +18,7 @@ gulp.task("tsc", function () {
 gulp.task('concat', function() {
     return gulp.src('../../dist/**/*.js')
     .pipe(order([
-        '../../dist/classes/*.js',
+        '../../dist/**/*.js',
         '../../dist/main.js'
         ], { base: __dirname }))
         .pipe(concat('app.min.js'))

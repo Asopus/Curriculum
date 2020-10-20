@@ -1,5 +1,5 @@
-import {Game} from './classes/game.js';
-import { Direction } from './classes/direction.js';
+import {Game} from './util/game.js';
+import { Direction } from './model/direction.js';
 
 let _game: Game;
 

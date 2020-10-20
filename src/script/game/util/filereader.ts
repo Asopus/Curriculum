@@ -1,5 +1,5 @@
-import { Competence } from "./competence.js";
-import { Technology } from "./technology.js";
+import { Competence } from "../model/competence.js";
+import { Technology } from "../model/technology.js";
 
 export class FileReader {
 

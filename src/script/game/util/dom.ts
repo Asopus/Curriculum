@@ -1,4 +1,4 @@
-import { Competence } from "./competence.js";
+import { Competence } from "../model/competence.js";
 
 export class Dom {
 
