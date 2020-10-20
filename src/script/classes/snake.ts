@@ -1,6 +1,6 @@
 import { SnakePart } from './snakepart.js';
 import { Apple } from './apple.js';
-import { Direction } from './direction.js';
+import { Direction, DirectionMap } from './direction.js';
 
 export class Snake {
     public BodyParts: Array<SnakePart> = [];
@@ -11,6 +11,7 @@ export class Snake {
     private _partSize: number;
     private _directionX: number = 0;
     private _directionY: number = 0;
+    private _directionMap: Array<DirectionMap> = [];
 
     constructor(startLength: number, startPositionX: number, startPositionY: number, partSize: number)
     {
@@ -19,11 +20,29 @@ export class Snake {
         this._startPositionY = startPositionY;
         this._partSize = partSize;
 
+        this._directionMap.push(new DirectionMap(Direction.Unknown, 0,0));
+        this._directionMap.push(new DirectionMap(Direction.Left, -1, 0));
+        this._directionMap.push(new DirectionMap(Direction.Up, 0, -1));
+        this._directionMap.push(new DirectionMap(Direction.Right, 1, 0));
+        this._directionMap.push(new DirectionMap(Direction.Down, 0, 1));
+
         for (let i = 0;i<this.StartLength;++i)
         {
             this.BodyParts.push(new SnakePart(this._startPositionX + i * this._partSize, this._startPositionY, this._partSize));
         }
     }
+
+    public ChangeDirection(direction:Direction)
+    {
+        if (Math.abs(direction - this.Direction) != 2)
+        {
+            let map:DirectionMap = this._directionMap.filter(x => x.Direction == direction)[0];
+            this._directionX = map.X;
+            this._directionY = map.Y;
+            this.Direction = map.Direction;
+        }
+    }
+
 
     public GoLeft()
     {

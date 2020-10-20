@@ -4,6 +4,7 @@ import {SnakePart} from './snakepart.js';
 import { Direction } from './direction.js';
 import { Dom } from './dom.js';
 import { Illustrator } from './illustrator.js';
+import { Dir } from 'fs';
 
 export class Game {
     private _apple: Apple = new Apple(440, 320, 10);
@@ -61,23 +62,7 @@ export class Game {
                     this._dom.SetInstruction("Press spacebar to pause");
                     this._hasDrawn = false;
                     key.preventDefault();
-
-                    if (key.keyCode == 37 && this._snake.Direction != Direction.Left && this._snake.Direction != Direction.Right)
-                    {
-                        this._snake.GoLeft();
-                    } 
-                    else if (key.keyCode == 38 && this._snake.Direction != Direction.Up && this._snake.Direction != Direction.Down)
-                    {
-                        this._snake.GoUp();
-                    } 
-                    else if (key.keyCode == 39 && this._snake.Direction != Direction.Right && this._snake.Direction != Direction.Left)
-                    {
-                        this._snake.GoRight();
-                    } 
-                    else if (key.keyCode == 40 && this._snake.Direction != Direction.Down && this._snake.Direction != Direction.Up)
-                    {
-                        this._snake.GoDown();
-                    }
+                    this._snake.ChangeDirection(key.keyCode as Direction);
                 } 
                 else if (key.keyCode == 32)
                 {
