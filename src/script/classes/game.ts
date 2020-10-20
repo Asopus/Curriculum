@@ -11,15 +11,15 @@ export class Game {
     private _hasDrawn:boolean = true;
     private _started: boolean = false;
     private _dom:Dom = new Dom();
-    private _canvas:HTMLCanvasElement = this._dom.GetElementById<HTMLCanvasElement>("screen");
-    private _illustrator:Illustrator = new Illustrator(this._canvas);
+    private _screen:HTMLCanvasElement = this._dom.GetElementById<HTMLCanvasElement>("screen");
+    private _illustrator:Illustrator = new Illustrator(this._screen.getContext("2d"));
 
     public async Init()
     {
-        this._illustrator.DrawBoard();
-        this.DrawSnake();
+        this._illustrator.Draw(this._screen);
+        this._illustrator.Draw(this._snake);
         this._apple.Move(this._snake);
-        this._dom.Init();
+        await this._dom.Init();
         let self = this;
         window.addEventListener("keydown", function(key){ self.SetDirection(key) });
     }
@@ -36,16 +36,16 @@ export class Game {
     {
         if (this._snake.Direction != Direction.Unknown)
         {
-            this._illustrator.DrawBoard();
+            this._illustrator.Draw(this._screen);
             this._snake.Move();
-            this.DrawSnake();
+            this._illustrator.Draw(this._snake);
             if (this._snake.HeadCollidesWith(this._apple)) 
             {
                 this._snake.AddPartToTail();
                 this._apple.Move(this._snake);
                 this._dom.AddCompetence();
             }
-            this._illustrator.DrawApple(this._apple);
+            this._illustrator.Draw(this._apple);
             this._hasDrawn = true;
         }
     }
@@ -88,44 +88,4 @@ export class Game {
             }
         }
      }
-
-    private CheckBodyCollision(part: SnakePart)
-    {
-        if (this._snake.HeadCollidesWith(part)) 
-        { 
-            this._snake.ResetSnake();
-        }
-    }
-
-    private CheckBorderCollision(part: SnakePart)
-    {
-        if (this._snake.Direction == Direction.Right && part.X == this._canvas.width)
-        {
-            part.X = 0;
-        }
-        else if (this._snake.Direction == Direction.Left && part.X == 0 - part.PartSize)
-        {
-            part.X = this._canvas.width - part.PartSize;
-        }
-        else if (this._snake.Direction == Direction.Down && part.Y == this._canvas.height)
-        {
-            part.Y = 0;
-        }
-        else if (this._snake.Direction == Direction.Up && part.Y == 0 - part.PartSize)
-        {
-            part.Y = this._canvas.height - part.PartSize;
-        }   
-    }
-
-    private DrawSnake() 
-    {
-        for(let i=0;i < this._snake.BodyParts.length;++i)
-        {
-            let part = this._snake.BodyParts[i];
-            this.CheckBorderCollision(part);
-            this.CheckBodyCollision(part);
-            this._illustrator.DrawPart(part);
-        } 
-    }
-
 }
