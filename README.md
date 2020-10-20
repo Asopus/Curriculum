@@ -8,7 +8,8 @@
 - Open browser and navigate to url where you host the project
 
 ## Controls
-- Press ← ↑ → ↓ to start the game
+- Press <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> to start the game
+- Press <kbd>space</kbd> to pause the game
 - Catch as many apples as you can to collect competences
 - Click one a competence under the playfield to view its detail
 
