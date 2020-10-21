@@ -46,6 +46,11 @@ export class Dom {
        return document.getElementById(id) as TType;
     }
 
+    public GetElementsByClassName<TType extends HTMLElement>(className:string) : HTMLCollectionOf<TType>
+    {
+       return document.getElementsByClassName(className) as HTMLCollectionOf<TType>;
+    }
+
     public SetInstruction(instruction: string)
     {
         this._instructionElement.innerText = instruction;

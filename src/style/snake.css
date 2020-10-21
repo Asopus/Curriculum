@@ -11,14 +11,6 @@ body{
     background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);
 }
 
-#tv {
-    background-image: url(../../assets/img/old-tv.png);
-    min-width: 720px;
-    min-height: 410px;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
 #github {
   background-image: url(../../assets/img/github.png);
   height: 25px;
@@ -36,10 +28,86 @@ body{
   background-repeat: no-repeat;
 }
 
+#tv {
+  background-image: url(../../assets/img/old-tv.png);
+  min-width: 720px;
+  min-height: 410px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 #screen {
     margin-left: 72px;
     margin-top: 13px;
     border-radius: 5px;
+}
+
+#gameboy {
+  background-image: url(../../assets/img/gameboy.png);
+  min-width: 820px;
+  min-height: 800px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#mobile-screen {
+    margin-left: 225px;
+    margin-top: 122px;
+    border-radius: 5px;
+}
+
+.mobile-controls {
+  position: relative;
+  margin-left: 237px;
+  margin-top: 12px;
+}
+
+.touch-button {
+  position: absolute;
+}
+
+#mobile-left {
+  /* background-color: red; */
+  width: 50px;
+  height: 76px;
+  margin-top: 37px;
+  border-radius: 15%;
+}
+
+#mobile-up {
+  /* background-color: green; */
+  margin-top: -12px;
+  margin-left: 37px;
+  height: 50px;
+  width: 77px;
+  border-radius: 15%;
+}
+
+#mobile-right {
+  /* background-color: blue; */
+  width: 50px;
+  height: 76px;
+  margin-left: 102px;
+  margin-top: 37px;
+  border-radius: 15%;
+}
+
+#mobile-down {
+  /* background-color: orange; */
+  margin-left: 38px;
+  margin-top: 113px;
+  height: 50px;
+  width: 77px;
+  border-radius: 15%;
+}
+
+#mobile-space {
+  /*background-color: grey;*/
+  margin-left: 236px;
+  margin-top: -3px;
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
 }
 
 .title
@@ -168,5 +236,5 @@ body{
 }
 
 .invisible {
-  visibility: collapse;
+  visibility: collapse !important;
 }
