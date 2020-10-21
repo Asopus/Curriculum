@@ -20,6 +20,7 @@ export class FileReader {
     private MapCompetences(response:any): Array<Competence>
     {
         let _competences: Array<Competence> = new Array<Competence>();
+        //response = JSON.parse(response);
         for(let i=0;i< response.length;++i)
         {
             let currentCompetence = response[i];

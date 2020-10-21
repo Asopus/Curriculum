@@ -7,8 +7,7 @@ import { Illustrator } from './illustrator.js';
 import { GameConfiguration, GameType } from './gameconfiguration.js';
 
 export class Game {
-    private _partSize = 10;
-    private _ticksPerSecond = 15;
+    private _ticksPerSecond;
     private _apple: Apple;
     private _snake: Snake;
     private _isDrawing:boolean = false;
@@ -31,6 +30,7 @@ export class Game {
         this._screen  = this._dom.GetElementById<HTMLCanvasElement>(this._configuration.ScreenId);
         this._screen.height = this._configuration.ScreenHeight;
         this._screen.width = this._configuration.ScreenWidth;
+        this._ticksPerSecond = this._configuration.TicksPerSecond;
         this._illustrator = new Illustrator(this._screen.getContext("2d"));
         this._illustrator.Draw(this._screen);
         this._illustrator.Draw(this._snake);

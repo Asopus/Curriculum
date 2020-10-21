@@ -3,7 +3,7 @@
         "rootDir": "./",
         "outDir": "../../dist",
         "removeComments": true,
-        "target": "esnext",
+        "target": "es2020",
         "watch": true,
         "strictNullChecks": false,
     },

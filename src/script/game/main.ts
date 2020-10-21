@@ -15,12 +15,13 @@ window.onload = async (event) =>
         config = <GameConfiguration>({
             ScreenId: "mobile-screen",
             Type: GameType.Mobile,
-            ScreenHeight: 640,
-            ScreenWidth: 620,
-            PartSize: 20,
+            ScreenHeight: 465,
+            ScreenWidth: 465,
+            PartSize: 15,
             StartLength: 3,
-            StartX: 280,
-            StartY: 300
+            StartX: 225,
+            StartY: 225,
+            TicksPerSecond: 10,
         });
     }
     else
@@ -35,7 +36,8 @@ window.onload = async (event) =>
             PartSize: 10,
             StartLength: 3,
             StartX: 230,
-            StartY: 170
+            StartY: 170,
+            TicksPerSecond: 15,
         });
     }
 

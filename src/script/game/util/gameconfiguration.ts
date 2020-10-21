@@ -8,6 +8,7 @@ export class GameConfiguration {
     public StartX:number;
     public StartY:number;
     public Type:GameType;
+    public TicksPerSecond:number;
 }
 
 export enum GameType
