@@ -89,7 +89,7 @@ body{
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 90% 10%;
+  grid-template-rows: 9.5fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "."
@@ -101,6 +101,7 @@ body{
 }
 
 .footer-row {
+  margin-top:15px;
   grid-row: 2;
 }
 
