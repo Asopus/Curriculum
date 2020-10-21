@@ -15,12 +15,12 @@ window.onload = async (event) =>
         config = <GameConfiguration>({
             ScreenId: "mobile-screen",
             Type: GameType.Mobile,
-            ScreenHeight: 360,
-            ScreenWidth: 350,
-            PartSize: 10,
+            ScreenHeight: 640,
+            ScreenWidth: 620,
+            PartSize: 20,
             StartLength: 3,
-            StartX: 230,
-            StartY: 170
+            StartX: 280,
+            StartY: 300
         });
     }
     else

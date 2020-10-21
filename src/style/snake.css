@@ -44,16 +44,17 @@ body{
 
 #gameboy {
   background-image: url(../../assets/img/gameboy.png);
-  min-width: 820px;
-  min-height: 800px;
+  min-width: 80%;
+  max-width: 80%;
+  min-height: 1170px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 #mobile-screen {
-    margin-left: 225px;
-    margin-top: 122px;
-    border-radius: 5px;
+  margin-left: 75px;
+  margin-top: 95px;
+  border-radius: 15px;
 }
 
 .mobile-controls {
@@ -68,45 +69,46 @@ body{
 
 #mobile-left {
   /* background-color: red; */
-  width: 50px;
-  height: 76px;
-  margin-top: 37px;
+  width: 146px;
+  height: 140px;
+  margin-top: 72px;
+  margin-left: -211px;
   border-radius: 15%;
 }
 
 #mobile-up {
   /* background-color: green; */
-  margin-top: -12px;
-  margin-left: 37px;
-  height: 50px;
-  width: 77px;
+  margin-top: -65px;
+  margin-left: -74px;
+  height: 146px;
+  width: 140px;
   border-radius: 15%;
 }
 
 #mobile-right {
   /* background-color: blue; */
-  width: 50px;
-  height: 76px;
-  margin-left: 102px;
-  margin-top: 37px;
+  width: 146px;
+  height: 140px;
+  margin-left: 58px;
+  margin-top: 73px;
   border-radius: 15%;
 }
 
 #mobile-down {
   /* background-color: orange; */
-  margin-left: 38px;
-  margin-top: 113px;
-  height: 50px;
-  width: 77px;
+  margin-left: -75px;
+  margin-top: 205px;
+  height: 146px;
+  width: 140px;
   border-radius: 15%;
 }
 
 #mobile-space {
-  /*background-color: grey;*/
-  margin-left: 236px;
-  margin-top: -3px;
-  width: 91px;
-  height: 91px;
+  /* background-color: grey; */
+  margin-left: 283px;
+  margin-top: 8px;
+  width: 155px;
+  height: 155px;
   border-radius: 50%;
 }
 

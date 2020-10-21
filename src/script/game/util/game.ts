@@ -36,7 +36,7 @@ export class Game {
         this._illustrator.Draw(this._snake);
         this._apple.Move(this._snake);
         let self = this;
-        window.addEventListener("keydown", function(key){ self.ChangeDirection(key) });
+        window.addEventListener("keydown", function(e){ self.ChangeDirection(e, e.keyCode) });
         if (this._configuration.Type == GameType.Mobile)
         {
             this.BindMobileKeys(self);
@@ -71,29 +71,24 @@ export class Game {
         }
     }
 
-    public ChangeDirection(keyCode:number);
-    public ChangeDirection(keyCode:KeyboardEvent);
-    public ChangeDirection(object: any)
+    public ChangeDirection(event:UIEvent, keyCode:number)
     {
         if (this._started)
         {
             if (!this._isDrawing)
             {
-                let direction = object instanceof KeyboardEvent ? object.keyCode as Direction : object as Direction;
+                let direction = keyCode as Direction;
                 if (direction in Direction)
-                    {
-                        if (object instanceof KeyboardEvent)
-                        {
-                            object.preventDefault();
-                        }
-
-                        this._snake.ChangeDirection(direction);
-                        this._dom.SetInstruction(direction == Direction.Unknown ? "Press any arrow key to continue" : "Press spacebar to pause");
-                        this._isDrawing = direction != Direction.Unknown;
-                    }
+                {
+                    event.preventDefault();
+                    this._snake.ChangeDirection(direction);
+                    this._dom.SetInstruction(direction == Direction.Unknown ? "Press any arrow key to continue" : "Press spacebar to pause");
+                    this._isDrawing = direction != Direction.Unknown;
+                }
+                
             }
         }
-     }
+    }
 
      private BindMobileKeys(context:Game)
      {
@@ -101,7 +96,7 @@ export class Game {
         for(let i=0;i<buttons.length;++i)
         {
             let button = buttons[i];
-            button.addEventListener("touchstart", function(key){ context.ChangeDirection(parseInt(button.getAttribute("data-key-code"))) });
+            button.addEventListener("touchstart", function(e){ context.ChangeDirection(e, parseInt(button.getAttribute("data-key-code"))) });
         }
      }
 }
