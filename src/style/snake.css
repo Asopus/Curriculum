@@ -2,7 +2,12 @@
 @import url(../../assets/fonts/six-caps.css);
 
 
+html {
+  height: 100%;
+}
+
 body{
+    height: 100%;
     background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);
 }
 
@@ -78,6 +83,25 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.main-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 90% 10%;
+  gap: 0px 0px;
+  grid-template-areas:
+    "."
+    ".";
+}
+
+.body-row {
+  grid-row: 1;
+}
+
+.footer-row {
+  grid-row: 2;
 }
 
 .vertical-flex {
