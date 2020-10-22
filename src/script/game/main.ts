@@ -1,83 +1,14 @@
 import {Game} from './util/game.js';
-import { Direction } from './model/direction.js';
-import { GameConfiguration, GameType } from './util/gameconfiguration.js';
+import { DesktopGame } from './util/desktopgame.js';
+import { MobileGame } from './util/mobilegame.js';
 
 let _game: Game;
 
 window.onload = async (event) =>
 {
-    let config: GameConfiguration;
-
-    if (IsMobile())
-    {
-        var web = document.getElementsByClassName("game-container");
-        web[0].remove();
-        config = <GameConfiguration>({
-            ScreenId: "mobile-screen",
-            Type: GameType.Mobile,
-            ScreenHeight: 465,
-            ScreenWidth: 465,
-            PartSize: 15,
-            StartLength: 3,
-            StartX: 225,
-            StartY: 225,
-            TicksPerSecond: 10,
-        });
-    }
-    else
-    {
-        var mobile = document.getElementsByClassName("mobile-game-container");
-        mobile[0].remove();
-        config = <GameConfiguration>({
-            ScreenId: "screen",
-            Type: GameType.Desktop,
-            ScreenHeight: 350,
-            ScreenWidth: 460,
-            PartSize: 10,
-            StartLength: 3,
-            StartX: 230,
-            StartY: 170,
-            TicksPerSecond: 15,
-        });
-    }
-
-    _game = new Game(config);
-
-    window.addEventListener("keydown", StartGame);
-    let buttons = document.getElementsByClassName("touch-button") as HTMLCollectionOf<HTMLElement>
-    for(let i=0;i<buttons.length;++i)
-    {
-        let button = buttons[i];
-        button.addEventListener("touchstart", StartMobileGame);
-    }
-    await _game.Init();
+    _game = IsMobile() ? new MobileGame() : new DesktopGame();
+    await _game.Load();
 } 
-
-function StartGame(key: any) { 
-    let direction = key.keyCode as Direction;
-    if (direction in Direction && direction != Direction.Unknown)
-    {
-        window.removeEventListener("keydown", StartGame)
-        let buttons = document.getElementsByClassName("touch-button") as HTMLCollectionOf<HTMLElement>
-        for(let i=0;i<buttons.length;++i)
-        {
-            let button = buttons[i];
-            button.removeEventListener("touchstart", StartMobileGame);
-        }
-        _game.Start();
-    }
-}
-
-function StartMobileGame(key: any) { 
-    window.removeEventListener("keydown", StartGame)
-    let buttons = document.getElementsByClassName("touch-button") as HTMLCollectionOf<HTMLElement>
-    for(let i=0;i<buttons.length;++i)
-    {
-        let button = buttons[i];
-        button.removeEventListener("touchstart", StartMobileGame);
-    }
-    _game.Start();
-}
 
 function IsMobile() {
     let check = false;

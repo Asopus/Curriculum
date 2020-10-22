@@ -7,12 +7,8 @@ export class GameConfiguration {
     public PartSize:number;
     public StartX:number;
     public StartY:number;
-    public Type:GameType;
     public TicksPerSecond:number;
-}
-
-export enum GameType
-{
-    Desktop,
-    Mobile
+    public StartInstruction:string;
+    public PauseInstruction:string;
+    public ContinueInstruction:string;
 }
