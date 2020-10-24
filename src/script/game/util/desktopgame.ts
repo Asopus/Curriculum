@@ -12,7 +12,7 @@ export class DesktopGame extends Game {
             ScreenId: "screen",
             ScreenHeight: screen.height,
             ScreenWidth: screen.width,
-            PartSize: 5,
+            PartSize: 10,
             StartLength: 3,
             StartX: 80,
             StartY: 80,

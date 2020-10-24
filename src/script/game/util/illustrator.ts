@@ -37,10 +37,11 @@ export class Illustrator {
             } 
         }
     }
-    
+
     private DrawPart(part: SnakePart)
     {
         this._context.fillStyle = "lime";
+        console.log(part);
         this._context.fillRect(part.X, part.Y, part.PartSize, part.PartSize);
         this._context.strokeRect(part.X, part.Y, part.PartSize, part.PartSize);
     }
