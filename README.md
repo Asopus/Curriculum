@@ -9,9 +9,9 @@
 
 ## Controls
 - Press <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> to start the game
-- Press <kbd>space</kbd> to pause the game
+- Press <kbd>space</kbd> on desktop or the red button on mobile to pause the game
 - Catch as many apples as you can to collect competences
-- Click one a competence under the playfield to view its detail
+- Click on a competence under the playfield to view its detail
 
 ## Rules
 - You can go through walls
