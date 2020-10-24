@@ -371,17 +371,26 @@ body{
       min-width: 100%;
     }
 
+    .footer-row {
+      margin-top: 3vh;
+      margin-bottom: 3vh;
+    }
+
+    #github {
+      width: 3vh;
+      height: 3vh;
+    }
+
     .title {
-      margin-top: 15px;
+      margin-top: 1vh;
     }
         
     .vintage-span
     {
         margin-top: 15px;
         color: rgb(230, 200, 160);
-        display: block;
         font-family: 'Satisfy', cursive;
-        font-size: 2.7vh;
+        font-size: 2.4vh;
     }
   }
 
