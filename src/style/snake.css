@@ -62,12 +62,12 @@ body{
 }
 
 #mobile-left {
-  background-color: red;
+  /* background-color: red; */
   left: 9px;
 }
 
 #mobile-right {
-  background-color: blue;
+  /* background-color: blue; */
   left: 194px;
 }
 
@@ -79,12 +79,12 @@ body{
 }
 
 #mobile-up {
-  background-color: green;
+  /* background-color: green; */
   top: -5px;
 }
 
 #mobile-down {
-  background-color: orange;
+  /* background-color: orange; */
   top: 157px;
 }
 
@@ -96,8 +96,8 @@ body{
 }
 
 #mobile-space {
-  background-color: grey;
-  border: 2px solid black;
+  /* background-color: grey;
+  border: 2px solid black; */
   opacity: 0.8;
   border-radius: 50%;
   left: 338px;
