@@ -4,14 +4,16 @@ import { GameConfiguration } from "./gameconfiguration.js";
 export class MobileGame extends Game {
     constructor()
     {
+        var screen = document.getElementById("mobile-screen") as HTMLCanvasElement;
+
         super(<GameConfiguration>({
             ScreenId: "mobile-screen",
-            ScreenHeight: 465,
-            ScreenWidth: 465,
-            PartSize: 15,
+            ScreenHeight: screen.height,
+            ScreenWidth: screen.width,
+            PartSize: 10,
             StartLength: 3,
-            StartX: 225,
-            StartY: 225,
+            StartX: 80,
+            StartY: 80,
             TicksPerSecond: 10,
             StartInstruction: "Touch the control pad to start collecting my competences ...",
             ContinueInstruction: "Touch the control pad to continue",

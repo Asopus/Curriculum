@@ -2,13 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" href="vendor/node_modules/animate.css/animate.min.css"/>
 <link rel="stylesheet" href="vendor/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
 <script src="vendor/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="vendor/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="module" src="dist/game/main.js"></script>
-<link rel="stylesheet" href="dist/style.min.css">
+<link rel="stylesheet" href="src/style/snake.css"/>
+<link rel="stylesheet" href="src/style/basket.css"/>
+<link rel="stylesheet" href="src/style/competence.css"/>
 </head>
 <body>
   <div class="main-container">
@@ -27,12 +29,12 @@
     </div>
     <div class="box mobile-game-container">
       <div id="gameboy">
-          <canvas id="mobile-screen"></canvas>
+          <canvas id="mobile-screen" height="170" width="170" ></canvas>
           <div class="mobile-controls">
-            <div class="touch-button" data-key-code="37" id="mobile-left"></div>
-            <div class="touch-button" data-key-code="38" id="mobile-up"></div>
-            <div class="touch-button" data-key-code="39" id="mobile-right"></div>
-            <div class="touch-button" data-key-code="40" id="mobile-down"></div>
+            <div class="touch-button mobile-horizontal" data-key-code="37" id="mobile-left"></div>
+            <div class="touch-button mobile-vertical" data-key-code="38" id="mobile-up"></div>
+            <div class="touch-button mobile-horizontal" data-key-code="39" id="mobile-right"></div>
+            <div class="touch-button mobile-vertical" data-key-code="40" id="mobile-down"></div>
             <div class="touch-button" data-key-code="32" id="mobile-space"></div>
           </div>
       </div>

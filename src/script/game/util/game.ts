@@ -27,8 +27,6 @@ export abstract class Game {
     {
         this._dom = new Dom(await new FileReader().ReadCompetences());
         this._screen  = this._dom.GetElementById<HTMLCanvasElement>(this._configuration.ScreenId);
-        this._screen.height = this._configuration.ScreenHeight;
-        this._screen.width = this._configuration.ScreenWidth;
         this._illustrator = new Illustrator(this._screen.getContext("2d"));
         this._illustrator.Draw(this._screen);
         this._illustrator.Draw(this._snake);
