@@ -30,21 +30,19 @@
       ]
     },
     {
-      "title": "Html",
+      "title": "Web",
       "imagePath": "",
       "technologies": [
         {
-          "title": "Html",
+          "title": "Html 5",
           "rating": 4
-        }
-      ]
-    },
-    {
-      "title": "Css",
-      "imagePath": "",
-      "technologies": [
+        },
         {
-          "title": "Css",
+          "title": "Css 3",
+          "rating": 3
+        },
+        {
+          "title": "Rest",
           "rating": 3
         }
       ]
@@ -67,7 +65,7 @@
         },
         {
           "title": "Angular",
-          "rating": 2
+          "rating": 3
         },
         {
           "title": "Knockout",
@@ -90,6 +88,28 @@
         {
           "title": "Sagas",
           "rating": 1
+        }
+      ]
+    },
+    {
+      "title": "Testing",
+      "imagePath": "",
+      "technologies": [
+        {
+          "title": "Microsoft fakes",
+          "rating": 4
+        },
+        {
+          "title": "Unit / integation",
+          "rating": 4
+        },
+        {
+          "title": "Automated ui",
+          "rating": 3
+        },
+        {
+          "title": "Moq",
+          "rating": 2
         }
       ]
     },
