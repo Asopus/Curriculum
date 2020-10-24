@@ -12,15 +12,17 @@ export class DesktopGame extends Game {
             ScreenId: "screen",
             ScreenHeight: screen.height,
             ScreenWidth: screen.width,
-            PartSize: 10,
+            PartSize: 5,
             StartLength: 3,
-            StartX: 230,
-            StartY: 170,
+            StartX: 80,
+            StartY: 80,
             TicksPerSecond: 15,
             StartInstruction: "Press any arrow key to start collecting my competences ...",
             ContinueInstruction: "Press any arrow key to continue",
             PauseInstruction: "Press spacebar to pause"
         }));
+
+        this._context = this;
     }
 
     protected Configure() {
