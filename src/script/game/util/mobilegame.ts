@@ -1,5 +1,6 @@
 import { Game } from "./game.js";
 import { GameConfiguration } from "./gameconfiguration.js";
+import { Direction } from "../model/direction.js";
 
 export class MobileGame extends Game {
 
@@ -50,16 +51,20 @@ export class MobileGame extends Game {
      }
 
     private StartGame = (touch:TouchEvent) =>
-    {
-        this._context.Start();
+    { 
         var sender = touch.target as HTMLElement;
-        this._context.ChangeDirection(touch, parseInt(sender.getAttribute("data-key-code")));
-        
-        let buttons = document.getElementsByClassName("touch-button") as HTMLCollectionOf<HTMLElement>
-        for(let i=0;i<buttons.length;++i)
+        let direction = parseInt(sender.getAttribute("data-key-code")) as Direction;
+        if (direction in Direction && direction != Direction.Unknown)
         {
-            let button = buttons[i];
-            button.removeEventListener("touchstart", this.StartGame);
+            this._context.Start();
+            this._context.ChangeDirection(touch, direction);
+
+            let buttons = document.getElementsByClassName("touch-button") as HTMLCollectionOf<HTMLElement>
+            for(let i=0;i<buttons.length;++i)
+            {
+                let button = buttons[i];
+                button.removeEventListener("touchstart", this.StartGame);
+            }
         }
     }
     

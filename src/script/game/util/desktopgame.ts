@@ -37,11 +37,11 @@ export class DesktopGame extends Game {
 
     private StartGame = (key: KeyboardEvent) =>
     {
-        this._context.Start();
-        this._context.ChangeDirection(key, key.keyCode);
         let direction = key.keyCode as Direction;
         if (direction in Direction && direction != Direction.Unknown)
         {
+            this._context.Start();
+            this._context.ChangeDirection(key, key.keyCode);
             window.removeEventListener("keydown", this.StartGame)
         }
     }

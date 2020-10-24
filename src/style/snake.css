@@ -11,35 +11,6 @@ body{
     background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);
 }
 
-
-@media (orientation: landscape) {
-  .main-container {
-     visibility: collapse !important;
-  }
-
-  .mobile-landscape-unsupported {
-    visibility: visible !important;
-    position: absolute;
-    width: 100%;
-    text-align: center;
- }
-
-  .landscape-message:after {
-    content: "Landscape mode not (yet) supported please turn your device";
-  }
-
-  .vintage-span 
-  {
-    font-size: 7vh !important;
-  }
-
-  body {
-    height: 50%;
-    overflow: hidden;
-  }
-}
-
-
 #github {
   background-image: url(../../assets/img/github.png);
   height: 25px;
@@ -371,8 +342,8 @@ body{
 
 .vintage {
     font-family: 'Six Caps', sans-serif;
-    font-size: 13vh;
-    letter-spacing: 1vh;
+    font-size: 10vw;
+    letter-spacing: 1vw;
     line-height: 1;
     margin: 0;
     position: relative;
@@ -382,8 +353,8 @@ body{
   @media only screen and (max-width: 800px) {
     .vintage {
       font-family: 'Six Caps', sans-serif;
-      font-size: 12vh;
-      letter-spacing: 0.4vh;
+      font-size: 20vw;
+      letter-spacing: 0.8vw;
       line-height: 1;
       margin: 0;
       position: relative;
@@ -409,7 +380,34 @@ body{
         margin-top: 15px;
         color: rgb(230, 200, 160);
         font-family: 'Satisfy', cursive;
-        font-size: 2.4vh;
+        font-size: 4.2vw;
+    }
+
+    @media (orientation: landscape) {
+      .main-container {
+         visibility: collapse !important;
+      }
+    
+      .mobile-landscape-unsupported {
+        visibility: visible !important;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+     }
+    
+      .landscape-message:after {
+        content: "Landscape mode not (yet) supported please turn your device";
+      }
+    
+      .vintage-span 
+      {
+        font-size: 4vw !important;
+      }
+    
+      body {
+        height: 50%;
+        overflow: hidden;
+      }
     }
   }
 
