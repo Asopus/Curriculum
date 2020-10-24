@@ -30,7 +30,7 @@
       ]
     },
     {
-      "title": "Web",
+      "title": "Web design",
       "imagePath": "",
       "technologies": [
         {
@@ -42,7 +42,7 @@
           "rating": 3
         },
         {
-          "title": "Rest",
+          "title": "Bootstrap",
           "rating": 3
         }
       ]
