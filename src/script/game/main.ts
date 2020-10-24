@@ -6,7 +6,7 @@ let _game: Game;
 
 window.onload = async (event) =>
 {
-    _game = IsMobile() ? new MobileGame() : new DesktopGame();
+    _game = IsMobile() ? new MobileGame(document.getElementById("mobile-screen") as HTMLCanvasElement) : new DesktopGame(document.getElementById("screen") as HTMLCanvasElement);
     await _game.Load();
 } 
 

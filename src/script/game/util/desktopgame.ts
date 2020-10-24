@@ -3,12 +3,15 @@ import { GameConfiguration } from "./gameconfiguration.js";
 import { Direction } from "../model/direction.js";
 
 export class DesktopGame extends Game {
-    constructor()
+
+    private _context:Game;
+    
+    constructor(screen:HTMLCanvasElement)
     {
         super(<GameConfiguration>({
             ScreenId: "screen",
-            ScreenHeight: 350,
-            ScreenWidth: 460,
+            ScreenHeight: screen.height,
+            ScreenWidth: screen.width,
             PartSize: 10,
             StartLength: 3,
             StartX: 230,
@@ -20,21 +23,24 @@ export class DesktopGame extends Game {
         }));
     }
 
-    protected Configure(context:Game) {
+    protected Configure() {
         var mobile = this._dom.GetElementsByClassName("mobile-game-container")[0];
         var web = this._dom.GetElementsByClassName("game-container")[0];
         this._dom.RemoveClasses(web, "invisibile");
         mobile.remove();
-        window.addEventListener("keydown", function(e) { context.ChangeDirection(e, e.keyCode) });
-        window.addEventListener("keydown", this.BindStart);
-        context.Start();
+        let self = this;
+        window.addEventListener("keydown", function(e) { self._context.ChangeDirection(e, e.keyCode) });
+        window.addEventListener("keydown", this.StartGame);
     }
 
-    private BindStart(key: any) { 
+    private StartGame = (key: KeyboardEvent) =>
+    {
+        this._context.Start();
+        this._context.ChangeDirection(key, key.keyCode);
         let direction = key.keyCode as Direction;
         if (direction in Direction && direction != Direction.Unknown)
         {
-            window.removeEventListener("keydown", this.BindStart)
+            window.removeEventListener("keydown", this.StartGame)
         }
     }
 }

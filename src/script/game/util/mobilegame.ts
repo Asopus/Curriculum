@@ -2,10 +2,11 @@ import { Game } from "./game.js";
 import { GameConfiguration } from "./gameconfiguration.js";
 
 export class MobileGame extends Game {
-    constructor()
-    {
-        var screen = document.getElementById("mobile-screen") as HTMLCanvasElement;
 
+    private _context:Game;
+    
+    constructor(screen:HTMLCanvasElement)
+    {
         super(<GameConfiguration>({
             ScreenId: "mobile-screen",
             ScreenHeight: screen.height,
@@ -19,42 +20,47 @@ export class MobileGame extends Game {
             ContinueInstruction: "Touch the control pad to continue",
             PauseInstruction: "Touch the red button to pause"
         }));
+
+        this._context = this;
     }
     
-    protected Configure(context:Game) {
+    protected Configure() {
         var web = this._dom.GetElementsByClassName("game-container")[0];
         var mobile = this._dom.GetElementsByClassName("mobile-game-container")[0];
         this._dom.RemoveClasses(mobile, "invisibile");
         web.remove();
-        this.BindControls(context);
-
+        this.BindControls();
         let buttons = document.getElementsByClassName("touch-button") as HTMLCollectionOf<HTMLElement>
         for(let i=0;i<buttons.length;++i)
         {
             let button = buttons[i];
-            button.addEventListener("touchstart", this.BindStart);
+            button.addEventListener("touchstart", this.StartGame);
         }
-
-        context.Start();
     }
 
-    private BindControls(context:Game)
+    private BindControls()
      {
         let buttons = this._dom.GetElementsByClassName<HTMLElement>("touch-button");
         for(let i=0;i<buttons.length;++i)
         {
             let button = buttons[i];
-            button.addEventListener("touchstart", function(e){ context.ChangeDirection(e, parseInt(button.getAttribute("data-key-code"))) });
+            let self = this;
+            button.addEventListener("touchstart", function(e){ self._context.ChangeDirection(e, parseInt(button.getAttribute("data-key-code"))) });
         }
      }
 
-    private BindStart()
+    private StartGame = (touch:TouchEvent) =>
     {
+        this._context.Start();
+        var sender = touch.target as HTMLElement;
+        this._context.ChangeDirection(touch, parseInt(sender.getAttribute("data-key-code")));
+        
         let buttons = document.getElementsByClassName("touch-button") as HTMLCollectionOf<HTMLElement>
         for(let i=0;i<buttons.length;++i)
         {
             let button = buttons[i];
-            button.removeEventListener("touchstart", this.BindStart);
+            button.removeEventListener("touchstart", this.StartGame);
         }
     }
+    
 }

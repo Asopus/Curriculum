@@ -32,10 +32,10 @@ export abstract class Game {
         this._illustrator.Draw(this._snake);
         this._apple.Move(this._snake);
         this._dom.SetInstruction(this._configuration.StartInstruction)
-        this.Configure(this);
+        this.Configure();
     }
 
-    protected abstract Configure(context:Game);
+    protected abstract Configure();
 
     public Start()
     {
