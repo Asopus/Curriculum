@@ -1,4 +1,5 @@
 import { Competence } from "../model/competence.js";
+declare var $: any;
 
 export class Dom {
 
@@ -146,11 +147,19 @@ export class Dom {
     {
         $('#competenceModal').keydown(function(e) {
             if (e.keyCode === 37) {
-               $(".carousel-control-prev-icon").click();
+                $('#competenceCarousel').carousel('prev');
             }
             if (e.keyCode === 39) {
-               $(".carousel-control-next-icon").click();
+                $('#competenceCarousel').carousel('next');
             }
+        });
+
+        $('#carousel-prev').click(function() {
+            $('#competenceCarousel').carousel('prev');
+        });
+
+        $('#carousel-next').click(function() {
+            $('#competenceCarousel').carousel('next');
         });
     }
 
