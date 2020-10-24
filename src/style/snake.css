@@ -11,6 +11,35 @@ body{
     background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);
 }
 
+
+@media (orientation: landscape) {
+  .main-container {
+     visibility: collapse !important;
+  }
+
+  .mobile-landscape-unsupported {
+    visibility: visible !important;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+ }
+
+  .landscape-message:after {
+    content: "Landscape mode not (yet) supported please turn your device";
+  }
+
+  .vintage-span 
+  {
+    font-size: 7vh !important;
+  }
+
+  body {
+    height: 50%;
+    overflow: hidden;
+  }
+}
+
+
 #github {
   background-image: url(../../assets/img/github.png);
   height: 25px;
