@@ -1,4 +1,4 @@
-import { Game } from "./game.js";
+import { Game } from "./game.base.js";
 import { GameConfiguration } from "./gameconfiguration.js";
 import { Direction } from "../model/direction.js";
 
@@ -12,10 +12,10 @@ export class DesktopGame extends Game {
             ScreenId: "screen",
             ScreenHeight: screen.height,
             ScreenWidth: screen.width,
-            PartSize: 10,
+            PartSize: 15,
             StartLength: 3,
-            StartX: 80,
-            StartY: 80,
+            StartX: 75,
+            StartY: 75,
             TicksPerSecond: 15,
             StartInstruction: "Press any arrow key to start collecting my competences ...",
             ContinueInstruction: "Press any arrow key to continue",

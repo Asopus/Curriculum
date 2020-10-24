@@ -60,7 +60,7 @@ gulp.task('uglify', function () {
         }
     };
     return gulp.src('../../dist/app.min.js')
-        .pipe(uglify(options))
+        .pipe(uglify())
         .pipe(gulp.dest('../../dist/'))
 });
 

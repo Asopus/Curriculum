@@ -1,6 +1,6 @@
-import {Game} from './util/game.js';
-import { DesktopGame } from './util/desktopgame.js';
-import { MobileGame } from './util/mobilegame.js';
+import {Game} from './util/game.base.js';
+import { DesktopGame } from './util/game.desktop.js';
+import { MobileGame } from './util/game.mobile.js';
 
 let _game: Game;
 

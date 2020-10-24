@@ -1,4 +1,4 @@
-import { Game } from "./game.js";
+import { Game } from "./game.base.js";
 import { GameConfiguration } from "./gameconfiguration.js";
 import { Direction } from "../model/direction.js";
 
