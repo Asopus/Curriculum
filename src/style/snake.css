@@ -126,6 +126,46 @@ body{
     margin-left: -4px;
     margin-top: 51px;
   }
+  #mobile-left {
+    background-color: red;
+    left: 12px;
+  }
+
+  #mobile-right {
+    background-color: blue;
+    left: 115px;
+  }
+
+  .mobile-horizontal
+  {
+    width: 55px;
+    height: 49px;
+    top: 47px;
+  }
+
+  #mobile-up {
+    background-color: green;
+    top: -2px;
+  }
+
+  #mobile-down {
+    background-color: orange;
+    top: 75px;
+  }
+
+  .mobile-vertical
+  {
+    height: 69px;
+    width: 49px;
+    left: 67px;
+  }
+
+  #mobile-space {
+    left: 195px;
+    top: 22px;
+    width: 60px;
+    height: 60px;
+  }
 }
 
 
