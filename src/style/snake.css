@@ -112,6 +112,48 @@ body{
     margin-left: -2px;
     margin-top: 52px;
   }
+
+  
+  #mobile-left {
+    background-color: red;
+    left: 7px;
+  }
+
+  #mobile-right {
+    background-color: blue;
+    left: 123px;
+  }
+
+  .mobile-horizontal
+  {
+    width: 61px;
+    height: 55px;
+    top: 51px;
+  }
+
+  #mobile-up {
+    background-color: green;
+    top: -5px;
+  }
+
+  #mobile-down {
+    background-color: orange;
+    top: 82px;
+  }
+
+  .mobile-vertical
+  {
+    height: 79px;
+    width: 55px;
+    left: 68px;
+  }
+
+  #mobile-space {
+    left: 212px;
+    top: 23px;
+    width: 65px;
+    height: 65px;
+  }
 }
 
 @media only screen and (max-width: 380px) {
@@ -126,6 +168,7 @@ body{
     margin-left: -4px;
     margin-top: 51px;
   }
+
   #mobile-left {
     background-color: red;
     left: 12px;
