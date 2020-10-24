@@ -91,12 +91,12 @@ body{
 }
 
 #mobile-left {
-  background-color: red;
+  /* background-color: red; */
   left: 11px;
 }
 
 #mobile-right {
-  background-color: blue;
+  /* background-color: blue; */
   left: 194px;
 }
 
@@ -108,12 +108,12 @@ body{
 }
 
 #mobile-up {
-  background-color: green;
+  /* background-color: green; */
   top: 15px;
 }
 
 #mobile-down {
-  background-color: orange;
+  /* background-color: orange; */
   top: 145px;
 }
 
@@ -125,8 +125,8 @@ body{
 }
 
 #mobile-space {
-  background-color: grey;
-  border: 2px solid black;
+  /* background-color: grey;
+  border: 2px solid black; */
   opacity: 0.8;
   border-radius: 50%;
 }
@@ -146,12 +146,10 @@ body{
 
   
   #mobile-left {
-    background-color: red;
     left: 7px;
   }
 
   #mobile-right {
-    background-color: blue;
     left: 123px;
   }
 
@@ -163,12 +161,10 @@ body{
   }
 
   #mobile-up {
-    background-color: green;
     top: -5px;
   }
 
   #mobile-down {
-    background-color: orange;
     top: 82px;
   }
 
@@ -201,12 +197,10 @@ body{
   }
 
   #mobile-left {
-    background-color: red;
     left: 12px;
   }
 
   #mobile-right {
-    background-color: blue;
     left: 115px;
   }
 
@@ -218,12 +212,10 @@ body{
   }
 
   #mobile-up {
-    background-color: green;
     top: -2px;
   }
 
   #mobile-down {
-    background-color: orange;
     top: 75px;
   }
 
@@ -257,12 +249,10 @@ body{
   }
   
   #mobile-left {
-    background-color: red;
     left: 4px;
   }
 
   #mobile-right {
-    background-color: blue;
     left: 87px;
   }
 
@@ -274,12 +264,10 @@ body{
   }
 
   #mobile-up {
-    background-color: green;
     top: -5px;
   }
 
   #mobile-down {
-    background-color: orange;
     top: 64px;
   }
 
