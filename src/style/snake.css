@@ -54,52 +54,56 @@ body{
 }
 
 #mobile-screen {    
-  margin-left: -5px;
-  margin-top: 87px;
-  height: 340px;
-  width: 340px;
+  margin-left: -1px;
+  margin-top: 75px;
+  height: 360px;
+  width: 360px;
   border-radius: 3px;
 }
 
 #mobile-left {
-  /* background-color: red; */
-  left: 11px;
+  background-color: red;
+  left: 9px;
 }
 
 #mobile-right {
-  /* background-color: blue; */
+  background-color: blue;
   left: 194px;
 }
 
 .mobile-horizontal
 {
-  width: 95px;
-  height: 85px;
-  top: 89px;
+  width: 105px;
+  height: 78px;
+  top: 87px;
 }
 
 #mobile-up {
-  /* background-color: green; */
-  top: 15px;
+  background-color: green;
+  top: -5px;
 }
 
 #mobile-down {
-  /* background-color: orange; */
-  top: 145px;
+  background-color: orange;
+  top: 157px;
 }
 
 .mobile-vertical
 {
-  height: 105px;
-  width: 88px;
-  left: 106px;
+  height: 100px;
+  width: 80px;
+  left: 114px;
 }
 
 #mobile-space {
-  /* background-color: grey;
-  border: 2px solid black; */
+  background-color: grey;
+  border: 2px solid black;
   opacity: 0.8;
   border-radius: 50%;
+  left: 338px;
+  top: 73px;
+  width: 105px;
+  height: 105px;
 }
 
 @media only screen and (max-width: 425px) {
@@ -117,18 +121,18 @@ body{
 
   
   #mobile-left {
-    left: 7px;
+    left: 4px;
   }
 
   #mobile-right {
-    left: 123px;
+    left: 122px;
   }
 
   .mobile-horizontal
   {
-    width: 61px;
-    height: 55px;
-    top: 51px;
+    width: 68px;
+    height: 51px;
+    top: 54px;
   }
 
   #mobile-up {
@@ -136,19 +140,19 @@ body{
   }
 
   #mobile-down {
-    top: 82px;
+    top: 100px;
   }
 
   .mobile-vertical
   {
-    height: 79px;
-    width: 55px;
-    left: 68px;
+    height: 65px;
+    width: 50px;
+    left: 72px;
   }
 
   #mobile-space {
-    left: 212px;
-    top: 23px;
+    left: 219px;
+    top: 47px;
     width: 65px;
     height: 65px;
   }
@@ -161,45 +165,45 @@ body{
 }
 
   #mobile-screen {    
-    height: 200px;
-    width: 200px;
-    margin-left: -4px;
-    margin-top: 51px;
+    height: 210px;
+    width: 210px;
+    margin-left: -2px;
+    margin-top: 47px;
   }
 
   #mobile-left {
-    left: 12px;
+    left: 10px;
   }
 
   #mobile-right {
-    left: 115px;
+    left: 116px;
   }
 
   .mobile-horizontal
   {
-    width: 55px;
-    height: 49px;
-    top: 47px;
+    width: 61px;
+    height: 45px;
+    top: 44px;
   }
 
   #mobile-up {
-    top: -2px;
+    top: -12px;
   }
 
   #mobile-down {
-    top: 75px;
+    top: 85px;
   }
 
   .mobile-vertical
   {
-    height: 69px;
-    width: 49px;
-    left: 67px;
+    height: 60px;
+    width: 45px;
+    left: 71px;
   }
 
   #mobile-space {
-    left: 195px;
-    top: 22px;
+    left: 201px;
+    top: 36px;
     width: 60px;
     height: 60px;
   }
@@ -213,14 +217,14 @@ body{
   }
 
   #mobile-screen {   
-    height: 160px;
-    width: 160px;
-    margin-left: -5px;
-    margin-top: 42px;
+    height: 170px;
+    width: 170px;
+    margin-left: -1px;
+    margin-top: 35px;
   }
   
   #mobile-left {
-    left: 4px;
+    left: 1px;
   }
 
   #mobile-right {
@@ -229,9 +233,9 @@ body{
 
   .mobile-horizontal
   {
-    width: 45px;
-    height: 40px;
-    top: 38px;
+    width: 50px;
+    height: 37px;
+    top: 39px;
   }
 
   #mobile-up {
@@ -239,19 +243,19 @@ body{
   }
 
   #mobile-down {
-    top: 64px;
+    top: 72px;
   }
 
   .mobile-vertical
   {
-    height: 57px;
-    width: 39px;
-    left: 49px;
+    height: 48px;
+    width: 36px;
+    left: 51px;
   }
 
   #mobile-space {
-    left: 151px;
-    top: 16px;
+    left: 157px;
+    top: 33px;
     width: 50px;
     height: 50px;
   }
