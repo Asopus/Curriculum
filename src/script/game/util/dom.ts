@@ -161,7 +161,7 @@ export class Dom {
             competences.appendChild(competence);
         }
             
-         if (oldScore == this._competences.length - 1)
+        if (oldScore == this._competences.length - 1)
         {
             $("#completedModal").modal("show");
         }
@@ -185,13 +185,5 @@ export class Dom {
         $('#carousel-next').click(function() {
             $('#competenceCarousel').carousel('next');
         });
-    }
-
-    private RemoveAttentionSeeker() {
-        let competences = document.getElementById("competences");
-        let firstCompetence = competences.children[0] as HTMLElement;
-        firstCompetence.classList.remove("animate__tada");
-        firstCompetence.classList.remove("animate__infinite");
-        firstCompetence.removeEventListener("click", this.RemoveAttentionSeeker)
     }
 }
