@@ -32,6 +32,7 @@ export abstract class Game {
         this._illustrator.Draw(this._snake);
         this._apple.Move(this._snake);
         this._dom.SetInstruction(this._configuration.StartInstruction)
+        this._dom.AddCompetenceDetails();
         this.Configure();
     }
 
@@ -76,7 +77,7 @@ export abstract class Game {
             {
                 this._snake.AddPartToTail();
                 this._apple.Move(this._snake);
-                this._dom.AddCompetence();
+                this._dom.AddCompetenceButton();
             }
             this._illustrator.Draw(this._apple);
             this._isDrawing = false;

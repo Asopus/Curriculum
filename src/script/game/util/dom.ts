@@ -1,4 +1,5 @@
 import { Competence } from "../model/competence.js";
+import { Technology } from "../model/technology.js";
 declare var $: any;
 
 export class Dom {
@@ -57,7 +58,91 @@ export class Dom {
         this._instructionElement.innerText = instruction;
     }
 
-    public AddCompetence()
+    public AddCompetenceDetails() {
+        let carousel = this.GetElementById("innerCarousel");
+        for (let i=0;i<this._competences.length;++i)
+        {
+            let competence = this._competences[i];
+            let carouselItem = this.CreateCompetenceDetail(competence, );
+
+            if (i == 0)
+            {
+                this.AddClasses(carouselItem, "active");
+            }
+
+            carousel.appendChild(carouselItem);
+        };
+    }
+
+    private CreateCompetenceDetail(competence:Competence): HTMLDivElement
+    {
+        let carouselItem = document.createElement("div");
+
+        this.AddClasses(carouselItem, "carousel-item");
+        carouselItem.appendChild(this.CreateTechnologyHeader(competence));
+        this.CreateTechnologyRows(competence).forEach(technology => {
+            carouselItem.appendChild(technology);
+        });
+
+        return carouselItem;
+    }
+
+    private CreateTechnologyRows(competence:Competence): Array<HTMLDivElement>
+    {
+        let technologies:Array<HTMLDivElement> = []
+        for (let i=0;i<competence.Technologies.length;++i)
+        {
+            let currentTechnology = competence.Technologies[i];
+            let skills = document.createElement("div");
+            this.AddClasses(skills, "row", "competence-technologies");
+            let nameElement = document.createElement("div");
+            this.AddClasses(nameElement, "col", "name");
+            let namespan = document.createElement("span");
+            namespan.innerText = currentTechnology.Title;
+            nameElement.appendChild(namespan);
+            skills.appendChild(nameElement);
+
+            for (let j=0;j<currentTechnology.Rating;++j)
+            {
+                let imgContainer = document.createElement("div");
+                this.AddClasses(imgContainer, "col", this._numbers[j]);
+                let imgElement = document.createElement("img");
+                imgElement.width = 25;
+                imgElement.height = 30;
+                imgElement.src = "../../assets/img/apple.png";
+                imgContainer.appendChild(imgElement);
+                skills.appendChild(imgContainer);
+            }
+
+            technologies.push(skills);
+        }
+
+        return technologies;
+    }
+
+    
+    private CreateTechnologyHeader(competence:Competence): HTMLDivElement
+    {
+        let technologyHeader = document.createElement("div");
+        this.AddClasses(technologyHeader, "row", "header", "competence-technologies");
+        let headerName = document.createElement("div");
+        this.AddClasses(headerName, "col", "competence-header-name");
+        headerName.innerText= competence.Title;
+
+        technologyHeader.appendChild(headerName);
+
+        for (let i=0;i<this._numbers.length;++i)
+        {
+            let titleElement = document.createElement("div");
+            this.AddClasses(titleElement, "col", this._numbers[i]);
+            titleElement.innerText= this._skillLevels[i];
+            technologyHeader.appendChild(titleElement);
+        }
+
+        return technologyHeader;
+    }
+
+    public AddCompetenceButton()
     {
         let score = this.GetElementById("score");
         let oldScore = parseInt(score.innerText);
@@ -74,72 +159,17 @@ export class Dom {
             competenceTitle.innerHTML = currentCompetence.Title;
             competence.appendChild(competenceTitle);
             competences.appendChild(competence);
-            
-            let carousel = this.GetElementById("innerCarousel");
-
-            let carouselItem = document.createElement("div");
-            this.AddClasses(carouselItem, "carousel-item");
-
-            if (oldScore == 0)
-            {
-                this.AddClasses(carouselItem, "active");
-            }
-
-            let technologyHeader = document.createElement("div");
-            this.AddClasses(technologyHeader, "row", "header", "competence-technologies");
-            let headerName = document.createElement("div");
-            this.AddClasses(headerName, "col", "competence-header-name");
-            headerName.innerText= currentCompetence.Title;
-
-            technologyHeader.appendChild(headerName);
-
-            for (let i=0;i<this._numbers.length;++i)
-            {
-                let titleElement = document.createElement("div");
-                this.AddClasses(titleElement, "col", this._numbers[i]);
-                titleElement.innerText= this._skillLevels[i];
-                technologyHeader.appendChild(titleElement);
-            }
-            
-            carouselItem.appendChild(technologyHeader);
-
-            for (let i=0;i<currentCompetence.Technologies.length;++i)
-            {
-                let currentTechnology = currentCompetence.Technologies[i];
-                let technologies = document.createElement("div");
-                this.AddClasses(technologies, "row", "competence-technologies");
-                let nameElement = document.createElement("div");
-                this.AddClasses(nameElement, "col", "name");
-                let namespan = document.createElement("span");
-                namespan.innerText = currentTechnology.Title;
-                nameElement.appendChild(namespan);
-                technologies.appendChild(nameElement);
-
-                for (let j=0;j<currentTechnology.Rating;++j)
-                {
-                    let imgContainer = document.createElement("div");
-                    this.AddClasses(imgContainer, "col", this._numbers[j]);
-                    let imgElement = document.createElement("img");
-                    imgElement.width = 25;
-                    imgElement.height = 30;
-                    imgElement.src = "../../assets/img/apple.png";
-                    imgContainer.appendChild(imgElement);
-                    technologies.appendChild(imgContainer);
-                }
-
-                carouselItem.appendChild(technologies);
-            }
-
-            carousel.appendChild(carouselItem);
         }
-
-        if (oldScore == this._competences.length - 1)
+            
+        // if (oldScore == this._competences.length - 1)
+        if (oldScore == 1)
         {
-            let competences = this.GetElementById("competences");
-            let firstCompetence = competences.children[0] as HTMLElement;
-            this.RemoveClasses(firstCompetence, "animate__swing");
-            this.AddClasses(firstCompetence, "animate__tada", "animate__infinite");
-            firstCompetence.addEventListener("click", this.RemoveAttentionSeeker)
+            $("#completedModal").modal("show");
+            // let competences = this.GetElementById("competences");
+            // let firstCompetence = competences.children[0] as HTMLElement;
+            // this.RemoveClasses(firstCompetence, "animate__swing");
+            // this.AddClasses(firstCompetence, "animate__tada", "animate__infinite");
+            // firstCompetence.addEventListener("click", this.RemoveAttentionSeeker)
         }
     }
     
