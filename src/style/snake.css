@@ -119,70 +119,205 @@ body{
 .modal-completed-content h1 {
   margin: 0 auto;
   width: 100%;
-  position: absolute;
+  margin-bottom: 10px;
 }
 
 .me {
   height: 100px;
   width: 100px;
   border: 2px solid;
+  margin-bottom: 10px;
   border-radius: 50%;
-  margin-right: auto;  
 }
 
-@media only screen and (max-width: 800px) {
-  #gameboy {
-    width: 368px;
-    height: 560px;
+.modal-completed-content button {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-  #mobile-screen {    
-    height: 270px;
-    width: 270px;
-    margin-left: -1px;
-    margin-top: 59px;
+.modal-header-completed {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.mobile-controls {
+  position: relative;
+}
+
+.touch-button {
+  position: absolute;
+}
+
+.title
+{
+    margin-top: 50px;
+}
+
+.vintage-span
+{
+    color: rgb(230, 200, 160);
+    display: block;
+    font-family: 'Satisfy', cursive;
+    font-size: 23px;
+}
+
+.modal-footer, .modal-header {
+  border-bottom: 0px;
+  border-top: 0px;
+}
+
+.modal-footer
+{
+  margin:0 auto;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon
+{
+  color:black;
+}
+
+.blink 
+{
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {  
+    50% { opacity: 0; }
   }
 
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top:2vh;
+}
+
+.main-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9.5fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "."
+    ".";
+}
+
+.body-row {
+  grid-row: 1;
+}
+
+.footer-row {
+  margin-bottom: 3vh;
+}
+
+.vertical-flex {
+    flex-direction: column;
+}
+
+.game-container
+{
+    margin-top: 30px;
+}
+
+.vintage {
+    font-family: 'Six Caps', sans-serif;
+    font-size: 120px;
+    letter-spacing: 15px;
+    line-height: 1;
+    margin: 0;
+    position: relative;
+    min-width: 720px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .vintage {
+      font-family: 'Six Caps', sans-serif;
+      font-size: 20vw;
+      letter-spacing: 0.8vw;
+      line-height: 1;
+      margin: 0;
+      position: relative;
+      min-width: 100%;
+    }
+
+    #github {
+      width: 3vw;
+      height: 3vw;
+    }
+
+    .title {
+      margin-top: 1vh;
+    }
+        
+    .vintage-span
+    {
+        color: rgb(230, 200, 160);
+        font-family: 'Satisfy', cursive;
+        font-size: 3.2vw;
+    }
+
+    #gameboy {
+      width: 368px;
+      height: 560px;
+  }
   
-  #mobile-left {
-    left: 1px;
-  }
-
-  #mobile-right {
-    left: 138px;
-  }
-
-  .mobile-horizontal
-  {
-    width: 80px;
-    height: 58px;
-    top: 65px;
-  }
-
-  #mobile-up {
-    top: -5px;
-  }
-
-  #mobile-down {
-    top: 118px;
-  }
-
-  .mobile-vertical
-  {
-    height: 75px;
-    width: 58px;
-    left: 81px;
-  }
-
-  #mobile-space {
-    left: 252px;
-    top: 56px;
-    width: 77px;
-    height: 77px;
-  }
+    #mobile-screen {    
+      height: 270px;
+      width: 270px;
+      margin-left: -1px;
+      margin-top: 59px;
+    }
+  
+    
+    #mobile-left {
+      left: 1px;
+    }
+  
+    #mobile-right {
+      left: 138px;
+    }
+  
+    .mobile-horizontal
+    {
+      width: 80px;
+      height: 58px;
+      top: 65px;
+    }
+  
+    #mobile-up {
+      top: -5px;
+    }
+  
+    #mobile-down {
+      top: 118px;
+    }
+  
+    .mobile-vertical
+    {
+      height: 75px;
+      width: 58px;
+      left: 81px;
+    }
+  
+    #mobile-space {
+      left: 252px;
+      top: 56px;
+      width: 77px;
+      height: 77px;
+    }
 }
+
 
 @media only screen and (max-width: 600px) {
+  .vintage-span
+  {
+      color: rgb(230, 200, 160);
+      font-family: 'Satisfy', cursive;
+      font-size: 4.2vw;
+  }
+
   #gameboy {
     width: 330px;
     height: 422px;
@@ -388,127 +523,6 @@ body{
     height: 50px;
   }
 }
-
-
-.mobile-controls {
-  position: relative;
-}
-
-.touch-button {
-  position: absolute;
-}
-
-.title
-{
-    margin-top: 50px;
-}
-
-.vintage-span
-{
-    color: rgb(230, 200, 160);
-    display: block;
-    font-family: 'Satisfy', cursive;
-    font-size: 23px;
-}
-
-.modal-footer, .modal-header {
-  border-bottom: 0px;
-  border-top: 0px;
-}
-
-.modal-footer
-{
-  margin:0 auto;
-}
-
-.carousel-control-next-icon, .carousel-control-prev-icon
-{
-  color:black;
-}
-
-.blink 
-{
-  animation: blinker 2s linear infinite;
-}
-
-@keyframes blinker {  
-    50% { opacity: 0; }
-  }
-
-.box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top:2vh;
-}
-
-.main-container {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 9.5fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "."
-    ".";
-}
-
-.body-row {
-  grid-row: 1;
-}
-
-.footer-row {
-  margin-bottom: 3vh;
-}
-
-.vertical-flex {
-    flex-direction: column;
-}
-
-.game-container
-{
-    margin-top: 30px;
-}
-
-.vintage {
-    font-family: 'Six Caps', sans-serif;
-    font-size: 120px;
-    letter-spacing: 15px;
-    line-height: 1;
-    margin: 0;
-    position: relative;
-    min-width: 720px;
-  }
-
-  @media only screen and (max-width: 800px) {
-    .vintage {
-      font-family: 'Six Caps', sans-serif;
-      font-size: 20vw;
-      letter-spacing: 0.8vw;
-      line-height: 1;
-      margin: 0;
-      position: relative;
-      min-width: 100%;
-    }
-
-    #github {
-      width: 3vw;
-      height: 3vw;
-    }
-
-    .title {
-      margin-top: 1vh;
-    }
-        
-    .vintage-span
-    {
-        color: rgb(230, 200, 160);
-        font-family: 'Satisfy', cursive;
-        font-size: 3.2vw;
-    }
-}
-
 
 /* @media (orientation: landscape)
 and (min-resolution: 117dpi) 

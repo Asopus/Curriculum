@@ -161,15 +161,9 @@ export class Dom {
             competences.appendChild(competence);
         }
             
-        // if (oldScore == this._competences.length - 1)
-        if (oldScore == 1)
+         if (oldScore == this._competences.length - 1)
         {
             $("#completedModal").modal("show");
-            // let competences = this.GetElementById("competences");
-            // let firstCompetence = competences.children[0] as HTMLElement;
-            // this.RemoveClasses(firstCompetence, "animate__swing");
-            // this.AddClasses(firstCompetence, "animate__tada", "animate__infinite");
-            // firstCompetence.addEventListener("click", this.RemoveAttentionSeeker)
         }
     }
     

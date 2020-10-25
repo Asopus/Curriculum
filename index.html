@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>Vermeersch Pieter - Interactive resume</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 <link rel="stylesheet" href="vendor/node_modules/animate.css/animate.min.css"/>
 <link rel="stylesheet" href="vendor/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
 <script src="vendor/node_modules/jquery/dist/jquery.min.js"></script>
@@ -18,88 +18,90 @@
 <body>
   <div id="main" class="main-container invisible">
     <div class="body-row">
-    <div class="box title">
-        <p class="vintage vintage-top">Interactive Resume</p>
-        <p class="vintage vintage-bot">Interactive Resume</p>
-    </div>
-    <div class="box">
-        <span id="instruction" class="vintage-span blink"></span>
-    </div>
-    <div class="box game-container">
-        <div id="tv">
-            <canvas id="screen" height="300" width="420"></canvas>
+        <div class="box title">
+            <p class="vintage vintage-top">Interactive Resume</p>
+            <p class="vintage vintage-bot">Interactive Resume</p>
+        </div>
+        <div class="box">
+            <span id="instruction" class="vintage-span blink"></span>
+        </div>
+        <div class="box game-container">
+            <div id="tv">
+                <canvas id="screen" height="300" width="420"></canvas>
+            </div>
+        </div>
+        <div class="box mobile-game-container">
+        <div id="gameboy">
+            <canvas id="mobile-screen" height="160" width="160" ></canvas>
+            <div class="mobile-controls">
+                <div class="touch-button mobile-horizontal" data-key-code="37" id="mobile-left"></div>
+                <div class="touch-button mobile-vertical" data-key-code="38" id="mobile-up"></div>
+                <div class="touch-button mobile-horizontal" data-key-code="39" id="mobile-right"></div>
+                <div class="touch-button mobile-vertical" data-key-code="40" id="mobile-down"></div>
+                <div class="touch-button" data-key-code="32" id="mobile-space"></div>
+            </div>
         </div>
     </div>
-    <div class="box mobile-game-container">
-      <div id="gameboy">
-          <canvas id="mobile-screen" height="160" width="160" ></canvas>
-          <div class="mobile-controls">
-            <div class="touch-button mobile-horizontal" data-key-code="37" id="mobile-left"></div>
-            <div class="touch-button mobile-vertical" data-key-code="38" id="mobile-up"></div>
-            <div class="touch-button mobile-horizontal" data-key-code="39" id="mobile-right"></div>
-            <div class="touch-button mobile-vertical" data-key-code="40" id="mobile-down"></div>
-            <div class="touch-button" data-key-code="32" id="mobile-space"></div>
-          </div>
-      </div>
-  </div>
-    <div class="box">
-        <div id="apple-basket" class="box invisible">
-            <span id="score" class="vintage-span span-small">0</span>
-            <span id="toCollect" class="vintage-span span-small">&nbsp; / </span>
-            <div id="apple"></div>
-            <span class="vintage-span span-small">collected</span>
+        <div class="box">
+            <div id="apple-basket" class="box invisible">
+                <span id="score" class="vintage-span span-small">0</span>
+                <span id="toCollect" class="vintage-span span-small">&nbsp; / </span>
+                <div id="apple"></div>
+                <span class="vintage-span span-small">collected</span>
+            </div>
         </div>
-    </div>
-    <div id="gallery">
-        <div id="competences" data-toggle="modal" data-target="#competenceModal"></div>
-        <div class="modal fade animate__animated animate__rubberBand" id="competenceModal" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
-            <div class="vintage-modal modal-content">
-              <div class="modal-body">
-                <div id="competenceCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                  <div id="innerCarousel" class="carousel-inner"></div>
+        <div id="gallery">
+            <div id="competences" data-toggle="modal" data-target="#competenceModal"></div>
+            <div class="modal fade animate__animated animate__rubberBand" id="competenceModal" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
+                  <div class="vintage-modal modal-content">
+                    <div class="modal-body">
+                        <div id="competenceCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div id="innerCarousel" class="carousel-inner"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="carousel-prev" type="button" class="btn btn-secondary" data-slide="prev">←</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="carousel-next" type="button" class="btn btn-secondary" data-slide="next">→</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div id="completed">
+          <div class="modal fade animate__animated animate__rubberBand" id="completedModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
+                <div class="vintage-modal modal-content modal-completed-content">
+                  <div class="modal-body-completed">
+                    <div class="box modal-header-completed">
+                      <h1>Completed!</h1>
+                      <img alt="me" class="me" src="assets/img/me.jpg" />
+                    </div>
+                    <div class="modal-body-completed">
+                      <p>
+                      Hello there!
+                      </p>
+                      <p>
+                      My name is Pieter and I want to thank you for 'completing' my resume.
+                      </p>
+                      <p>
+                      I started this project to learn more about the Typescript language.
+                      For me this project has been a fun and educational way of providing my resume in an amusing, unconvential manner. <br />
+                      I hope you enjoyed exploring it as much as I did building it &#128512;!
+                      </p>
+                      <p>
+                      You can browse my skills by clicking one under the playfield or just keep playing to set a personal record!
+                      </p>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button id="carousel-prev" type="button" class="btn btn-secondary" role="button"  data-slide="prev">←</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="carousel-next" type="button" class="btn btn-secondary" role="button"  data-slide="next">→</button>
-              </div>
             </div>
           </div>
-        </div>
-    </div>
-    <div id="completed">
-      <div id="completedMessage" data-toggle="modal" data-target="#completedModal"></div>
-      <div class="modal fade animate__animated animate__rubberBand" id="completedModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
-          <div class="vintage-modal modal-completed-content">
-            <div class="box modal-header-completed">
-              <img class="me" src="assets/img/me.jpg" />
-              <h1>Completed!</h1>
-            </div>
-            <div class="modal-body-completed">
-                <p>
-                  Hello there!
-                </p>
-                <p>
-                  My name is Pieter and I want to thank you for 'completing' my resume.
-                </p>
-                <p>
-                  The reason for creating this project was to learn more about the Typescript language.
-                  For me this project has been a fun and educational way of providing my resume in an amusing, unconvential manner. <br />
-                  I hope you enjoyed exploring it as much as I did building it &#128512;!
-                <p>
-                  You can browse my skills by clicking one under the playfield or just keep playing to set a personal record!
-                </p>
-            </div>
-            <div>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
       </div>
-  </div>
   </div>
   <div class="footer-row">
     <footer>
@@ -113,8 +115,8 @@
           </span>
           <span class="vintage-span span-small"></span>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
  </div>
  <div class="mobile-landscape-unsupported">
     <span class="vintage-span span-small landscape-message"></span> 
