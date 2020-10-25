@@ -30,10 +30,7 @@ export class Illustrator {
             let bodyParts:Array<SnakePart> = object.GetBodyParts();
             for(let i=0;i < bodyParts.length;++i)
             {
-                let part = bodyParts[i];
-                this.CheckBorderCollision(object, part);
-                this.CheckBodyCollision(object,part);
-                this.DrawPart(part);
+                this.DrawPart(bodyParts[i]);
             } 
         }
     }
@@ -43,33 +40,5 @@ export class Illustrator {
         this._context.fillStyle = "lime";
         this._context.fillRect(part.X, part.Y, part.PartSize, part.PartSize);
         this._context.strokeRect(part.X, part.Y, part.PartSize, part.PartSize);
-    }
-    
-    private CheckBodyCollision(snake:Snake, part: SnakePart)
-    {
-        if (snake.HeadCollidesWith(part)) 
-        { 
-            snake.ResetSnake();
-        }
-    }
-
-    private CheckBorderCollision(snake:Snake, part: SnakePart)
-    {
-        if (part.X == this._context.canvas.width)
-        {
-            part.X = 0;
-        }
-        else if (part.X == 0 - part.PartSize)
-        {
-            part.X = this._context.canvas.width - part.PartSize;
-        }
-        else if (part.Y == this._context.canvas.height)
-        {
-            part.Y = 0;
-        }
-        else if (part.Y == 0 - part.PartSize)
-        {
-            part.Y = this._context.canvas.height - part.PartSize;
-        }   
     }
 }

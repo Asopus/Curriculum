@@ -9,7 +9,7 @@ import { GameConfiguration } from './gameconfiguration.js';
 export abstract class Game {
     private _apple: Apple;
     private _snake: Snake;
-    private _isDrawing:boolean = false;
+    private _hasDrawnLastDirection:boolean = true;
     private _started: boolean = false;
     protected _dom:Dom;
     private _screen:HTMLCanvasElement;
@@ -52,7 +52,7 @@ export abstract class Game {
     {
         if (this._started)
         {
-            if (!this._isDrawing)
+            if (this._hasDrawnLastDirection)
             {
                 let direction = keyCode as Direction;
                 if (direction in Direction)
@@ -60,7 +60,7 @@ export abstract class Game {
                     event.preventDefault();
                     this._snake.ChangeDirection(direction);
                     this._dom.SetInstruction(direction == Direction.Unknown ? this._configuration.ContinueInstruction : this._configuration.PauseInstruction);
-                    this._isDrawing = direction != Direction.Unknown;
+                    this._hasDrawnLastDirection = direction == Direction.Unknown;
                 }
             }
         }
@@ -72,15 +72,20 @@ export abstract class Game {
         {
             this._illustrator.Draw(this._screen);
             this._snake.Move();
+            this._snake.HandleCollision(this._screen);
             this._illustrator.Draw(this._snake);
             if (this._snake.HeadCollidesWith(this._apple)) 
             {
                 this._snake.AddPartToTail();
                 this._apple.Move(this._snake);
-                this._dom.AddCompetenceButton();
+                let allCompetencesAdded = this._dom.AddCompetenceButton();
+                if (allCompetencesAdded)
+                {
+                    this._dom.ShowCompletedModal();
+                }
             }
             this._illustrator.Draw(this._apple);
-            this._isDrawing = false;
+            this._hasDrawnLastDirection = true;
         }
     }
 }

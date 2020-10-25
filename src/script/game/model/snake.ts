@@ -95,4 +95,38 @@ export class Snake {
         let tail: SnakePart = this._bodyParts[0];
         this._bodyParts.unshift(new SnakePart(tail.X - tail.PartSize, tail.Y, tail.PartSize))
     }
+
+    public HandleCollision(screen:HTMLCanvasElement)
+    {
+        for(let i=0;i < this._bodyParts.length;++i)
+        {
+            let part = this._bodyParts[i];
+            if (this.HeadCollidesWith(part)) 
+            { 
+                this.ResetSnake();
+            }
+
+            this.HandleBorderCollision(screen, part)
+        } 
+    }
+
+    private HandleBorderCollision(screen:HTMLCanvasElement, part: SnakePart)
+    {
+        if (part.X == screen.width)
+        {
+            part.X = 0;
+        }
+        else if (part.X == 0 - part.PartSize)
+        {
+            part.X = screen.width - part.PartSize;
+        }
+        else if (part.Y == screen.height)
+        {
+            part.Y = 0;
+        }
+        else if (part.Y == 0 - part.PartSize)
+        {
+            part.Y = screen.height - part.PartSize;
+        }   
+    }
 }

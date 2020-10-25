@@ -142,29 +142,33 @@ export class Dom {
         return technologyHeader;
     }
 
-    public AddCompetenceButton()
+    public AddCompetenceButton(): boolean
     {
-        let score = this.GetElementById("score");
-        let oldScore = parseInt(score.innerText);
-        if(oldScore != this._competences.length)
+        let scoreElement = this.GetElementById("score");
+        let score = parseInt(scoreElement.innerText);
+        if(score != this._competences.length)
         {
-            let currentCompetence = this._competences[oldScore];
-            score.innerText = (oldScore + 1).toString();
+            let currentCompetence = this._competences[score];
+            scoreElement.innerText = (score + 1).toString();
             let competences = this.GetElementById("competences");
             let competence =  document.createElement("div");
             this.AddClasses(competence, "competence", "animate__animated", "animate__swing", "animate__slow");
             competence.setAttribute('data-target', "#competenceCarousel");
-            competence.setAttribute('data-slide-to', oldScore.toString());        
+            competence.setAttribute('data-slide-to', score.toString());        
             let competenceTitle = document.createElement("span");
             competenceTitle.innerHTML = currentCompetence.Title;
             competence.appendChild(competenceTitle);
             competences.appendChild(competence);
-        }
             
-        if (oldScore == this._competences.length - 1)
-        {
-            $("#completedModal").modal("show");
+            return score == this._competences.length - 1;
         }
+
+        return false;
+    }
+
+    public ShowCompletedModal()
+    {
+        $("#completedModal").modal("show");
     }
     
     public ConfigureModalFocus()
