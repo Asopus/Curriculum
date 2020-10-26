@@ -1,5 +1,5 @@
 cd vendor;
 npm install;
-cd ../src/script;
+cd ..;
 npm install;
 gulp build;
