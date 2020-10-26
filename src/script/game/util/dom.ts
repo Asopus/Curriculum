@@ -154,7 +154,7 @@ export class Dom {
             let competence =  document.createElement("div");
             this.AddClasses(competence, "competence", "animate__animated", "animate__swing", "animate__slow");
             competence.setAttribute('data-target', "#competenceCarousel");
-            competence.setAttribute('data-slide-to', score.toString());        
+            competence.setAttribute('data-slide-to', score.toString());  
             let competenceTitle = document.createElement("span");
             competenceTitle.innerHTML = currentCompetence.Title;
             competence.appendChild(competenceTitle);
@@ -164,6 +164,19 @@ export class Dom {
         }
 
         return false;
+    }
+
+    public AddAboutButton()
+    {
+            let competences = this.GetElementById("about");
+            let competence =  document.createElement("div");
+            this.AddClasses(competence, "competence", "animate__animated", "animate__swing", "animate__slow");
+            let competenceTitle = document.createElement("span");
+            competence.setAttribute('data-target', "#completedModal");
+            competence.setAttribute('data-toggle', "modal");
+            competenceTitle.innerHTML = "About";
+            competence.appendChild(competenceTitle);
+            competences.appendChild(competence);
     }
 
     public ShowCompletedModal()

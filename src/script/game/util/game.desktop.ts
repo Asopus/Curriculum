@@ -17,7 +17,7 @@ export class DesktopGame extends Game {
             StartX: 75,
             StartY: 75,
             TicksPerSecond: 15,
-            StartInstruction: "Press any arrow key to start collecting my competences ...",
+            StartInstruction: "Press any arrow key to start collecting my competences",
             ContinueInstruction: "Press any arrow key to continue",
             PauseInstruction: "Press spacebar to pause"
         }));

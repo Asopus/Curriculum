@@ -72,7 +72,7 @@ gulp.task('minify-css', function(done){
 });
 
 gulp.task('build', function(done) {
-    var tasks = gulp.series('tsc', 'concat', 'clean', 'remove-imports-exports', 'uglify', 'minify-css');
+    var tasks = gulp.series('clean', 'tsc', 'concat', 'clean', 'remove-imports-exports', 'uglify', 'minify-css');
     tasks();
     done();
 })

@@ -81,6 +81,7 @@ export abstract class Game {
                 let allCompetencesAdded = this._dom.AddCompetenceButton();
                 if (allCompetencesAdded)
                 {
+                    this._dom.AddAboutButton();
                     this._dom.ShowCompletedModal();
                 }
             }

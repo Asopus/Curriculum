@@ -17,7 +17,7 @@ export class MobileGame extends Game {
             StartX: 80,
             StartY: 80,
             TicksPerSecond: 10,
-            StartInstruction: "Touch the control pad to start collecting my competences ...",
+            StartInstruction: "Touch the control pad to start collecting my competences",
             ContinueInstruction: "Touch the control pad to continue",
             PauseInstruction: "Touch the red button to pause"
         }));

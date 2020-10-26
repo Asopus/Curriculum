@@ -231,14 +231,29 @@ body{
     min-width: 720px;
   }
 
-  @media only screen and (max-width: 800px) {
+  
+.span-small {
+  margin:0;
+  font-size: 18px;
+}
+
+#instruction {
+  margin-top: 12px;
+}
+
+#about {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+  @media only screen and (max-width: 800px) and (pointer:coarse) {
     .vintage {
-      font-family: 'Six Caps', sans-serif;
       font-size: 20vw;
       letter-spacing: 0.8vw;
       line-height: 1;
-      margin: 0;
-      position: relative;
       min-width: 100%;
     }
 
@@ -251,11 +266,9 @@ body{
       margin-top: 1vh;
     }
         
-    .vintage-span
+    .vintage-span,.span-small
     {
-        color: rgb(230, 200, 160);
-        font-family: 'Satisfy', cursive;
-        font-size: 3.2vw;
+        font-size: 4.2vw;
     }
 
     #gameboy {
@@ -310,11 +323,9 @@ body{
 }
 
 
-@media only screen and (max-width: 600px) {
-  .vintage-span
+@media only screen and (max-width: 600px) and (pointer:coarse) {
+  .vintage-span,.span-small
   {
-      color: rgb(230, 200, 160);
-      font-family: 'Satisfy', cursive;
       font-size: 4.2vw;
   }
 
@@ -604,10 +615,6 @@ and (max-resolution: 119dpi),
     34px 17px rgba(0, 0, 0, 0.3),
     36px 18px rgba(0, 0, 0, 0.1),
     40px 20px rgba(0, 0, 0, 0.1);
-}
-
-.span-small {
-  margin:0;
 }
 
 .invisible {
