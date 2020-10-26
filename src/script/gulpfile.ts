@@ -3,13 +3,14 @@ const ts = require("gulp-typescript");
 const tsProject = ts.createProject("tsconfig.json");
 const concat = require('gulp-concat');
 const order = require('gulp-order');
-const replace = require('gulp-replace');
+const replace = require('gulp-string-replace');
 const clean = require('gulp-clean');
 const uglifyes = require('uglify-es');
 const composer = require('gulp-uglify/composer');
 const uglify = composer(uglifyes, console);
 const stripImportExport = require('gulp-strip-import-export');
 const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
 
 gulp.task("tsc", function () {
   return tsProject.src().pipe(tsProject()).js.pipe(gulp.dest("../../dist"));
@@ -22,16 +23,47 @@ gulp.task('concat', function() {
         '../../dist/main.js'
         ], { base: __dirname }))
         .pipe(concat('app.min.js'))
-        .pipe(gulp.dest('../../dist'));
+        .pipe(gulp.dest('../../dist/'));
 });
 
-gulp.task('remove-imports', function(done){
-    gulp.src('../../dist/app.min.js')
-        .pipe(replace(/import[^\n]*/g, ''))
-        .pipe(concat('app.min.js'))
-        .pipe(gulp.dest('../../dist'));
+gulp.task('vendorcss', function(done){
+    gulp.src(['../../vendor/node_modules/**/*.min.css', 
+                '!../../vendor/node_modules/**/*-grid.*', 
+                '!../../vendor/node_modules/**/*-reboot.*'], 
+                { sourcemaps: true })
+         .pipe(rename({dirname: ''})) 
+        .pipe(gulp.dest('../../dist/vendor/css', 
+            { sourcemaps: '.' }));
         done();
 });
+
+gulp.task('vendorjs', function(done){
+    gulp.src(['../../vendor/node_modules/**/*.min.js', 
+                '!../../vendor/node_modules/**/*.bundle.*', 
+                '!../../vendor/node_modules/**/*.slim.*', 
+                '!../../vendor/node_modules/**/external/**/*.js'], 
+                { sourcemaps: true })
+        .pipe(rename({dirname: ''})) 
+        .pipe(gulp.dest('../../dist/vendor/js', 
+            { sourcemaps: '.' }));
+        done();
+});
+
+gulp.task('img', function(done){
+            gulp.src(['../../assets/**/*.png',
+                      '../../assets/**/*.ico',
+                      '../../assets/**/*.jpg'])
+            .pipe(gulp.dest('../../dist/images'))
+        done();
+});
+
+gulp.task('competences', function(done){
+    gulp.src(['../../assets/**/competences.json'])
+    .pipe(rename({dirname: ''})) 
+    .pipe(gulp.dest('../../dist/'))
+done();
+});
+
 
 gulp.task('clean', function(done){
     gulp.src('../../dist/*')
@@ -61,6 +93,8 @@ gulp.task('uglify', function () {
     };
     return gulp.src('../../dist/app.min.js')
         .pipe(uglify())
+        .pipe(replace('../../assets/competences/', 'dist/'))
+        .pipe(replace('../../assets/img', 'dist/images/img'))
         .pipe(gulp.dest('../../dist/'))
 });
 
@@ -68,11 +102,12 @@ gulp.task('minify-css', function(done){
     return gulp.src('../../src/style/*.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(concat('style.min.css'))
+        .pipe(replace('../../assets/img', 'images/img'))
         .pipe(gulp.dest('../../dist'));
 });
 
 gulp.task('build', function(done) {
-    var tasks = gulp.series('clean', 'tsc', 'concat', 'clean', 'remove-imports-exports', 'uglify', 'minify-css');
+    var tasks = gulp.series('clean', 'tsc', 'concat', 'clean', 'vendorcss', 'vendorjs', 'competences', 'img', 'remove-imports-exports', 'uglify', 'minify-css');
     tasks();
     done();
 })
