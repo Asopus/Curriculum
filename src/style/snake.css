@@ -8,7 +8,10 @@ html {
 
 body{
     height: 100%;
-    background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);
+    /* background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);*/
+    /* background-color: #143c50;  */
+    /* background-color: #0b3148;   */
+    background-color: #0B3143; 
 }
 
 #github {
@@ -107,7 +110,7 @@ body{
 }
 
 .modal-completed-content {
-    color: rgb(20, 60, 80);
+    color: #0B3143;
     font-family: "Satisfy", sans-serif;
     font-size: 21px;
     width: 92%;

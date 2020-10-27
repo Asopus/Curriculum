@@ -52,6 +52,8 @@ gulp.task('vendorjs', function(done){
 gulp.task('img', function(done){
             gulp.src(['assets/**/*.png',
                       'assets/**/*.ico',
+                      'assets/**/*.xml',
+                      'assets/**/*.json',
                       'assets/**/*.jpg'])
             .pipe(gulp.dest('dist/images'))
         done();

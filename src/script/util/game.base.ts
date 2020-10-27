@@ -9,12 +9,12 @@ import { GameConfiguration } from './gameconfiguration.js';
 export abstract class Game {
     private _apple: Apple;
     private _snake: Snake;
-    private _hasDrawnLastDirection:boolean = true;
-    private _started: boolean = false;
-    protected _dom:Dom;
     private _screen:HTMLCanvasElement;
+    protected _dom:Dom;
     private _illustrator:Illustrator;
     private _configuration: GameConfiguration;
+    private _hasDrawnLastDirection:boolean = true;
+    private _started: boolean = false;
 
     constructor(configuration:GameConfiguration)
     {
@@ -50,19 +50,13 @@ export abstract class Game {
 
     public ChangeDirection(event:UIEvent, keyCode:number)
     {
-        if (this._started)
+        let direction = keyCode as Direction;
+        if (this._started && this._hasDrawnLastDirection && direction in Direction)
         {
-            if (this._hasDrawnLastDirection)
-            {
-                let direction = keyCode as Direction;
-                if (direction in Direction)
-                {
-                    event.preventDefault();
-                    this._snake.ChangeDirection(direction);
-                    this._dom.SetInstruction(direction == Direction.Unknown ? this._configuration.ContinueInstruction : this._configuration.PauseInstruction);
-                    this._hasDrawnLastDirection = direction == Direction.Unknown;
-                }
-            }
+            event.preventDefault();
+            this._snake.ChangeDirection(direction);
+            this._dom.SetInstruction(direction == Direction.Unknown ? this._configuration.ContinueInstruction : this._configuration.PauseInstruction);
+            this._hasDrawnLastDirection = direction == Direction.Unknown;
         }
     }
 

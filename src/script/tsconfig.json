@@ -6,6 +6,5 @@
         "target": "es2020",
         "watch": true,
         "strictNullChecks": false,
-    },
-    "exclude": ["gulpfile.ts"]
+    }
 }
