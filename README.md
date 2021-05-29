@@ -1,7 +1,7 @@
 # Interactive resume Pieter Vermeersch
 ## Installing the project
 - Clone the repo
-- Host in any webserver (I used IIS)
+- Host in any webserver
 - Open cli on ~/Curriculum
 - Make sure you have npm and gulp globally installed
 - Execute `./build.ps1`
