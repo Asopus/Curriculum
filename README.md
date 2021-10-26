@@ -1,6 +1,6 @@
 # Interactive resume Pieter Vermeersch
 
-www.vermeerschpieter.be
+https://www.vermeerschpieter.be
 
 ## Installing the project
 - Clone the repo
