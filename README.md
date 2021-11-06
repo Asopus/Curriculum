@@ -1,9 +1,12 @@
 # Interactive resume Pieter Vermeersch
+
+https://www.vermeerschpieter.be
+
 ## Installing the project
 - Clone the repo
 - Host in any webserver
 - Open cli on ~/Curriculum
-- Make sure you have npm and gulp globally installed
+- Make sure you have npm and gulp installed globally
 - Execute `./build.ps1`
 - Open browser and navigate to url where you host the project
 
