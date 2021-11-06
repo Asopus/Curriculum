@@ -79,15 +79,15 @@
       "technologies": [
         {
           "title": "Messaging",
-          "rating": 3
+          "rating": 4
         },
         {
-          "title": "Monitoring",
-          "rating": 3
+          "title": "Monitoring tools",
+          "rating": 4
         },
         {
           "title": "Sagas",
-          "rating": 1
+          "rating": 3
         }
       ]
     },
@@ -137,7 +137,7 @@
       "technologies": [
         {
           "title": "Docker",
-          "rating": 2
+          "rating": 3
         }
       ]
     },
