@@ -1,5 +1,3 @@
-ee
-
 # Interactive resume Pieter Vermeersch
 
 https://www.vermeerschpieter.be
@@ -24,8 +22,3 @@ https://www.vermeerschpieter.be
 - Catching one apple spawns one competence
 
 ![Interactive resume preview](https://github.com/Asopus/Curriculum/blob/master/assets/img/example.jpg?raw=true)
-
-
-
-test fkljsdfgsdgsdfgqsdf
-sdfgsdgsdfg
