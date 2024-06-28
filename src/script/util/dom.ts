@@ -7,17 +7,12 @@ export class Dom {
     private _numbers = ["one","two","three","four","five"];
     private _skillLevels = ["Novice", "Elementary", "Intermediate", "Advanced", "Expert"];
     private _competences: Array<Competence> = [];
-    private _instructionElement: HTMLElement = this.GetElementById("instruction");
     private _fileReader:FileReader = new FileReader();
 
     constructor(competences:Array<Competence>) {
         this._competences = competences;
     }
 
-    public RemoveStartInstruction()
-    {
-        this.RemoveClasses(this._instructionElement, "blink");
-    }
 
     public ShowBasket()
     {
@@ -51,11 +46,6 @@ export class Dom {
     public GetElementsByClassName<TType extends HTMLElement>(className:string) : HTMLCollectionOf<TType>
     {
        return document.getElementsByClassName(className) as HTMLCollectionOf<TType>;
-    }
-
-    public SetInstruction(instruction: string)
-    {
-        this._instructionElement.innerText = instruction;
     }
 
     public AddCompetenceDetails() {
