@@ -41,7 +41,6 @@ export abstract class Game {
     {
         this._started = true;
         let self = this;
-        this._dom.ShowBasket();
         this._dom.ConfigureModalFocus();
         setInterval(function(){ self.Tick(); }, 1000/this._configuration.TicksPerSecond);
     }

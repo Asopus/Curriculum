@@ -14,14 +14,6 @@ export class Dom {
     }
 
 
-    public ShowBasket()
-    {
-        this.GetElementById("toCollect").innerText = "\xA0/ " + this._competences.length;
-        let basket = this.GetElementById("apple-basket");
-        this.RemoveClasses(basket, "invisible");
-        this.AddClasses(basket, "animate__animated", "animate__bounceInLeft");
-    }
-
     public RemoveClasses(element:HTMLElement, ...classes:string[])
     {
         for(let i=0;i<classes.length;++i)
