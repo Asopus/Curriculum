@@ -42,9 +42,11 @@ export class Dom {
 
 
     
-    public UnblurRebusPiece(): boolean
+    public UnblurRebusPiece(blurLevel:number): boolean
     {
-       
-        return false;
+        if(blurLevel < 0) return;
+        var rebus = document.getElementById('rebus');
+        rebus.className = "blur-" + blurLevel;
+        return;
     }
 }

@@ -196,6 +196,82 @@ body{
     margin-top:2vh;
 }
 
+
+
+.rebus-container {
+  background-color: #f7f7f7;
+  margin: 4vh auto;
+  border-radius: 15px;
+  border: 2px solid black;
+  width: 40%;
+  height: 40%;
+  position: relative;
+}
+
+#rebus {
+  background-image: url(../../dist/images/img/rebus.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 90%;
+  height: 90%;
+}
+
+.blur-0 {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+
+.blur-1 {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+.blur-2 {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.blur-3 {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
+
+.blur-4 {
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+
+.blur-5 {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+.blur-6 {
+  filter: blur(6px);
+  -webkit-filter: blur(6px);
+}
+
+.blur-7 {
+  filter: blur(7px);
+  -webkit-filter: blur(7px);
+}
+
+.blur-8 {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.blur-9 {
+  filter: blur(9px);
+  -webkit-filter: blur(9px);
+}
+
+.blur-10 {
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}
+
 .main-container {
   height: 100%;
   display: grid;

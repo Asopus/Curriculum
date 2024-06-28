@@ -15,6 +15,7 @@ export abstract class Game {
     private _configuration: GameConfiguration;
     private _hasDrawnLastDirection:boolean = true;
     private _started: boolean = false;
+    private _currentBlur:number = 10;
 
     constructor(configuration:GameConfiguration)
     {
@@ -66,7 +67,7 @@ export abstract class Game {
             {
                 this._snake.AddPartToTail();
                 this._apple.Move(this._snake);
-                this._dom.UnblurRebusPiece();
+                this._dom.UnblurRebusPiece(--this._currentBlur);
             }
             this._illustrator.Draw(this._apple);
             this._hasDrawnLastDirection = true;
