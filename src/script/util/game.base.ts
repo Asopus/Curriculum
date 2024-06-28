@@ -15,7 +15,8 @@ export abstract class Game {
     private _configuration: GameConfiguration;
     private _hasDrawnLastDirection:boolean = true;
     private _started: boolean = false;
-    private _currentBlur:number = 10;
+    private _currentBlur:number;
+    private _totalBlur:number;
 
     constructor(configuration:GameConfiguration)
     {
@@ -28,6 +29,8 @@ export abstract class Game {
     {
         this._dom = new Dom(await new FileReader().ReadCompetences());
         this._screen  = this._dom.GetElementById<HTMLCanvasElement>(this._configuration.ScreenId);
+        this._currentBlur = document.getElementsByClassName("blur").length;
+        this._totalBlur = this._currentBlur;
         this._illustrator = new Illustrator(this._screen.getContext("2d"));
         this._illustrator.Draw(this._screen);
         this._illustrator.Draw(this._snake);
@@ -67,7 +70,7 @@ export abstract class Game {
             {
                 this._snake.AddPartToTail();
                 this._apple.Move(this._snake);
-                this._dom.UnblurRebusPiece(--this._currentBlur);
+                this._dom.UnblurRebusPiece((this._totalBlur-this._currentBlur--) + 1);
             }
             this._illustrator.Draw(this._apple);
             this._hasDrawnLastDirection = true;
