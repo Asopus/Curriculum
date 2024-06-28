@@ -31,7 +31,6 @@ export abstract class Game {
         this._illustrator.Draw(this._screen);
         this._illustrator.Draw(this._snake);
         this._apple.Move(this._snake);
-        this._dom.AddCompetenceDetails();
         this.Configure();
     }
 
@@ -41,7 +40,6 @@ export abstract class Game {
     {
         this._started = true;
         let self = this;
-        this._dom.ConfigureModalFocus();
         setInterval(function(){ self.Tick(); }, 1000/this._configuration.TicksPerSecond);
     }
 
@@ -68,12 +66,7 @@ export abstract class Game {
             {
                 this._snake.AddPartToTail();
                 this._apple.Move(this._snake);
-                let allCompetencesAdded = this._dom.AddCompetenceButton();
-                if (allCompetencesAdded)
-                {
-                    this._dom.AddAboutButton();
-                    this._dom.ShowCompletedModal();
-                }
+                this._dom.UnblurRebusPiece();
             }
             this._illustrator.Draw(this._apple);
             this._hasDrawnLastDirection = true;
