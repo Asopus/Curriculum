@@ -164,6 +164,13 @@ body{
     font-size: 23px;
 }
 
+.vintage-header
+{
+    color: rgb(230, 200, 160);
+    display: block;
+    font-family: 'Satisfy', cursive;
+}
+
 .modal-footer, .modal-header {
   border-bottom: 0px;
   border-top: 0px;
@@ -197,19 +204,15 @@ body{
 }
 
 #rebus-container {
-  margin: 4vh auto;
+  margin: 1% auto 0 auto;
   width: 40vw;
   height: 35vh;
 }
 
-#rebus {
-  background-image: url(../../dist/images/img/rebus.jpg);
-  background-color: #f7f7f7;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  height: 100%;
+.unblur {
+  height: 11.66vh;
+  width: 10vw;
+  float: left;
 }
 
 .blur {
@@ -220,10 +223,14 @@ body{
   outline: 1px solid #000;
 }
 
-.unblur {
-  height: 11.66vh;
-  width: 10vw;
-  float: left;
+#rebus {
+  background-image: url(../../dist/images/img/rebus.jpg);
+  background-color: #f7f7f7;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .main-container {
