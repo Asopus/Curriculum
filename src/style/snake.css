@@ -199,20 +199,21 @@ body{
 #rebus-container {
   margin: 4vh auto;
   width: 40vw;
-  height: 34vh;
+  height: 35vh;
 }
 
 #rebus {
   background-image: url(../../dist/images/img/rebus.jpg);
+  background-color: #f7f7f7;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 90vw;
-  height: 35vh;
+  width: 100%;
+  height: 100%;
 }
 
 .blur {
-  height: 8.65vh;
+  height: 11.66vh;
   width: 10vw;
   float: left;
   backdrop-filter: blur(5px);
@@ -220,7 +221,7 @@ body{
 }
 
 .unblur {
-  height: 8.65vh;
+  height: 11.66vh;
   width: 10vw;
   float: left;
 }
