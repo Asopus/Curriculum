@@ -169,6 +169,7 @@ body{
     color: rgb(230, 200, 160);
     display: block;
     font-family: 'Satisfy', cursive;
+    margin-top:2vh;
 }
 
 .modal-footer, .modal-header {
@@ -205,19 +206,19 @@ body{
 
 #rebus-container {
   margin: 1% auto 0 auto;
-  width: 40vw;
+  width: 42vw;
   height: 35vh;
 }
 
 .unblur {
+  width: 10.5vw;
   height: 11.66vh;
-  width: 10vw;
   float: left;
 }
 
 .blur {
+  width: 10.5vw;
   height: 11.66vh;
-  width: 10vw;
   float: left;
   backdrop-filter: blur(5px);
   outline: 1px solid #000;
@@ -258,7 +259,7 @@ body{
 
 .game-container
 {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .vintage {
