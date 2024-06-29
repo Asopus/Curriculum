@@ -44,8 +44,9 @@ export class Dom {
     
     public UnblurRebusPiece(blurIdToRemove:number): boolean
     {
-        if(blurIdToRemove < 0) return;
-        document.getElementById("blur-"+blurIdToRemove).className = "unblur";
-        return;
+        var blurredElement = document.getElementById("blur-"+blurIdToRemove);
+        if(blurIdToRemove < 0 || blurredElement === null) return;
+
+        blurredElement.className = "unblur";
     }
 }
