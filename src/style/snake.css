@@ -214,6 +214,10 @@ body{
   width: 10.5vw;
   height: 11.66vh;
   float: left;
+  outline: 0px solid #000;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
 }
 
 .blur {
