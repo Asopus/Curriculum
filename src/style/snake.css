@@ -334,23 +334,35 @@ body{
       height: 560px;
   }
 
+  #rebus {
+    background-image: url(../../dist/images/img/rebus-mobile.jpg);
+    background-color: #eff3f6;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    outline: 2px solid #000;
+  }
+  
+  
   #rebus-container {
     margin: 2vh auto 0 auto;
-    width: 80vw;
-    height: 21vh;
+    width: 75vw;
+    height: 50vh;
   }
   
   .blur {
-    width: 20vw;
-    height: 7vh;
+    width: 18.75vw;
+    height: 16.66666666666667vh;
     float: left;
     backdrop-filter: blur(10px);
     outline: 2px solid #000;
   }
   
   .unblur {
-    width: 20vw;
-    height: 7vh;
+    width: 18.75vw;
+    height: 16.66666666666667vh;
     float: left;
     outline: 2px solid transparent;
     transition: all 1s linear;
@@ -417,23 +429,35 @@ body{
     height: 422px;
 }
 
+#rebus {
+  background-image: url(../../dist/images/img/rebus-mobile.jpg);
+  background-color: #eff3f6;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  outline: 2px solid #000;
+}
+
+
 #rebus-container {
   margin: 2vh auto 0 auto;
-  width: 80vw;
-  height: 21vh;
+  width: 75vw;
+    height: 50vh;
 }
 
 .blur {
-  width: 20vw;
-  height: 7vh;
+  width: 18.75vw;
+  height: 16.66666666666667vh;
   float: left;
   backdrop-filter: blur(10px);
   outline: 2px solid #000;
 }
 
 .unblur {
-  width: 20vw;
-  height: 7vh;
+  width: 18.75vw;
+  height: 16.66666666666667vh;
   float: left;
   outline: 2px solid transparent;
   transition: all 1s linear;
@@ -494,23 +518,35 @@ body{
     height: 480px;
 }
 
+#rebus {
+  background-image: url(../../dist/images/img/rebus-mobile.jpg);
+  background-color: #eff3f6;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  outline: 2px solid #000;
+}
+
+
 #rebus-container {
   margin: 2vh auto 0 auto;
-  width: 80vw;
-  height: 21vh;
+  width: 75vw;
+  height: 50vh;
 }
 
 .blur {
-  width: 20vw;
-  height: 7vh;
+  width: 18.75vw;
+  height: 16.66666666666667vh;
   float: left;
   backdrop-filter: blur(10px);
   outline: 2px solid #000;
 }
 
 .unblur {
-  width: 20vw;
-  height: 7vh;
+  width: 18.75vw;
+  height: 16.66666666666667vh;
   float: left;
   outline: 2px solid transparent;
   transition: all 1s linear;
@@ -571,23 +607,35 @@ body{
     height: 430px;
 }
 
+#rebus {
+  background-image: url(../../dist/images/img/rebus-mobile.jpg);
+  background-color: #eff3f6;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  outline: 2px solid #000;
+}
+
+
 #rebus-container {
   margin: 2vh auto 0 auto;
-  width: 80vw;
-  height: 21vh;
+  width: 75vw;
+  height: 50vh;
 }
 
 .blur {
-  width: 20vw;
-  height: 7vh;
+  width: 18.75vw;
+  height: 16.66666666666667vh;
   float: left;
   backdrop-filter: blur(10px);
   outline: 2px solid #000;
 }
 
 .unblur {
-  width: 20vw;
-  height: 7vh;
+  width: 18.75vw;
+  height: 16.66666666666667vh;
   float: left;
   outline: 2px solid transparent;
   transition: all 1s linear;
@@ -648,23 +696,35 @@ body{
     height: 350px;
   }
 
+  #rebus {
+    background-image: url(../../dist/images/img/rebus-mobile.jpg);
+    background-color: #eff3f6;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    outline: 2px solid #000;
+  }
+  
+  
   #rebus-container {
     margin: 2vh auto 0 auto;
-    width: 80vw;
-    height: 21vh;
+    width: 75vw;
+    height: 50vh;
   }
   
   .blur {
-    width: 20vw;
-    height: 7vh;
+    width: 18.75vw;
+  height: 16.66666666666667vh;
     float: left;
     backdrop-filter: blur(10px);
     outline: 2px solid #000;
   }
   
   .unblur {
-    width: 20vw;
-    height: 7vh;
+    width: 18.75vw;
+    height: 16.66666666666667vh;
     float: left;
     outline: 2px solid transparent;
     transition: all 1s linear;
