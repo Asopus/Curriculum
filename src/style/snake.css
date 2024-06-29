@@ -205,9 +205,17 @@ body{
 }
 
 #rebus-container {
-  margin: 1% auto 0 auto;
+  margin: 2vh auto 0 auto;
   width: 42vw;
   height: 35vh;
+}
+
+.blur {
+  width: 10.5vw;
+  height: 11.66666666666667vh;
+  float: left;
+  backdrop-filter: blur(10px);
+  outline: 2px solid #000;
 }
 
 .unblur {
@@ -219,14 +227,6 @@ body{
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
   -o-transition: all 1s linear;
-}
-
-.blur {
-  width: 10.5vw;
-  height: 11.66666666666667vh;
-  float: left;
-  backdrop-filter: blur(10px);
-  outline: 2px solid #000;
 }
 
 #rebus {
@@ -333,6 +333,31 @@ body{
       width: 368px;
       height: 560px;
   }
+
+  #rebus-container {
+    margin: 2vh auto 0 auto;
+    width: 80vw;
+    height: 21vh;
+  }
+  
+  .blur {
+    width: 20vw;
+    height: 7vh;
+    float: left;
+    backdrop-filter: blur(10px);
+    outline: 2px solid #000;
+  }
+  
+  .unblur {
+    width: 20vw;
+    height: 7vh;
+    float: left;
+    outline: 2px solid transparent;
+    transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+  }
   
     #mobile-screen {    
       height: 270px;
@@ -392,6 +417,31 @@ body{
     height: 422px;
 }
 
+#rebus-container {
+  margin: 2vh auto 0 auto;
+  width: 80vw;
+  height: 21vh;
+}
+
+.blur {
+  width: 20vw;
+  height: 7vh;
+  float: left;
+  backdrop-filter: blur(10px);
+  outline: 2px solid #000;
+}
+
+.unblur {
+  width: 20vw;
+  height: 7vh;
+  float: left;
+  outline: 2px solid transparent;
+  transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+}
+
   #mobile-screen {    
     height: 200px;
     width: 200px;
@@ -442,6 +492,31 @@ body{
   #gameboy {
     width: 320px;
     height: 480px;
+}
+
+#rebus-container {
+  margin: 2vh auto 0 auto;
+  width: 80vw;
+  height: 21vh;
+}
+
+.blur {
+  width: 20vw;
+  height: 7vh;
+  float: left;
+  backdrop-filter: blur(10px);
+  outline: 2px solid #000;
+}
+
+.unblur {
+  width: 20vw;
+  height: 7vh;
+  float: left;
+  outline: 2px solid transparent;
+  transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
 }
 
   #mobile-screen {    
@@ -496,6 +571,31 @@ body{
     height: 430px;
 }
 
+#rebus-container {
+  margin: 2vh auto 0 auto;
+  width: 80vw;
+  height: 21vh;
+}
+
+.blur {
+  width: 20vw;
+  height: 7vh;
+  float: left;
+  backdrop-filter: blur(10px);
+  outline: 2px solid #000;
+}
+
+.unblur {
+  width: 20vw;
+  height: 7vh;
+  float: left;
+  outline: 2px solid transparent;
+  transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+}
+
   #mobile-screen {    
     height: 210px;
     width: 210px;
@@ -546,6 +646,31 @@ body{
   #gameboy {
     width: 230px;
     height: 350px;
+  }
+
+  #rebus-container {
+    margin: 2vh auto 0 auto;
+    width: 80vw;
+    height: 21vh;
+  }
+  
+  .blur {
+    width: 20vw;
+    height: 7vh;
+    float: left;
+    backdrop-filter: blur(10px);
+    outline: 2px solid #000;
+  }
+  
+  .unblur {
+    width: 20vw;
+    height: 7vh;
+    float: left;
+    outline: 2px solid transparent;
+    transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
   }
 
   #mobile-screen {   
