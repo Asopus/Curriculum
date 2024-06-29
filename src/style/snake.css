@@ -212,9 +212,10 @@ body{
 
 .unblur {
   width: 10.5vw;
-  height: 11.66vh;
+  height: 11.66666666666667vh;
   float: left;
-  outline: 0px solid #000;
+  outline: 2px solid transparent;
+  transition: all 1s linear;
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
   -o-transition: all 1s linear;
@@ -222,10 +223,10 @@ body{
 
 .blur {
   width: 10.5vw;
-  height: 11.66vh;
+  height: 11.66666666666667vh;
   float: left;
   backdrop-filter: blur(10px);
-  outline: 1px solid #000;
+  outline: 2px solid #000;
 }
 
 #rebus {
@@ -236,6 +237,7 @@ body{
   background-position: center;
   width: 100%;
   height: 100%;
+  outline: 2px solid #000;
 }
 
 .main-container {
@@ -648,7 +650,6 @@ and (max-resolution: 119dpi),
   position: absolute;
   z-index: 1;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
 }
 
 .vintage-bot {
