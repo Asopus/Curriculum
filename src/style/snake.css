@@ -220,7 +220,7 @@ body{
   width: 10.5vw;
   height: 11.66vh;
   float: left;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   outline: 1px solid #000;
 }
 
