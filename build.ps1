@@ -1,5 +1,5 @@
-# cd vendor;
-# npm install;
-# cd ..;
-# npm install;
+cd vendor;
+npm install;
+cd ..;
+npm install;
 gulp build;
