@@ -8,10 +8,15 @@ html {
 
 body{
     height: 100%;
-    /* background-image:  radial-gradient(transparent, rgba(0, 0, 0, 0.6)), url(../../assets/img/bg.png);*/
-    /* background-color: #143c50;  */
-    /* background-color: #0b3148;   */
     background-color: #0B3143; 
+}
+
+#tv {
+  background-image: url(../../assets/img/old-tv.png);
+  min-width: 720px;
+  min-height: 410px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #screen {
@@ -20,6 +25,15 @@ body{
   height: 300px;
   width: 420px;
   border-radius: 3px;
+}
+
+#gameboy {
+  background-image: url(../../assets/img/gameboy.png);
+  width: 500px;
+  height: 740px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #mobile-screen {    
@@ -196,7 +210,7 @@ body{
 }
 
 #rebus {
-  background-image: url(../../assets/img/rebus.png);
+  background-image: url(../../assets/img/rebus.jpg);
   background-color: #eff3f6;
   background-size: contain;
   background-repeat: no-repeat;
@@ -301,7 +315,7 @@ body{
   }
 
   #rebus {
-    background-image: url(../../assets/img/rebus-mobile.png);
+    background-image: url(../../assets/img/rebus-mobile.jpg);
     background-color: #eff3f6;
     background-size: contain;
     background-repeat: no-repeat;
@@ -396,7 +410,7 @@ body{
 }
 
 #rebus {
-  background-image: url(../../assets/img/rebus-mobile.png);
+  background-image: url(../../assets/img/rebus-mobile.jpg);
   background-color: #eff3f6;
   background-size: contain;
   background-repeat: no-repeat;
@@ -485,7 +499,7 @@ body{
 }
 
 #rebus {
-  background-image: url(../../assets/img/rebus-mobile.png);
+  background-image: url(../../assets/img/rebus-mobile.jpg);
   background-color: #eff3f6;
   background-size: contain;
   background-repeat: no-repeat;
@@ -574,7 +588,7 @@ body{
 }
 
 #rebus {
-  background-image: url(../../assets/img/rebus-mobile.png);
+  background-image: url(../../assets/img/rebus-mobile.jpg);
   background-color: #eff3f6;
   background-size: contain;
   background-repeat: no-repeat;
@@ -663,7 +677,7 @@ body{
   }
 
   #rebus {
-    background-image: url(../../assets/img/rebus-mobile.png);
+    background-image: url(../../assets/img/rebus-mobile.jpg);
     background-color: #eff3f6;
     background-size: contain;
     background-repeat: no-repeat;

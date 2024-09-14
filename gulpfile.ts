@@ -55,7 +55,7 @@ gulp.task('img', function(done){
                       'assets/**/*.xml',
                       'assets/**/*.json',
                       'assets/**/*.jpg'])
-            .pipe(gulp.dest('dist/images'))
+            .pipe(gulp.dest('dist'))
         done();
 });
 
@@ -96,7 +96,7 @@ gulp.task('uglify', function () {
     return gulp.src('dist/app.min.js')
         .pipe(uglify())
         .pipe(replace('assets/competences/', 'dist/'))
-        .pipe(replace('assets/img', 'dist/images/img'))
+        .pipe(replace('assets/img', 'dist/img'))
         .pipe(gulp.dest('dist/'))
 });
 
@@ -104,7 +104,7 @@ gulp.task('minify-css', function(done){
     return gulp.src('src/style/*.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(concat('style.min.css'))
-        .pipe(replace('assets/img', 'dist/images/img'))
+        .pipe(replace('../../assets/img', './img'))
         .pipe(gulp.dest('dist'));
 });
 
