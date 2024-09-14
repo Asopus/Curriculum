@@ -54,7 +54,9 @@ gulp.task('assets', function(done){
                       'assets/**/*.ico',
                       'assets/**/*.xml',
                       'assets/**/*.json',
-                      'assets/**/*.jpg'])
+                      'assets/**/*.jpg'], {
+                        encoding: false,
+                      })
             .pipe(gulp.dest('dist/assets'))
         done();
 });
