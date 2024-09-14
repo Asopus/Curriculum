@@ -96,7 +96,7 @@ gulp.task('uglify', function () {
     return gulp.src('dist/app.min.js')
         .pipe(uglify())
         .pipe(replace('assets/competences/', 'dist/'))
-        .pipe(replace('assets/img', 'dist/images/img'))
+        .pipe(replace('../../assets/img', 'dist/images'))
         .pipe(gulp.dest('dist/'))
 });
 
@@ -104,12 +104,18 @@ gulp.task('minify-css', function(done){
     return gulp.src('src/style/*.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(concat('style.min.css'))
-        .pipe(replace('assets/img', 'dist/images/img'))
+        .pipe(replace('../../assets/img', 'dist/images'))
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('index', function(done){
+    return gulp.src('index.html')
+    .pipe(replace('../../assets/img', 'dist/images'))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('build', function(done) {
-    var tasks = gulp.series('clean', 'tsc', 'concat', 'clean', 'vendorcss', 'vendorjs', 'competences', 'img', 'remove-imports-exports', 'uglify', 'minify-css');
+    var tasks = gulp.series('clean', 'tsc', 'concat', 'clean', 'vendorcss', 'vendorjs', 'competences', 'img', 'remove-imports-exports', 'uglify', 'minify-css', 'index');
     tasks();
     done();
 })
