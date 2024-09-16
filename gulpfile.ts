@@ -49,13 +49,15 @@ gulp.task('vendorjs', function(done){
         done();
 });
 
-gulp.task('img', function(done){
+gulp.task('assets', function(done){
             gulp.src(['assets/**/*.png',
                       'assets/**/*.ico',
                       'assets/**/*.xml',
                       'assets/**/*.json',
-                      'assets/**/*.jpg'])
-            .pipe(gulp.dest('dist'))
+                      'assets/**/*.jpg'], {
+                        encoding: false,
+                      })
+            .pipe(gulp.dest('dist/assets'))
         done();
 });
 
@@ -95,8 +97,8 @@ gulp.task('uglify', function () {
     };
     return gulp.src('dist/app.min.js')
         .pipe(uglify())
-        .pipe(replace('assets/competences/', 'dist/'))
-        .pipe(replace('assets/img', 'dist/img'))
+        .pipe(replace('../../assets/competences', ''))
+        .pipe(replace('../../assets/img', 'assets/img'))
         .pipe(gulp.dest('dist/'))
 });
 
@@ -104,12 +106,22 @@ gulp.task('minify-css', function(done){
     return gulp.src('src/style/*.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(concat('style.min.css'))
-        .pipe(replace('../../assets/img', './img'))
+        .pipe(replace('../../assets/img', 'assets/img'))
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('index', function(done){
+    return gulp.src('index.html')
+    .pipe(replace('../../assets/img', 'assets/img'))
+    .pipe(replace('dist/images/img', 'assets/img'))
+    .pipe(replace('dist/images/favicon', 'assets/favicon'))
+    .pipe(replace('dist/images', 'assets/img'))
+    .pipe(replace('dist', '.'))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('build', function(done) {
-    var tasks = gulp.series('clean', 'tsc', 'concat', 'clean', 'vendorcss', 'vendorjs', 'competences', 'img', 'remove-imports-exports', 'uglify', 'minify-css');
+    var tasks = gulp.series('clean', 'tsc', 'concat', 'clean', 'vendorcss', 'vendorjs', 'competences', 'assets', 'remove-imports-exports', 'uglify', 'minify-css', 'index');
     tasks();
     done();
 })
